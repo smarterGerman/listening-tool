@@ -221,6 +221,9 @@ body {
     overflow: hidden;
     min-height: 0;
     padding: 0 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 .mode-indicator {
