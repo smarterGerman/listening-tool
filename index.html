@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>German Listening Comprehension Tool</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- LOADING OVERLAY -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <div class="loading-text" id="loadingText">Initialisiere...</div>
+            <div class="loading-error" id="loadingError" style="display: none;">
+                <div class="error-message" id="errorMessage"></div>
+                <button class="retry-btn" id="retryBtn">Nochmal versuchen</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="content">
+            <!-- AUDIO SECTION -->
+            <div class="audio-section">
+                <div class="audio-controls">
+                    <div class="player-pill">
+                        <button class="nav-btn" id="prevBtn" title="Vorheriger Satz">‹</button>
+                        <button class="play-btn" id="playBtn" title="Play/Pause (Doppelklick für Neustart)"></button>
+                        <button class="nav-btn" id="nextBtn" title="Nächster Satz">›</button>
+                        <button class="toggle-btn" id="speedBtn" title="Geschwindigkeit">100</button>
+                    </div>
+                    
+                    <!-- Progress bar and controls row -->
+                    <div class="progress-controls-row">
+                        <button class="toggle-btn secondary-btn" id="hintBtn" title="Transkript anzeigen">?</button>
+                        <div class="progress-container">
+                            <div class="progress-bar" id="progressBar"></div>
+                        </div>
+                        <span id="timeDisplay">0:00 / 0:00</span>
+                        <button class="toggle-btn secondary-btn" id="modeBtn" title="Übungsmodus wechseln">M</button>
+                    </div>
+                </div>
+                <audio id="audioPlayer" preload="auto"></audio>
+            </div>
+
+            <!-- COMPREHENSION SECTION -->
+            <div class="comprehension-section">
+                <!-- Mode indicator -->
+                <div class="mode-indicator" id="modeIndicator">
+                    <span class="mode-label">Modus:</span>
+                    <span class="mode-value" id="currentMode">Inhaltsverständnis</span>
+                </div>
+                
+                <!-- Hint display (reused from dictation tool) -->
+                <div class="hint-display" id="hintDisplay" style="display: none;">
+                    <div class="hint-content" id="hintContent"></div>
+                </div>
+                
+                <!-- Question area -->
+                <div class="question-area" id="questionArea">
+                    <div class="question-text" id="questionText">
+                        Hören Sie den Satz und wählen Sie dann eine Antwort.
+                    </div>
+                    
+                    <!-- Multiple choice options -->
+                    <div class="answer-options" id="answerOptions">
+                        <button class="answer-btn" id="option1" data-index="0" disabled>
+                            <span class="option-letter">A</span>
+                            <span class="option-text"></span>
+                        </button>
+                        <button class="answer-btn" id="option2" data-index="1" disabled>
+                            <span class="option-letter">B</span>
+                            <span class="option-text"></span>
+                        </button>
+                        <button class="answer-btn" id="option3" data-index="2" disabled>
+                            <span class="option-letter">C</span>
+                            <span class="option-text"></span>
+                        </button>
+                        <button class="answer-btn" id="option4" data-index="3" disabled>
+                            <span class="option-letter">D</span>
+                            <span class="option-text"></span>
+                        </button>
+                    </div>
+                    
+                    <!-- Feedback area -->
+                    <div class="feedback-area" id="feedbackArea" style="display: none;">
+                        <div class="feedback-content" id="feedbackContent"></div>
+                    </div>
+                </div>
+
+                <!-- Progress indicator -->
+                <div class="lesson-progress">
+                    <div class="progress-text" id="progressText">Satz 1 von X</div>
+                </div>
+            </div>
+
+            <!-- STATS SECTION (simplified) -->
+            <div class="stats-section" id="statsSection" style="display: none;">
+                <div class="stats-header">
+                    <div class="stats-title">Ergebnisse</div>
+                    <button class="stats-action-btn restart-btn" id="restartBtn" title="Neu starten">↻</button>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Richtig</span>
+                        <span class="stat-value" id="correctCount">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Falsch</span>
+                        <span class="stat-value" id="wrongCount">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Genauigkeit</span>
+                        <span class="stat-value" id="accuracyPercent">0%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modular JavaScript -->
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>

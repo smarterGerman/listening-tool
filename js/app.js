@@ -1,0 +1,396 @@
+/**
+ * Main application controller for the German Listening Comprehension Tool
+ */
+import { CONFIG } from './config.js';
+import { AudioPlayer } from './modules/audio-player.js';
+import { LessonLoader } from './modules/lesson-loader.js';
+import { QuizController } from './modules/quiz-controller.js';
+import { KeyboardShortcuts } from './modules/keyboard-shortcuts.js';
+import { DOMHelpers } from './utils/dom-helpers.js';
+
+export class ListeningApp {
+    constructor() {
+        // Core modules
+        this.audioPlayer = null;
+        this.lessonLoader = new LessonLoader();
+        this.quizController = new QuizController();
+        this.keyboard = new KeyboardShortcuts();
+        
+        // State
+        this.currentLesson = null;
+        this.currentCueIndex = 0;
+        this.vttCues = [];
+        this.currentMode = CONFIG.defaultMode;
+        this.results = [];
+        
+        // DOM elements
+        this.loadingOverlay = null;
+        this.modeIndicator = null;
+        this.progressText = null;
+    }
+    
+    /**
+     * Initialize the application
+     */
+    async initialize() {
+        try {
+            console.log('Initializing Listening Tool...');
+            
+            // Initialize DOM elements
+            this.initializeDOMElements();
+            
+            // Show loading
+            this.updateLoadingText('Initialisiere...');
+            
+            // Initialize audio player
+            const audioElement = DOMHelpers.getElementById('audioPlayer', true);
+            this.audioPlayer = new AudioPlayer(audioElement);
+            this.audioPlayer.initializeElements();
+            
+            // Initialize quiz controller
+            this.quizController.initialize();
+            
+            // Initialize keyboard shortcuts
+            this.keyboard.initialize();
+            
+            // Setup callbacks
+            this.setupCallbacks();
+            
+            // Load initial lesson
+            this.updateLoadingText('Lade Lektion...');
+            const lessonId = this.getLessonIdFromUrl() || CONFIG.defaultLesson;
+            await this.loadLesson(lessonId);
+            
+            // Hide loading
+            setTimeout(() => {
+                this.hideLoadingOverlay();
+            }, 500);
+            
+            console.log('Initialization complete');
+            
+        } catch (error) {
+            console.error('Failed to initialize:', error);
+            this.showError(`Fehler beim Laden: ${error.message}`);
+        }
+    }
+    
+    /**
+     * Initialize DOM elements
+     */
+    initializeDOMElements() {
+        this.loadingOverlay = DOMHelpers.getElementById('loadingOverlay');
+        this.modeIndicator = DOMHelpers.getElementById('currentMode');
+        this.progressText = DOMHelpers.getElementById('progressText');
+        
+        // Mode button
+        const modeBtn = DOMHelpers.getElementById('modeBtn');
+        if (modeBtn) {
+            DOMHelpers.addEventListener(modeBtn, 'click', () => this.toggleMode());
+        }
+        
+        // Hint button
+        const hintBtn = DOMHelpers.getElementById('hintBtn');
+        if (hintBtn) {
+            DOMHelpers.addEventListener(hintBtn, 'click', () => this.showHint());
+        }
+        
+        // Restart button
+        const restartBtn = DOMHelpers.getElementById('restartBtn');
+        if (restartBtn) {
+            DOMHelpers.addEventListener(restartBtn, 'click', () => this.restart());
+        }
+    }
+    
+    /**
+     * Setup callbacks between modules
+     */
+    setupCallbacks() {
+        // Audio player callbacks
+        this.audioPlayer.setCallbacks({
+            onPlay: () => {
+                console.log('Audio playing');
+            },
+            onPause: () => {
+                console.log('Audio paused');
+            },
+            onSentenceChange: (index, cue) => {
+                this.handleSentenceChange(index, cue);
+            },
+            onSentenceEnd: () => {
+                this.quizController.enableAnswers();
+            }
+        });
+        
+        // Quiz controller callbacks
+        this.quizController.setCallbacks({
+            onAnswer: (answer) => {
+                this.handleAnswer(answer);
+            },
+            onNext: () => {
+                this.nextSentence();
+            }
+        });
+        
+        // Keyboard shortcuts
+        this.keyboard.setHandlers({
+            onPlayPause: () => this.audioPlayer.togglePlayback(),
+            onPreviousSentence: () => this.previousSentence(),
+            onNextSentence: () => this.nextSentence(),
+            onRepeatSentence: () => this.audioPlayer.playCurrentSentence(),
+            onToggleSpeed: () => this.audioPlayer.toggleSpeed(),
+            onShowHint: () => this.showHint(),
+            onAnswer: (index) => this.quizController.selectAnswer(index),
+            onSubmit: () => this.quizController.submitAnswer()
+        });
+    }
+    
+    /**
+     * Load a lesson
+     */
+    async loadLesson(lessonId) {
+        try {
+            console.log(`Loading lesson: ${lessonId}`);
+            
+            // Load lesson data
+            const lessons = await this.lessonLoader.loadAllLessons();
+            const lessonData = lessons[lessonId];
+            
+            if (!lessonData) {
+                throw new Error(`Lesson ${lessonId} not found`);
+            }
+            
+            this.currentLesson = lessonData;
+            
+            // Load VTT with questions
+            const cues = await this.lessonLoader.loadVTTFromUrl(lessonData.vttUrl);
+            this.vttCues = cues;
+            this.currentCueIndex = 0;
+            
+            // Setup audio
+            this.audioPlayer.loadAudio(lessonData.audioUrl);
+            this.audioPlayer.setVTTCues(cues);
+            
+            // Update UI
+            this.updateProgress();
+            this.handleSentenceChange(0, cues[0]);
+            
+            console.log(`Loaded ${cues.length} sentences`);
+            
+        } catch (error) {
+            console.error('Failed to load lesson:', error);
+            throw error;
+        }
+    }
+    
+    /**
+     * Handle sentence change
+     */
+    handleSentenceChange(index, cue) {
+        this.currentCueIndex = index;
+        this.updateProgress();
+        
+        // Load questions for this sentence
+        if (cue && cue.questions) {
+            const questions = this.filterQuestionsByMode(cue.questions);
+            if (questions.length > 0) {
+                this.quizController.loadQuestion(questions[0]);
+            } else {
+                this.quizController.showMessage(CONFIG.messages.noQuestions);
+            }
+        }
+    }
+    
+    /**
+     * Filter questions by current mode
+     */
+    filterQuestionsByMode(questions) {
+        if (this.currentMode === 'all') {
+            return questions;
+        }
+        return questions.filter(q => q.type === this.currentMode);
+    }
+    
+    /**
+     * Handle answer submission
+     */
+    handleAnswer(answer) {
+        console.log('Answer submitted:', answer);
+        
+        // Record result
+        this.results.push({
+            sentenceIndex: this.currentCueIndex,
+            question: answer.question,
+            selectedAnswer: answer.selected,
+            correct: answer.correct,
+            time: Date.now()
+        });
+        
+        // Auto-advance after feedback
+        if (answer.correct) {
+            setTimeout(() => {
+                this.nextSentence();
+            }, CONFIG.feedbackDelay);
+        }
+    }
+    
+    /**
+     * Navigate to next sentence
+     */
+    nextSentence() {
+        if (this.currentCueIndex < this.vttCues.length - 1) {
+            this.audioPlayer.goToNextSentence();
+        } else {
+            this.showResults();
+        }
+    }
+    
+    /**
+     * Navigate to previous sentence
+     */
+    previousSentence() {
+        if (this.currentCueIndex > 0) {
+            this.audioPlayer.goToPreviousSentence();
+        }
+    }
+    
+    /**
+     * Show transcript hint
+     */
+    showHint() {
+        const hintDisplay = DOMHelpers.getElementById('hintDisplay');
+        const hintContent = DOMHelpers.getElementById('hintContent');
+        
+        if (hintDisplay && hintContent && this.vttCues[this.currentCueIndex]) {
+            const text = this.vttCues[this.currentCueIndex].text;
+            DOMHelpers.setContent(hintContent, text);
+            DOMHelpers.toggleDisplay(hintDisplay, true);
+            
+            // Auto-hide
+            setTimeout(() => {
+                DOMHelpers.toggleDisplay(hintDisplay, false);
+            }, CONFIG.hintAutoHideDelay);
+        }
+    }
+    
+    /**
+     * Toggle exercise mode
+     */
+    toggleMode() {
+        const modes = Object.values(CONFIG.exerciseModes);
+        const currentIndex = modes.indexOf(this.currentMode);
+        const nextIndex = (currentIndex + 1) % modes.length;
+        
+        this.currentMode = modes[nextIndex];
+        
+        // Update UI
+        if (this.modeIndicator) {
+            DOMHelpers.setContent(this.modeIndicator, CONFIG.modeNames[this.currentMode]);
+        }
+        
+        // Reload current question with new mode
+        this.handleSentenceChange(this.currentCueIndex, this.vttCues[this.currentCueIndex]);
+    }
+    
+    /**
+     * Update progress display
+     */
+    updateProgress() {
+        if (this.progressText) {
+            const text = `Satz ${this.currentCueIndex + 1} von ${this.vttCues.length}`;
+            DOMHelpers.setContent(this.progressText, text);
+        }
+    }
+    
+    /**
+     * Show final results
+     */
+    showResults() {
+        const statsSection = DOMHelpers.getElementById('statsSection');
+        
+        if (statsSection) {
+            // Calculate stats
+            const correct = this.results.filter(r => r.correct).length;
+            const total = this.results.length;
+            const accuracy = total > 0 ? Math.round((correct / total) * 100) : 0;
+            
+            // Update display
+            DOMHelpers.setContent(DOMHelpers.getElementById('correctCount'), correct);
+            DOMHelpers.setContent(DOMHelpers.getElementById('wrongCount'), total - correct);
+            DOMHelpers.setContent(DOMHelpers.getElementById('accuracyPercent'), `${accuracy}%`);
+            
+            // Show stats
+            DOMHelpers.toggleDisplay(statsSection, true);
+            
+            // Hide quiz area
+            DOMHelpers.toggleDisplay(DOMHelpers.getElementById('questionArea'), false);
+        }
+    }
+    
+    /**
+     * Restart lesson
+     */
+    restart() {
+        this.currentCueIndex = 0;
+        this.results = [];
+        this.audioPlayer.reset();
+        
+        // Hide stats
+        DOMHelpers.toggleDisplay(DOMHelpers.getElementById('statsSection'), false);
+        DOMHelpers.toggleDisplay(DOMHelpers.getElementById('questionArea'), true);
+        
+        // Reload first question
+        this.handleSentenceChange(0, this.vttCues[0]);
+        this.updateProgress();
+    }
+    
+    /**
+     * Get lesson ID from URL
+     */
+    getLessonIdFromUrl() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get('lesson');
+    }
+    
+    /**
+     * Update loading text
+     */
+    updateLoadingText(text) {
+        const loadingText = DOMHelpers.getElementById('loadingText');
+        if (loadingText) {
+            DOMHelpers.setContent(loadingText, text);
+        }
+    }
+    
+    /**
+     * Hide loading overlay
+     */
+    hideLoadingOverlay() {
+        if (this.loadingOverlay) {
+            this.loadingOverlay.classList.add('hidden');
+        }
+    }
+    
+    /**
+     * Show error message
+     */
+    showError(message) {
+        const errorMessage = DOMHelpers.getElementById('errorMessage');
+        const loadingError = DOMHelpers.getElementById('loadingError');
+        
+        if (errorMessage) {
+            DOMHelpers.setContent(errorMessage, message);
+        }
+        if (loadingError) {
+            DOMHelpers.toggleDisplay(loadingError, true);
+        }
+    }
+}
+
+// Initialize app when DOM is ready
+window.addEventListener('DOMContentLoaded', async () => {
+    const app = new ListeningApp();
+    await app.initialize();
+    
+    // Make app available for debugging
+    window.listeningApp = app;
+});
