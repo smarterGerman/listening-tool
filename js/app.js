@@ -79,13 +79,16 @@ export class ListeningApp {
      */
     initializeDOMElements() {
         this.loadingOverlay = DOMHelpers.getElementById('loadingOverlay');
-        this.modeIndicator = DOMHelpers.getElementById('currentMode');
         this.progressText = DOMHelpers.getElementById('progressText');
         
         // Mode button
         const modeBtn = DOMHelpers.getElementById('modeBtn');
         if (modeBtn) {
             DOMHelpers.addEventListener(modeBtn, 'click', () => this.toggleMode());
+            // Set initial mode abbreviation
+            const abbreviation = CONFIG.modeAbbreviations[this.currentMode] || 'I';
+            DOMHelpers.setContent(modeBtn, abbreviation);
+            modeBtn.title = CONFIG.modeNames[this.currentMode];
         }
         
         // Hint button
@@ -282,9 +285,12 @@ export class ListeningApp {
         
         this.currentMode = modes[nextIndex];
         
-        // Update UI
-        if (this.modeIndicator) {
-            DOMHelpers.setContent(this.modeIndicator, CONFIG.modeNames[this.currentMode]);
+        // Update mode button with abbreviation
+        const modeBtn = DOMHelpers.getElementById('modeBtn');
+        if (modeBtn) {
+            const abbreviation = CONFIG.modeAbbreviations[this.currentMode] || 'M';
+            DOMHelpers.setContent(modeBtn, abbreviation);
+            modeBtn.title = CONFIG.modeNames[this.currentMode];
         }
         
         // Reload current question with new mode

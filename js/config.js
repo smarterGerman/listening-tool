@@ -35,6 +35,18 @@ export const CONFIG = {
         gapfill: 'Lückentext-Hören'
     },
     
+    // Mode abbreviations for button display
+    modeAbbreviations: {
+        comprehension: 'I',
+        verb: 'V',
+        grammar: 'G',
+        phonetic: 'P',
+        inference: 'F',  // F for Folgerung (Inference)
+        context: 'K',
+        sequencing: 'S',
+        gapfill: 'L'
+    },
+    
     // UI constants
     defaultMode: 'comprehension',
     defaultLesson: 'A1L01',
