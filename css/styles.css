@@ -38,11 +38,12 @@ body {
 /* ----- AUDIO SECTION (mostly from dictation tool) ------ */
 .audio-section {
     padding: 20px;
-    margin-bottom: 24px;
     border-radius: 20px;
     text-align: center;
     color: #374151;
     width: 100%;
+    max-width: 50%;
+    margin: 0 auto 24px auto; /* Combines centering + bottom margin */
     overflow: visible !important;
     flex-shrink: 0;
 }
@@ -591,16 +592,23 @@ body {
     }
 }
 
-/* Speed button should be same size as secondary buttons (hint button) */
+/* Speed button should be same size as secondary buttons */
 #speedBtn {
     width: 36px !important;
     height: 36px !important;
     font-size: 14px !important;
     flex-shrink: 0;
+
+    /* Default state should be green for 100% */
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%) !important;
+    color: white !important;
+    box-shadow: 0 4px 16px rgba(34, 197, 94, 0.4) !important;
+    border: 2px solid #16a34a !important;
 }
 
-/* Make the speed state colors more visible and prominent */
-#speedBtn.speed-100 {
+/* Make sure 100% state is always green */
+#speedBtn.speed-100,
+#speedBtn:not(.speed-75):not(.speed-50) {
     background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%) !important;
     color: white !important;
     box-shadow: 0 4px 16px rgba(34, 197, 94, 0.4) !important;
@@ -619,9 +627,8 @@ body {
     color: white !important;
     box-shadow: 0 4px 16px rgba(239, 68, 68, 0.4) !important;
     border: 2px solid #dc2626 !important;
-}
-
-/* Hover states for better visibility */
+}/* Hover states */
+#speedBtn:hover:not(.speed-75):not(.speed-50),
 #speedBtn.speed-100:hover {
     background: linear-gradient(135deg, #16a34a 0%, #15803d 100%) !important;
     box-shadow: 0 6px 20px rgba(34, 197, 94, 0.5) !important;
@@ -638,6 +645,13 @@ body {
     background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%) !important;
     box-shadow: 0 6px 20px rgba(239, 68, 68, 0.5) !important;
     transform: translateY(-1px) !important;
+}
+
+/* Hide any sentence counter text */
+.sentence-counter,
+.progress-text,
+.lesson-progress {
+    display: none !important;
 }
 
 /* Mobile adjustments */
