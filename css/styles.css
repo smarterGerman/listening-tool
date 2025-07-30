@@ -539,6 +539,7 @@ body {
         padding: 8px 12px !important;
         gap: 8px !important;
         width: 100% !important;
+        max-width: none !important;
     }
     
     .nav-btn {
@@ -566,6 +567,8 @@ body {
     .progress-container {
         height: 10px !important;
         margin: 0 4px !important;
+        flex: 1 !important;
+        min-width: 60px !important;
     }
     
     #timeDisplay {
