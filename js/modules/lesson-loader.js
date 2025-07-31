@@ -117,36 +117,34 @@ export class LessonLoader {
                 return null;
             }
             
-            // Collect text and questions
+            // Get the content line
             let text = '';
-            let questions = null;
+            let questions = [];
             let textLineIndex = lineIndex + 1;
             
-            while (textLineIndex < allLines.length) {
-                const textLine = allLines[textLineIndex].trim();
+            if (textLineIndex < allLines.length) {
+                const contentLine = allLines[textLineIndex].trim();
                 
-                // Stop at empty line or next cue
-                if (textLine === '' || textLine.includes('-->')) {
-                    break;
-                }
-                
-                // Check if this line is JSON
-                if (textLine.startsWith('{') && textLine.endsWith('}')) {
-                    try {
-                        const data = JSON.parse(textLine);
-                        if (data.questions) {
-                            questions = data.questions;
+                if (contentLine) {
+                    // Check if the line contains JSON data
+                    if (contentLine.includes('{"questions"')) {
+                        // Extract the sentence text (everything before the JSON)
+                        const jsonStart = contentLine.indexOf('{"questions"');
+                        text = contentLine.substring(0, jsonStart).trim();
+                        
+                        // Parse the JSON part
+                        try {
+                            const jsonString = contentLine.substring(jsonStart);
+                            const data = JSON.parse(jsonString);
+                            questions = data.questions || [];
+                        } catch (e) {
+                            console.error('Failed to parse questions JSON:', e);
                         }
-                    } catch (e) {
-                        console.error('Failed to parse questions JSON:', e);
+                    } else {
+                        // No JSON, just text
+                        text = contentLine;
                     }
-                } else {
-                    // Regular text line
-                    if (text) text += ' ';
-                    text += textLine;
                 }
-                
-                textLineIndex++;
             }
             
             if (!text) {
@@ -158,7 +156,7 @@ export class LessonLoader {
                 start: startTime,
                 end: endTime,
                 text: text.trim(),
-                questions: questions || []
+                questions: questions
             };
             
         } catch (error) {

@@ -22,6 +22,8 @@ export class ListeningApp {
         this.vttCues = [];
         this.currentMode = CONFIG.defaultMode;
         this.results = [];
+        this.currentQuestions = [];
+        this.currentQuestionIndex = 0;
         
         // DOM elements
         this.loadingOverlay = null;
@@ -131,6 +133,12 @@ export class ListeningApp {
             },
             onNext: () => {
                 this.nextSentence();
+            },
+            onPrevQuestion: () => {
+                this.previousQuestion();
+            },
+            onNextQuestion: () => {
+                this.nextQuestion();
             }
         });
         
@@ -193,13 +201,22 @@ export class ListeningApp {
         this.updateProgress();
         
         // Load questions for this sentence
-        if (cue && cue.questions) {
+        if (cue && cue.questions && cue.questions.length > 0) {
             const questions = this.filterQuestionsByMode(cue.questions);
             if (questions.length > 0) {
+                this.currentQuestions = questions;
+                this.currentQuestionIndex = 0;
                 this.quizController.loadQuestion(questions[0]);
+                this.updateQuizNavigation();
             } else {
-                this.quizController.showMessage(CONFIG.messages.noQuestions);
+                this.currentQuestions = [];
+                this.quizController.showMessage(`Keine ${CONFIG.modeNames[this.currentMode]} Fragen für diesen Satz.`);
+                this.updateQuizNavigation();
             }
+        } else {
+            this.currentQuestions = [];
+            this.quizController.showMessage(CONFIG.messages.noQuestions);
+            this.updateQuizNavigation();
         }
     }
     
@@ -207,9 +224,14 @@ export class ListeningApp {
      * Filter questions by current mode
      */
     filterQuestionsByMode(questions) {
+        if (!questions || !Array.isArray(questions)) {
+            return [];
+        }
+        
         if (this.currentMode === 'all') {
             return questions;
         }
+        
         return questions.filter(q => q.type === this.currentMode);
     }
     
@@ -279,7 +301,7 @@ export class ListeningApp {
      * Toggle exercise mode
      */
     toggleMode() {
-        const modes = Object.values(CONFIG.exerciseModes);
+        const modes = ['all', 'comprehension', 'verb', 'grammar', 'phonetic', 'inference', 'context', 'sequencing', 'gapfill'];
         const currentIndex = modes.indexOf(this.currentMode);
         const nextIndex = (currentIndex + 1) % modes.length;
         
@@ -293,8 +315,46 @@ export class ListeningApp {
             modeBtn.title = CONFIG.modeNames[this.currentMode];
         }
         
-        // Reload current question with new mode
+        // Reset question index and reload
+        this.currentQuestionIndex = 0;
         this.handleSentenceChange(this.currentCueIndex, this.vttCues[this.currentCueIndex]);
+    }
+
+    /**
+     * Update quiz navigation buttons
+     */
+    updateQuizNavigation() {
+        const prevBtn = DOMHelpers.getElementById('prevQuizBtn');
+        const nextBtn = DOMHelpers.getElementById('nextQuizBtn');
+        
+        if (prevBtn) {
+            prevBtn.disabled = this.currentQuestionIndex <= 0 || this.currentQuestions.length === 0;
+        }
+        if (nextBtn) {
+            nextBtn.disabled = this.currentQuestionIndex >= this.currentQuestions.length - 1 || this.currentQuestions.length === 0;
+        }
+    }
+    
+    /**
+     * Navigate to previous question
+     */
+    previousQuestion() {
+        if (this.currentQuestionIndex > 0 && this.currentQuestions.length > 0) {
+            this.currentQuestionIndex--;
+            this.quizController.loadQuestion(this.currentQuestions[this.currentQuestionIndex]);
+            this.updateQuizNavigation();
+        }
+    }
+    
+    /**
+     * Navigate to next question
+     */
+    nextQuestion() {
+        if (this.currentQuestionIndex < this.currentQuestions.length - 1) {
+            this.currentQuestionIndex++;
+            this.quizController.loadQuestion(this.currentQuestions[this.currentQuestionIndex]);
+            this.updateQuizNavigation();
+        }
     }
     
     /**

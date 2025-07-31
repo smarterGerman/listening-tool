@@ -20,6 +20,10 @@ export class QuizController {
         // Callbacks
         this.onAnswer = null;
         this.onNext = null;
+        this.onAnswer = null;
+        this.onNext = null;
+        this.onPrevQuestion = null;
+        this.onNextQuestion = null;
     }
     
     /**
@@ -47,15 +51,17 @@ export class QuizController {
         
         if (prevQuizBtn) {
             DOMHelpers.addEventListener(prevQuizBtn, 'click', () => {
-                // TODO: Implement previous question navigation
-                console.log('Previous question clicked');
+                if (this.onPrevQuestion) {
+                    this.onPrevQuestion();
+                }
             });
         }
         
         if (nextQuizBtn) {
             DOMHelpers.addEventListener(nextQuizBtn, 'click', () => {
-                // TODO: Implement next question navigation
-                console.log('Next question clicked');
+                if (this.onNextQuestion) {
+                    this.onNextQuestion();
+                }
             });
         }
     }
