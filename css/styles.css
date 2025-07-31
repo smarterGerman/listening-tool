@@ -333,8 +333,8 @@ body {
 }
 
 .option-button {
-    background: white;
-    border: 2px solid #e5e7eb;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 12px;
     padding: 15px 20px;
     font-size: 16px;
