@@ -40,6 +40,24 @@ export class QuizController {
                 });
             }
         }
+        
+        // Initialize quiz navigation buttons
+        const prevQuizBtn = DOMHelpers.getElementById('prevQuizBtn');
+        const nextQuizBtn = DOMHelpers.getElementById('nextQuizBtn');
+        
+        if (prevQuizBtn) {
+            DOMHelpers.addEventListener(prevQuizBtn, 'click', () => {
+                // TODO: Implement previous question navigation
+                console.log('Previous question clicked');
+            });
+        }
+        
+        if (nextQuizBtn) {
+            DOMHelpers.addEventListener(nextQuizBtn, 'click', () => {
+                // TODO: Implement next question navigation
+                console.log('Next question clicked');
+            });
+        }
     }
     
     /**
