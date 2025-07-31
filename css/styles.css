@@ -180,21 +180,6 @@ body {
     transform: translateX(60px);
 }
 
-.auto-play-indicator {
-    position: absolute;
-    right: 15px;
-    font-size: 10px;
-    font-weight: 700;
-    color: #16a34a;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-}
-
-.play-button-track.auto-play-active .auto-play-indicator {
-    opacity: 1;
-}
-
 /* Make play button draggable */
 .play-btn {
     cursor: grab;
