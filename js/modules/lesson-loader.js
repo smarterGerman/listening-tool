@@ -158,6 +158,11 @@ export class LessonLoader {
                 text: text.trim(),
                 questions: questions
             };
+
+            console.log('Parsed cue:', result);
+            console.log('Questions found:', questions.length);
+            
+            return result;
             
         } catch (error) {
             console.error('Error parsing cue line:', timeLine, error);

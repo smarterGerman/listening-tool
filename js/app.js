@@ -200,9 +200,15 @@ export class ListeningApp {
         this.currentCueIndex = index;
         this.updateProgress();
         
+        console.log('handleSentenceChange - cue:', cue);
+        console.log('Current mode:', this.currentMode);
+
         // Load questions for this sentence
         if (cue && cue.questions && cue.questions.length > 0) {
+            console.log('Raw questions:', cue.questions);
             const questions = this.filterQuestionsByMode(cue.questions);
+            console.log('Filtered questions:', questions);
+
             if (questions.length > 0) {
                 this.currentQuestions = questions;
                 this.currentQuestionIndex = 0;
