@@ -25,6 +25,7 @@ export class AudioPlayer {
         this.onPause = null;
         this.onSentenceChange = null;
         this.onSentenceEnd = null;
+        this.onAutoPlayToggle = null;
         
         this.initializeAudioEvents();
     }
@@ -41,13 +42,144 @@ export class AudioPlayer {
         this.timeDisplay = DOMHelpers.getElementById('timeDisplay');
         
         this.setupEventListeners();
+                this.initializeSlider(); 
+    }
+
+    /**
+     * Initialize sliding play button
+     */
+    initializeSlider() {
+        const playTrack = DOMHelpers.getElementById('playTrack');
+        const playSlider = DOMHelpers.getElementById('playSlider');
+        
+        if (!this.playBtn || !playSlider || !playTrack) return;
+        
+        let isDragging = false;
+        let startX = 0;
+        let currentX = 0;
+        const maxSlide = 60; // Maximum slide distance
+        
+        // Mouse events
+        this.playBtn.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.clientX - currentX;
+            DOMHelpers.toggleClass(this.playBtn, 'dragging', true);
+            DOMHelpers.toggleClass(playSlider, 'dragging', true);
+            e.preventDefault();
+        });
+        
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            
+            const x = e.clientX - startX;
+            currentX = Math.max(0, Math.min(x, maxSlide));
+            playSlider.style.transform = `translateX(${currentX}px)`;
+            
+            // Visual feedback when near lock position
+            if (currentX > maxSlide * 0.8) {
+                DOMHelpers.toggleClass(playTrack, 'auto-play-active', true);
+            } else {
+                DOMHelpers.toggleClass(playTrack, 'auto-play-active', false);
+            }
+        });
+        
+        document.addEventListener('mouseup', () => {
+            if (!isDragging) return;
+            isDragging = false;
+            
+            DOMHelpers.toggleClass(this.playBtn, 'dragging', false);
+            DOMHelpers.toggleClass(playSlider, 'dragging', false);
+            
+            // Check if slid far enough to lock
+            if (currentX > maxSlide * 0.8) {
+                // Lock in auto-play position
+                currentX = maxSlide;
+                DOMHelpers.toggleClass(playSlider, 'locked', true);
+                DOMHelpers.toggleClass(playTrack, 'auto-play-active', true);
+                
+                // Trigger auto-play
+                if (this.onAutoPlayToggle) {
+                    this.onAutoPlayToggle(true);
+                }
+            } else {
+                // Snap back
+                currentX = 0;
+                playSlider.style.transform = 'translateX(0)';
+                DOMHelpers.toggleClass(playSlider, 'locked', false);
+                DOMHelpers.toggleClass(playTrack, 'auto-play-active', false);
+                
+                // Disable auto-play
+                if (this.onAutoPlayToggle) {
+                    this.onAutoPlayToggle(false);
+                }
+            }
+        });
+        
+        // Touch events for mobile
+        this.playBtn.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            startX = e.touches[0].clientX - currentX;
+            DOMHelpers.toggleClass(this.playBtn, 'dragging', true);
+            DOMHelpers.toggleClass(playSlider, 'dragging', true);
+            e.preventDefault();
+        });
+        
+        document.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            
+            const x = e.touches[0].clientX - startX;
+            currentX = Math.max(0, Math.min(x, maxSlide));
+            playSlider.style.transform = `translateX(${currentX}px)`;
+            
+            if (currentX > maxSlide * 0.8) {
+                DOMHelpers.toggleClass(playTrack, 'auto-play-active', true);
+            } else {
+                DOMHelpers.toggleClass(playTrack, 'auto-play-active', false);
+            }
+        });
+        
+        document.addEventListener('touchend', () => {
+            if (!isDragging) return;
+            isDragging = false;
+            
+            DOMHelpers.toggleClass(this.playBtn, 'dragging', false);
+            DOMHelpers.toggleClass(playSlider, 'dragging', false);
+            
+            if (currentX > maxSlide * 0.8) {
+                currentX = maxSlide;
+                DOMHelpers.toggleClass(playSlider, 'locked', true);
+                DOMHelpers.toggleClass(playTrack, 'auto-play-active', true);
+                
+                if (this.onAutoPlayToggle) {
+                    this.onAutoPlayToggle(true);
+                }
+            } else {
+                currentX = 0;
+                playSlider.style.transform = 'translateX(0)';
+                DOMHelpers.toggleClass(playSlider, 'locked', false);
+                DOMHelpers.toggleClass(playTrack, 'auto-play-active', false);
+                
+                if (this.onAutoPlayToggle) {
+                    this.onAutoPlayToggle(false);
+                }
+            }
+        });
+        
+        // Click on play button still works for play/pause
+        this.playBtn.addEventListener('click', (e) => {
+            // Only toggle playback if not dragging
+            if (currentX < 10) {
+                this.togglePlayback();
+            }
+        });
     }
     
     /**
      * Setup event listeners
      */
     setupEventListeners() {
-        DOMHelpers.addEventListener(this.playBtn, 'click', () => this.togglePlayback());
+        // Comment out the play button click handler - it's now handled in initializeSlider
+        // DOMHelpers.addEventListener(this.playBtn, 'click', () => this.togglePlayback());
         DOMHelpers.addEventListener(this.prevBtn, 'click', () => this.goToPreviousSentence());
         DOMHelpers.addEventListener(this.nextBtn, 'click', () => this.goToNextSentence());
         DOMHelpers.addEventListener(this.speedBtn, 'click', () => this.toggleSpeed());

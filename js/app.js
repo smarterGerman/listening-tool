@@ -117,14 +117,6 @@ export class ListeningApp {
         if (restartBtn) {
             DOMHelpers.addEventListener(restartBtn, 'click', () => this.restart());
         }
-
-         // Auto-play button
-        const autoPlayBtn = DOMHelpers.getElementById('autoPlayBtn');
-        if (autoPlayBtn) {
-            // Set initial state
-            DOMHelpers.toggleClass(autoPlayBtn, 'active', this.autoPlayEnabled);
-            DOMHelpers.addEventListener(autoPlayBtn, 'click', () => this.toggleAutoPlay());
-        }
     }
     
     /**
@@ -144,6 +136,10 @@ export class ListeningApp {
             },
             onSentenceEnd: () => {
                 this.quizController.enableAnswers();
+            },
+            onAutoPlayToggle: (enabled) => {
+                this.autoPlayEnabled = enabled;
+                console.log('Auto-play:', enabled ? 'enabled' : 'disabled');
             }
         });
         
@@ -387,19 +383,6 @@ export class ListeningApp {
         // Reset question index and reload
         this.currentQuestionIndex = 0;
         this.handleSentenceChange(this.currentCueIndex, this.vttCues[this.currentCueIndex]);
-    }
-
-    /**
-     * Toggle auto-play mode
-     */
-    toggleAutoPlay() {
-        this.autoPlayEnabled = !this.autoPlayEnabled;
-        const autoPlayBtn = DOMHelpers.getElementById('autoPlayBtn');
-        if (autoPlayBtn) {
-            DOMHelpers.toggleClass(autoPlayBtn, 'active', this.autoPlayEnabled);
-            autoPlayBtn.title = this.autoPlayEnabled ? 'Auto-Play aktiv' : 'Auto-Play inaktiv';
-        }
-        console.log('Auto-play:', this.autoPlayEnabled ? 'enabled' : 'disabled');
     }
 
     /**

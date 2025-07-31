@@ -26,7 +26,15 @@
                 <div class="audio-controls">
                     <div class="player-pill">
                         <button class="nav-btn" id="prevBtn" title="Vorheriger Satz">‹</button>
-                        <button class="play-btn" id="playBtn" title="Play/Pause (Doppelklick für Neustart)"></button>
+                        
+                        <!-- Sliding play button container -->
+                        <div class="play-button-track" id="playTrack">
+                            <div class="play-button-slider" id="playSlider">
+                                <button class="play-btn" id="playBtn" title="Play/Pause (Nach rechts ziehen für Auto-Play)"></button>
+                            </div>
+                            <div class="auto-play-indicator">AUTO</div>
+                        </div>
+                        
                         <button class="nav-btn" id="nextBtn" title="Nächster Satz">›</button>
                         
                         <div class="progress-container">
@@ -38,8 +46,6 @@
                         <button class="toggle-btn" id="speedBtn" title="Geschwindigkeit">100</button>
                         <button class="toggle-btn secondary-btn" id="hintBtn" title="Transkript anzeigen">?</button>
                         <button class="toggle-btn secondary-btn" id="modeBtn" title="Übungsmodus wechseln">M</button>
-                        <button class="toggle-btn secondary-btn" id="autoPlayBtn" title="Auto-Play">▶</button>
-
                     </div>
                 </div>
                 <audio id="audioPlayer" preload="auto"></audio>
