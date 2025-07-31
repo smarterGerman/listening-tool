@@ -49,35 +49,41 @@
                 <div class="hint-display" id="hintDisplay" style="display: none;">
                     <div class="hint-content" id="hintContent"></div>
                 </div>
-                
-                <div class="quiz-container">
+
+                <!-- NEUES QUIZ DESIGN -->
+<div class="quiz-container">
     <div class="quiz-navigation">
         <button class="quiz-nav-btn" id="prevQuizBtn">‹</button>
         <button class="quiz-nav-btn" id="nextQuizBtn">›</button>
     </div>
     
     <div class="question-area">
-        <div class="question-text">Was ist die richtige Antwort?</div>
+        <div class="question-text" id="questionText">Keine Fragen für diesen Satz vorhanden.</div>
         <div class="question-subtitle">Wählen Sie die beste Option</div>
     </div>
     
     <div class="options-grid">
-        <button class="option-button" data-option="A">
+        <button class="option-button" id="option1" data-option="A" data-index="0">
             <span class="option-letter">A</span>
             <span class="option-text">Option A</span>
         </button>
-        <button class="option-button" data-option="B">
+        <button class="option-button" id="option2" data-option="B" data-index="1">
             <span class="option-letter">B</span>
             <span class="option-text">Option B</span>
         </button>
-        <button class="option-button" data-option="C">
+        <button class="option-button" id="option3" data-option="C" data-index="2">
             <span class="option-letter">C</span>
             <span class="option-text">Option C</span>
         </button>
-        <button class="option-button" data-option="D">
+        <button class="option-button" id="option4" data-option="D" data-index="3">
             <span class="option-letter">D</span>
             <span class="option-text">Option D</span>
         </button>
+    </div>
+    
+    <!-- Feedback area behalten -->
+    <div class="feedback-area" id="feedbackArea" style="display: none;">
+        <div class="feedback-content" id="feedbackContent"></div>
     </div>
 </div>
 
