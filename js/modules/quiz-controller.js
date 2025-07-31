@@ -145,9 +145,11 @@ export class QuizController {
      */
     submitAnswer() {
         if (this.isAnswered || this.selectedAnswer === null || !this.currentQuestion) {
+            console.log('Submit blocked - isAnswered:', this.isAnswered, 'selectedAnswer:', this.selectedAnswer, 'currentQuestion:', this.currentQuestion);
             return;
         }
         
+        console.log('Submitting answer:', this.selectedAnswer);
         this.isAnswered = true;
         const correct = this.selectedAnswer === this.currentQuestion.correct;
         
@@ -167,6 +169,7 @@ export class QuizController {
         
         // Notify callback
         if (this.onAnswer) {
+            console.log('Calling onAnswer callback');
             this.onAnswer({
                 question: this.currentQuestion,
                 selected: this.selectedAnswer,
