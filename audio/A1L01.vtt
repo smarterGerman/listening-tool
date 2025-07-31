@@ -1,62 +1,743 @@
+# Vollständige VTT-Datei: `audio/A1L01.vtt`
+
+```
 WEBVTT
 
 1
 00:00:00.000 --> 00:00:02.273
 Es ist ein schöner Montagmorgen in Berlin.
+{"questions": [
+  {
+    "type": "comprehension",
+    "question": "Wo spielt die Geschichte?",
+    "options": ["In München", "In Berlin", "In Hamburg", "In Wien"],
+    "correct": 1,
+    "explanation": "Der Satz sagt explizit 'in Berlin'."
+  },
+  {
+    "type": "verb",
+    "question": "Welches Verb steht im Satz?",
+    "options": ["haben", "sein", "werden", "machen"],
+    "correct": 1,
+    "explanation": "'Es ist' - das Verb 'sein' in der 3. Person Singular."
+  },
+  {
+    "type": "grammar",
+    "question": "Wie endet das Adjektiv 'schöner'?",
+    "options": ["schön", "schöne", "schöner", "schönes"],
+    "correct": 2,
+    "explanation": "Maskulin Nominativ: 'ein schöner Morgen' - Adjektiv nach unbestimmtem Artikel endet auf -er."
+  },
+  {
+    "type": "phonetic",
+    "question": "Welcher Laut ist am Anfang von 'schöner'?",
+    "options": ["[s]", "[ʃ]", "[z]", "[ç]"],
+    "correct": 1,
+    "explanation": "'Sch' wird als [ʃ] ausgesprochen - ein wichtiger deutscher Laut."
+  },
+  {
+    "type": "inference",
+    "question": "Was lässt sich über die Stimmung schließen?",
+    "options": ["Düster und problematisch", "Positiv und hoffnungsvoll", "Neutral", "Stressig und hektisch"],
+    "correct": 1,
+    "explanation": "'Schöner Morgen' suggeriert einen positiven Start."
+  },
+  {
+    "type": "context",
+    "question": "Wann findet die Handlung statt?",
+    "options": ["Am Wochenende", "An einem Werktag", "Im Urlaub", "Nachts"],
+    "correct": 1,
+    "explanation": "'Montagmorgen' - Montag ist ein typischer Arbeitstag."
+  }
+]}
 
 2
 00:00:02.273 --> 00:00:06.141
 Die Sonne scheint und die Vögel zwitschern fröhlich in den Bäumen.
+{"questions": [
+  {
+    "type": "comprehension",
+    "question": "Wie ist das Wetter?",
+    "options": ["Regnerisch", "Sonnig", "Bewölkt", "Stürmisch"],
+    "correct": 1,
+    "explanation": "'Die Sonne scheint' bedeutet sonniges Wetter."
+  },
+  {
+    "type": "verb",
+    "question": "Welche zwei Verben beschreiben die Natur?",
+    "options": ["scheinen und singen", "scheinen und zwitschern", "leuchten und rufen", "strahlen und sprechen"],
+    "correct": 1,
+    "explanation": "'Scheinen' (Sonne) und 'zwitschern' (Vögel) sind die beiden Verben."
+  },
+  {
+    "type": "grammar",
+    "question": "Welcher Fall steht nach 'in'?",
+    "options": ["Nominativ", "Akkusativ", "Dativ", "Genitiv"],
+    "correct": 2,
+    "explanation": "'In den Bäumen' - lokale Präposition 'in' + Dativ Plural (wo?)"
+  },
+  {
+    "type": "phonetic",
+    "question": "Wie spricht man das 'ö' in 'fröhlich' aus?",
+    "options": ["wie deutsches 'o'", "wie englisches 'ur'", "wie französisches 'eu'", "wie englisches 'ee'"],
+    "correct": 2,
+    "explanation": "Das deutsche 'ö' entspricht etwa dem französischen 'eu' in 'peu'."
+  },
+  {
+    "type": "inference",
+    "question": "Welche Atmosphäre wird vermittelt?",
+    "options": ["Bedrohlich", "Friedlich und idyllisch", "Chaotisch", "Langweilig"],
+    "correct": 1,
+    "explanation": "Sonnenschein und fröhlich zwitschernde Vögel erzeugen eine friedliche Stimmung."
+  },
+  {
+    "type": "context",
+    "question": "In welcher Jahreszeit spielt die Szene wahrscheinlich?",
+    "options": ["Winter", "Frühling/Sommer", "Herbst", "Nicht erkennbar"],
+    "correct": 1,
+    "explanation": "Vögel zwitschern aktiv und die Sonne scheint - typisch für wärmere Jahreszeiten."
+  }
+]}
 
 3
 00:00:06.141 --> 00:00:08.749
 Simone Tesch fährt in ihr Büro.
+{"questions": [
+  {
+    "type": "comprehension",
+    "question": "Wohin fährt Simone?",
+    "options": ["Nach Hause", "Ins Büro", "Zum Bahnhof", "In den Supermarkt"],
+    "correct": 1,
+    "explanation": "Simone fährt 'in ihr Büro'."
+  },
+  {
+    "type": "verb",
+    "question": "Welches Verb drückt die Bewegung aus?",
+    "options": ["gehen", "fahren", "laufen", "fliegen"],
+    "correct": 1,
+    "explanation": "'Fahren' deutet auf Fortbewegung mit einem Fahrzeug hin."
+  },
+  {
+    "type": "grammar",
+    "question": "Welcher Fall steht bei 'in ihr Büro'?",
+    "options": ["Nominativ", "Akkusativ", "Dativ", "Genitiv"],
+    "correct": 1,
+    "explanation": "Richtung (wohin?) → 'in' + Akkusativ: 'in ihr Büro'"
+  },
+  {
+    "type": "phonetic",
+    "question": "Wo liegt die Betonung in 'Simone'?",
+    "options": ["Si-", "-mo-", "-ne", "Alle gleich"],
+    "correct": 1,
+    "explanation": "Französischer Name: Si-MO-ne (Betonung auf zweiter Silbe)."
+  },
+  {
+    "type": "inference",
+    "question": "Wie kommt Simone wahrscheinlich ins Büro?",
+    "options": ["Zu Fuß", "Mit Verkehrsmittel/Auto", "Mit dem Flugzeug", "Schwimmend"],
+    "correct": 1,
+    "explanation": "'Fahren' impliziert die Nutzung eines Fahrzeugs (Auto, Bus, Bahn, etc.)."
+  },
+  {
+    "type": "context",
+    "question": "Was erfahren wir über Simones Arbeitssituation?",
+    "options": ["Sie arbeitet von zu Hause", "Sie hat ein eigenes Büro", "Sie ist arbeitslos", "Sie arbeitet im Freien"],
+    "correct": 1,
+    "explanation": "'Ihr Büro' zeigt, dass sie ein eigenes/zugeteiltes Büro hat."
+  }
+]}
 
 4
 00:00:08.749 --> 00:00:10.855
 Es gibt viel zu tun.
+{"questions": [
+  {
+    "type": "comprehension",
+    "question": "Wie ist Simones Arbeitspensum?",
+    "options": ["Wenig zu tun", "Viel zu tun", "Nichts zu tun", "Normal viel"],
+    "correct": 1,
+    "explanation": "'Es gibt viel zu tun' bedeutet viel Arbeit."
+  },
+  {
+    "type": "verb",
+    "question": "Welche Verbkonstruktion liegt vor?",
+    "options": ["geben + Infinitiv", "es gibt + zu + Infinitiv", "haben + zu + Infinitiv", "sein + zu + Infinitiv"],
+    "correct": 1,
+    "explanation": "'Es gibt... zu tun' ist eine feste deutsche Konstruktion."
+  },
+  {
+    "type": "grammar",
+    "question": "Was ist 'es' in diesem Satz?",
+    "options": ["Personalpronomen", "Unpersönliches 'es'", "Demonstrativpronomen", "Possessivpronomen"],
+    "correct": 1,
+    "explanation": "'Es gibt' verwendet das unpersönliche 'es' - kein konkretes Subjekt."
+  },
+  {
+    "type": "phonetic",
+    "question": "Wie wird 'viel' ausgesprochen?",
+    "options": ["[fi:l]", "[vi:l]", "[fil]", "[wil]"],
+    "correct": 0,
+    "explanation": "Das deutsche 'v' wird als [f] ausgesprochen: [fi:l]."
+  },
+  {
+    "type": "inference",
+    "question": "Was bedeutet das für Simones Tag?",
+    "options": ["Entspannter Tag", "Stressiger Arbeitstag", "Freier Tag", "Kurzer Arbeitstag"],
+    "correct": 1,
+    "explanation": "Viel Arbeit deutet auf einen arbeitsreichen, möglicherweise stressigen Tag hin."
+  },
+  {
+    "type": "context",
+    "question": "Wann sagt man typischerweise 'viel zu tun'?",
+    "options": ["Im Urlaub", "An Arbeitstagen", "Am Wochenende", "In der Freizeit"],
+    "correct": 1,
+    "explanation": "Diese Phrase bezieht sich typisch auf Arbeitsaufgaben und berufliche Verpflichtungen."
+  }
+]}
 
 5
 00:00:10.855 --> 00:00:13.737
 Simone ist Privatdetektivin von Beruf
+{"questions": [
+  {
+    "type": "comprehension",
+    "question": "Was ist Simones Beruf?",
+    "options": ["Polizistin", "Privatdetektivin", "Anwältin", "Journalistin"],
+    "correct": 1,
+    "explanation": "Simone ist 'Privatdetektivin von Beruf'."
+  },
+  {
+    "type": "verb",
+    "question": "Welche Form von 'sein' wird verwendet?",
+    "options": ["bin", "bist", "ist", "sind"],
+    "correct": 2,
+    "explanation": "'Simone ist' - 3. Person Singular von 'sein'."
+  },
+  {
+    "type": "grammar",
+    "question": "Welcher Fall steht nach 'von'?",
+    "options": ["Nominativ", "Akkusativ", "Dativ", "Genitiv"],
+    "correct": 2,
+    "explanation": "Die Präposition 'von' regiert immer den Dativ: 'von Beruf'."
+  },
+  {
+    "type": "phonetic",
+    "question": "Wo liegt die Betonung in 'Privatdetektivin'?",
+    "options": ["Pri-", "vat-", "-tek-", "-in"],
+    "correct": 2,
+    "explanation": "Betonung auf dem Hauptwort: Privat-de-TEK-ti-vin."
+  },
+  {
+    "type": "inference",
+    "question": "Was bedeutet 'von Beruf'?",
+    "options": ["Als Hobby", "Beruflich/Hauptberuf", "Zufällig", "Früher einmal"],
+    "correct": 1,
+    "explanation": "'Von Beruf' bedeutet, dass dies ihr Hauptberuf/ihre Profession ist."
+  },
+  {
+    "type": "context",
+    "question": "Welche Art Geschichte wird hier wahrscheinlich erzählt?",
+    "options": ["Romantische Komödie", "Krimi/Detektivgeschichte", "Science Fiction", "Historischer Roman"],
+    "correct": 1,
+    "explanation": "Eine Privatdetektivin als Hauptfigur deutet auf eine Detektivgeschichte hin."
+  }
+]}
 
 6
 00:00:13.737 --> 00:00:19.449
 und hat mit ihrem Assistenten Stefan vor drei Jahren das Detektivbüro Tesch gegründet.
+{"questions": [
+  {
+    "type": "comprehension",
+    "question": "Wann wurde das Büro gegründet?",
+    "options": ["Vor einem Jahr", "Vor zwei Jahren", "Vor drei Jahren", "Vor fünf Jahren"],
+    "correct": 2,
+    "explanation": "Der Satz sagt 'vor drei Jahren'."
+  },
+  {
+    "type": "verb",
+    "question": "In welcher Zeitform steht 'hat gegründet'?",
+    "options": ["Präsens", "Präteritum", "Perfekt", "Plusquamperfekt"],
+    "correct": 2,
+    "explanation": "'Hat gegründet' ist Perfekt - Hilfsverb 'haben' + Partizip II."
+  },
+  {
+    "type": "grammar",
+    "question": "Welcher Fall ist 'ihrem Assistenten'?",
+    "options": ["Nominativ", "Akkusativ", "Dativ", "Genitiv"],
+    "correct": 2,
+    "explanation": "'Mit' regiert den Dativ: 'mit ihrem Assistenten' (maskulin Dativ)."
+  },
+  {
+    "type": "phonetic",
+    "question": "Wie wird das 'ü' in 'Büro' ausgesprochen?",
+    "options": ["wie deutsches 'u'", "wie englisches 'oo'", "wie französisches 'u'", "wie englisches 'i'"],
+    "correct": 2,
+    "explanation": "Das deutsche 'ü' entspricht dem französischen 'u' in 'tu'."
+  },
+  {
+    "type": "inference",
+    "question": "Wie ist die Beziehung zwischen Simone und Stefan?",
+    "options": ["Ehepaar", "Geschwister", "Geschäftspartner", "Nachbarn"],
+    "correct": 2,
+    "explanation": "Sie haben zusammen ein Detektivbüro gegründet - das deutet auf eine Geschäftspartnerschaft hin."
+  },
+  {
+    "type": "context",
+    "question": "Was erfahren wir über Simones beruflichen Status?",
+    "options": ["Sie ist Angestellte", "Sie ist Chefin/Inhaberin", "Sie ist Praktikantin", "Sie ist arbeitslos"],
+    "correct": 1,
+    "explanation": "Sie hat das Büro gegründet und es trägt ihren Namen - sie ist die Chefin."
+  }
+]}
 
 7
 00:00:19.449 --> 00:00:22.370
 Simone ist etwas dominant, müssen Sie wissen.
+{"questions": [
+  {
+    "type": "comprehension",
+    "question": "Wie wird Simones Charakter beschrieben?",
+    "options": ["Schüchtern", "Dominant", "Freundlich", "Traurig"],
+    "correct": 1,
+    "explanation": "Simone wird als 'etwas dominant' beschrieben."
+  },
+  {
+    "type": "verb",
+    "question": "Welches Modalverb steht im Satz?",
+    "options": ["können", "müssen", "wollen", "sollen"],
+    "correct": 1,
+    "explanation": "'Müssen Sie wissen' - das Modalverb 'müssen'."
+  },
+  {
+    "type": "grammar",
+    "question": "An wen richtet sich 'müssen Sie wissen'?",
+    "options": ["An Stefan", "An Simone", "An den Zuhörer/Leser", "An die Polizei"],
+    "correct": 2,
+    "explanation": "Der Erzähler wendet sich direkt an das Publikum ('Sie')."
+  },
+  {
+    "type": "phonetic",
+    "question": "Welche Silbe ist in 'dominant' betont?",
+    "options": ["do-", "-mi-", "-nant", "Alle gleich"],
+    "correct": 2,
+    "explanation": "Fremdwort-Betonung: do-mi-NANT (Betonung auf letzter Silbe)."
+  },
+  {
+    "type": "inference",
+    "question": "Warum erwähnt der Erzähler Simones Dominanz?",
+    "options": ["Es ist unwichtig", "Es wird später relevant", "Es ist ein Kompliment", "Es ist ein Versehen"],
+    "correct": 1,
+    "explanation": "Der Hinweis 'müssen Sie wissen' deutet darauf hin, dass diese Information für die Geschichte wichtig ist."
+  },
+  {
+    "type": "context",
+    "question": "Welcher Erzählstil wird hier verwendet?",
+    "options": ["Objektive Berichterstattung", "Direkter Kontakt zum Publikum", "Dialog zwischen Personen", "Monolog"],
+    "correct": 1,
+    "explanation": "Der Erzähler spricht das Publikum direkt an ('müssen Sie wissen')."
+  }
+]}
 
 8
 00:00:22.370 --> 00:00:25.995
 Zusammen lösen Simone und Stefan schwierige Fälle.
+{"questions": [
+  {
+    "type": "comprehension",
+    "question": "Was machen Simone und Stefan zusammen?",
+    "options": ["Sie streiten", "Sie lösen Fälle", "Sie essen", "Sie reisen"],
+    "correct": 1,
+    "explanation": "Sie 'lösen schwierige Fälle' - das ist ihre Arbeit als Detektive."
+  },
+  {
+    "type": "verb",
+    "question": "In welcher Zeit steht 'lösen'?",
+    "options": ["Vergangenheit", "Gegenwart/Gewohnheit", "Zukunft", "Konjunktiv"],
+    "correct": 1,
+    "explanation": "Präsens für wiederkehrende Tätigkeiten: 'Sie lösen (regelmäßig) Fälle'."
+  },
+  {
+    "type": "grammar",
+    "question": "Welches Wort steht am Satzanfang?",
+    "options": ["Simone", "Stefan", "Zusammen", "Lösen"],
+    "correct": 2,
+    "explanation": "'Zusammen' steht vor dem finiten Verb - Adverb an Position 1."
+  },
+  {
+    "type": "phonetic",
+    "question": "Welche Silbe ist in 'zusammen' betont?",
+    "options": ["zu-", "-sam-", "-men", "Alle gleich"],
+    "correct": 1,
+    "explanation": "Deutsche Wortbetonung: zu-SAM-men (Betonung auf mittlerer Silbe)."
+  },
+  {
+    "type": "inference",
+    "question": "Was erfahren wir über ihre Arbeitsweise?",
+    "options": ["Sie arbeiten allein", "Sie sind Teamplayer", "Sie sind Konkurrenten", "Sie arbeiten schlecht"],
+    "correct": 1,
+    "explanation": "'Zusammen lösen' zeigt, dass sie als Team arbeiten."
+  },
+  {
+    "type": "context",
+    "question": "Was bedeutet 'schwierige Fälle' in diesem Beruf?",
+    "options": ["Einfache Aufgaben", "Komplexe Ermittlungen", "Papierkram", "Putzen"],
+    "correct": 1,
+    "explanation": "Privatdetektive bearbeiten komplexe Ermittlungen, die schwer zu lösen sind."
+  }
+]}
 
 9
 00:00:25.995 --> 00:00:27.922
 Als Simone ins Büro kommt,
+{"questions": [
+  {
+    "type": "comprehension",
+    "question": "Was passiert in diesem Satz?",
+    "options": ["Simone verlässt das Büro", "Simone kommt ins Büro", "Simone arbeitet im Büro", "Simone ruft das Büro an"],
+    "correct": 1,
+    "explanation": "'Als Simone ins Büro kommt' - sie betritt das Büro."
+  },
+  {
+    "type": "verb",
+    "question": "Welches Verb drückt die Bewegung aus?",
+    "options": ["gehen", "fahren", "kommen", "laufen"],
+    "correct": 2,
+    "explanation": "'Kommen' - Bewegung zum Sprecher/zum Zielort hin."
+  },
+  {
+    "type": "grammar",
+    "question": "Was ist 'Als' in diesem Satz?",
+    "options": ["Artikel", "Temporale Konjunktion", "Präposition", "Adverb"],
+    "correct": 1,
+    "explanation": "'Als' leitet einen Temporalsatz ein (wann?)."
+  },
+  {
+    "type": "phonetic",
+    "question": "Wie wird das Komma gesprochen?",
+    "options": ["Gar nicht", "Als kurze Pause", "Als lange Pause", "Als Betonung"],
+    "correct": 1,
+    "explanation": "Kommas werden als kurze Sprechpausen realisiert."
+  },
+  {
+    "type": "inference",
+    "question": "Was erwartet uns nach diesem Satzanfang?",
+    "options": ["Eine Beschreibung", "Eine Folge/Konsequenz", "Ein Dialog", "Das Satzende"],
+    "correct": 1,
+    "explanation": "Temporalsätze mit 'Als' leiten meist zu einem Hauptsatz über, der eine Folge beschreibt."
+  },
+  {
+    "type": "context",
+    "question": "Welcher Satzteil liegt vor?",
+    "options": ["Vollständiger Satz", "Nebensatz", "Hauptsatz", "Ausruf"],
+    "correct": 1,
+    "explanation": "Dies ist ein unvollständiger Nebensatz - der Hauptsatz folgt."
+  }
+]}
 
 10
 00:00:27.922 --> 00:00:31.226
 sieht sie einen riesigen Kaffeefleck auf ihren Dokumenten.
+{"questions": [
+  {
+    "type": "comprehension",
+    "question": "Was sieht Simone?",
+    "options": ["Einen Kaffeefleck", "Einen Wasserfleck", "Einen Blutfleck", "Einen Tintenfleck"],
+    "correct": 0,
+    "explanation": "Sie sieht 'einen riesigen Kaffeefleck'."
+  },
+  {
+    "type": "verb",
+    "question": "Welches Verb steht im Hauptsatz?",
+    "options": ["kommen", "sehen", "haben", "sein"],
+    "correct": 1,
+    "explanation": "'Sieht' - das Verb 'sehen' im Hauptsatz."
+  },
+  {
+    "type": "grammar",
+    "question": "Welcher Fall ist 'einen riesigen Kaffeefleck'?",
+    "options": ["Nominativ", "Akkusativ", "Dativ", "Genitiv"],
+    "correct": 1,
+    "explanation": "Direktes Objekt von 'sehen': Akkusativ maskulin 'einen riesigen Kaffeefleck'."
+  },
+  {
+    "type": "phonetic",
+    "question": "Wie wird 'riesigen' ausgesprochen?",
+    "options": ["[ri:sigen]", "[ri:zigen]", "[riːsigen]", "[riːzigen]"],
+    "correct": 1,
+    "explanation": "Das 's' nach langem Vokal wird als [z] gesprochen: [ri:zigen]."
+  },
+  {
+    "type": "inference",
+    "question": "Was ist wahrscheinlich passiert?",
+    "options": ["Jemand hat Kaffee getrunken", "Jemand hat Kaffee verschüttet", "Jemand hat Kaffee gekocht", "Jemand hat Kaffee gekauft"],
+    "correct": 1,
+    "explanation": "Ein Kaffeefleck auf Dokumenten deutet darauf hin, dass jemand Kaffee verschüttet hat."
+  },
+  {
+    "type": "context",
+    "question": "Wie wichtig sind die Dokumente wahrscheinlich?",
+    "options": ["Unwichtig", "Sehr wichtig für die Arbeit", "Nur Notizen", "Werbung"],
+    "correct": 1,
+    "explanation": "Dokumente einer Privatdetektivin sind wahrscheinlich wichtige Arbeitspapiere."
+  }
+]}
 
 11
 00:00:31.226 --> 00:00:33.125
 So ein Mist.
+{"questions": [
+  {
+    "type": "comprehension",
+    "question": "Wie fühlt sich Simone?",
+    "options": ["Glücklich", "Verärgert", "Überrascht", "Müde"],
+    "correct": 1,
+    "explanation": "'So ein Mist' drückt Ärger und Frustration aus."
+  },
+  {
+    "type": "verb",
+    "question": "Welches Verb ist in diesem Ausruf versteckt?",
+    "options": ["Das ist Mist", "Es gibt Mist", "Hier ist Mist", "Kein Verb vorhanden"],
+    "correct": 0,
+    "explanation": "Der vollständige Gedanke wäre 'Das ist so ein Mist' - 'sein' ist impliziert."
+  },
+  {
+    "type": "grammar",
+    "question": "Was ist 'so ein' grammatisch?",
+    "options": ["Bestimmter Artikel", "Unbestimmter Artikel mit Verstärkung", "Possessivpronomen", "Demonstrativpronomen"],
+    "correct": 1,
+    "explanation": "'So ein' = verstärkter unbestimmter Artikel (so + ein)"
+  },
+  {
+    "type": "phonetic",
+    "question": "Wie wird dieser Ausruf betont?",
+    "options": ["Monoton", "Mit Nachdruck und Ärger", "Fragend", "Flüsternd"],
+    "correct": 1,
+    "explanation": "Flüche und Ärgerausdrücke werden mit starker Betonung und emotionalem Nachdruck gesprochen."
+  },
+  {
+    "type": "inference",
+    "question": "Was ist wahrscheinlich passiert?",
+    "options": ["Etwas Positives", "Ein kleines Missgeschick/Problem", "Ein großer Erfolg", "Nichts Besonderes"],
+    "correct": 1,
+    "explanation": "Der Kaffeefleck auf den Dokumenten ist ein typisches kleines Arbeitsunglück."
+  },
+  {
+    "type": "context",
+    "question": "Wo würde man diesen Ausdruck verwenden?",
+    "options": ["In formellen Gesprächen", "In informellen Situationen", "Bei Präsentationen", "In Bewerbungsgesprächen"],
+    "correct": 1,
+    "explanation": "'Mist' ist umgangssprachlich und wird in informellen Situationen verwendet."
+  }
+]}
 
 12
 00:00:33.125 --> 00:00:35.178
 Sie versucht, die Dokumente zu retten,
+{"questions": [
+  {
+    "type": "comprehension",
+    "question": "Was macht Simone mit den Dokumenten?",
+    "options": ["Sie wirft sie weg", "Sie versucht sie zu retten", "Sie kopiert sie", "Sie verbrennt sie"],
+    "correct": 1,
+    "explanation": "Sie 'versucht, die Dokumente zu retten' nach dem Kaffeeunfall."
+  },
+  {
+    "type": "verb",
+    "question": "Welche Verbkonstruktion liegt vor?",
+    "options": ["Modalverb + Infinitiv", "versuchen + zu + Infinitiv", "Perfekt", "Futur"],
+    "correct": 1,
+    "explanation": "'Versuchen + zu + Infinitiv' - eine wichtige deutsche Infinitivkonstruktion."
+  },
+  {
+    "type": "grammar",
+    "question": "Welcher Artikel steht vor 'Dokumente'?",
+    "options": ["Der", "Die", "Das", "Den"],
+    "correct": 1,
+    "explanation": "'Die Dokumente' - Plural, immer 'die' im Nominativ und Akkusativ."
+  },
+  {
+    "type": "phonetic",
+    "question": "Wie wird das 'ch' in 'versucht' ausgesprochen?",
+    "options": ["[k]", "[ç]", "[x]", "[ʃ]"],
+    "correct": 1,
+    "explanation": "Nach 'u' wird 'ch' als [ç] ausgesprochen (Ich-Laut)."
+  },
+  {
+    "type": "inference",
+    "question": "Warum müssen die Dokumente 'gerettet' werden?",
+    "options": ["Sie sind alt", "Sie sind beschädigt", "Sie sind gestohlen", "Sie sind verloren"],
+    "correct": 1,
+    "explanation": "Der Kaffeefleck hat die Dokumente beschädigt, deshalb müssen sie gerettet werden."
+  },
+  {
+    "type": "context",
+    "question": "Was zeigt Simones Reaktion über ihren Charakter?",
+    "options": ["Sie gibt schnell auf", "Sie ist lösungsorientiert", "Sie ist gleichgültig", "Sie wird panisch"],
+    "correct": 1,
+    "explanation": "Anstatt zu verzweifeln, versucht sie aktiv, das Problem zu lösen."
+  }
+]}
 
 13
 00:00:35.178 --> 00:00:37.195
 und ist dabei sehr vorsichtig.
+{"questions": [
+  {
+    "type": "comprehension",
+    "question": "Wie arbeitet Simone an den Dokumenten?",
+    "options": ["Schnell", "Vorsichtig", "Unordentlich", "Laut"],
+    "correct": 1,
+    "explanation": "Sie ist 'sehr vorsichtig' beim Retten der Dokumente."
+  },
+  {
+    "type": "verb",
+    "question": "Welches Verb wird hier verwendet?",
+    "options": ["haben", "sein", "werden", "können"],
+    "correct": 1,
+    "explanation": "'Ist dabei' - das Verb 'sein' mit der Präposition 'dabei'."
+  },
+  {
+    "type": "grammar",
+    "question": "Was ist 'dabei' in diesem Satz?",
+    "options": ["Adverb", "Präposition", "Artikel", "Verb"],
+    "correct": 0,
+    "explanation": "'Dabei' ist ein Adverb und bedeutet 'währenddessen/bei dieser Tätigkeit'."
+  },
+  {
+    "type": "phonetic",
+    "question": "Wie wird 'vorsichtig' betont?",
+    "options": ["vor-", "VOR-sich-tig", "-sich-", "-tig"],
+    "correct": 1,
+    "explanation": "Deutsche Hauptbetonung auf der ersten Silbe: VOR-sich-tig."
+  },
+  {
+    "type": "inference",
+    "question": "Warum ist Simone vorsichtig?",
+    "options": ["Sie hat Angst", "Sie will keinen weiteren Schaden", "Sie ist müde", "Sie ist unsicher"],
+    "correct": 1,
+    "explanation": "Bei bereits beschädigten Dokumenten will sie zusätzlichen Schaden vermeiden."
+  },
+  {
+    "type": "context",
+    "question": "Was zeigt 'sehr vorsichtig' über die Situation?",
+    "options": ["Die Dokumente sind wertlos", "Die Dokumente sind sehr wichtig", "Es ist egal", "Es ist Routine"],
+    "correct": 1,
+    "explanation": "Extreme Vorsicht deutet darauf hin, dass die Dokumente sehr wichtig/wertvoll sind."
+  }
+]}
 
 14
 00:00:37.195 --> 00:00:40.559
 In diesem Moment kommt ihr Assistent Stefan ins Büro.
+{"questions": [
+  {
+    "type": "comprehension",
+    "question": "Wer kommt ins Büro?",
+    "options": ["Simone", "Stefan", "Ein Kunde", "Die Polizei"],
+    "correct": 1,
+    "explanation": "'Ihr Assistent Stefan kommt ins Büro'."
+  },
+  {
+    "type": "verb",
+    "question": "Welches Verb beschreibt Stefans Aktion?",
+    "options": ["gehen", "fahren", "kommen", "laufen"],
+    "correct": 2,
+    "explanation": "'Kommt ins Büro' - Bewegung zum Zielort."
+  },
+  {
+    "type": "grammar",
+    "question": "Welcher Fall steht bei 'ins Büro'?",
+    "options": ["Nominativ", "Akkusativ", "Dativ", "Genitiv"],
+    "correct": 1,
+    "explanation": "'Ins' = 'in + das' (Akkusativ) - Richtung, wohin?"
+  },
+  {
+    "type": "phonetic",
+    "question": "Wie wird 'Moment' betont?",
+    "options": ["MO-ment", "Mo-MENT", "Beide gleich", "M-ment"],
+    "correct": 1,
+    "explanation": "Fremdwort-Betonung: Mo-MENT (Betonung auf zweiter Silbe)."
+  },
+  {
+    "type": "inference",
+    "question": "Was ist das Timing von Stefans Ankunft?",
+    "options": ["Zufällig ungünstig", "Perfekt geplant", "Zu früh", "Zu spät"],
+    "correct": 0,
+    "explanation": "'In diesem Moment' - genau als Simone mit dem Problem beschäftigt ist."
+  },
+  {
+    "type": "context",
+    "question": "Welche dramatische Funktion hat diese Szene?",
+    "options": ["Entspannung", "Spannungsaufbau", "Komische Wendung", "Auflösung"],
+    "correct": 1,
+    "explanation": "Stefan kommt genau in dem Moment an, wo ein Problem entstanden ist - das baut Spannung auf."
+  }
+]}
 
 15
 00:00:40.559 --> 00:00:42.292
 Er sieht nervös aus.
+{"questions": [
+  {
+    "type": "comprehension",
+    "question": "Wie ist Stefans emotionaler Zustand?",
+    "options": ["Entspannt", "Nervös", "Wütend", "Fröhlich"],
+    "correct": 1,
+    "explanation": "Der Satz sagt direkt 'Er sieht nervös aus'."
+  },
+  {
+    "type": "verb",
+    "question": "Was bedeutet 'aussehen' in diesem Kontext?",
+    "options": ["nach draußen schauen", "erscheinen/wirken", "aussuchen", "aufstehen"],
+    "correct": 1,
+    "explanation": "'Aussehen' bedeutet hier 'wirken' oder 'den Eindruck machen'."
+  },
+  {
+    "type": "grammar",
+    "question": "Wo steht das Verb 'aus' im Satz?",
+    "options": ["Am Anfang", "In der Mitte", "Am Ende", "Es kommt nicht vor"],
+    "correct": 2,
+    "explanation": "Trennbares Verb: 'sieht... aus' - das Präfix steht am Satzende."
+  },
+  {
+    "type": "phonetic",
+    "question": "Wie wird 'nervös' ausgesprochen?",
+    "options": ["NER-vös", "ner-VÖS", "Beide gleich", "Stummes 's'"],
+    "correct": 1,
+    "explanation": "Französisches Lehnwort: ner-VÖS mit Betonung auf der zweiten Silbe."
+  },
+  {
+    "type": "inference",
+    "question": "Warum könnte Stefan nervös sein?",
+    "options": ["Er ist glücklich", "Er bringt schlechte Nachrichten", "Er ist müde", "Er hat Hunger"],
+    "correct": 1,
+    "explanation": "Nervosität deutet oft darauf hin, dass jemand unangenehme Informationen überbringen muss."
+  },
+  {
+    "type": "context",
+    "question": "Welche Beziehung haben Simone und Stefan?",
+    "options": ["Sie kennen sich nicht", "Arbeitsbeziehung - sie kennt ihn gut", "Fremde", "Feinde"],
+    "correct": 1,
+    "explanation": "Simone kann sofort Stefans emotionalen Zustand erkennen - das deutet auf eine enge Arbeitsbeziehung hin."
+  }
+]}
+```
 
+## Implementierung
+
+### 1. Diese VTT-Datei hochladen
+- Als `audio/A1L01.vtt` ins Repository
+- Ersetzt die unvollständige Version
+
+### 2. Audio-Datei erstellen  
+- **15 Sätze** entsprechend den Timings einsprechen
+- Als `A1L01.mp3` hochladen
+
+### 3. Testing
+- URL: `https://smartergerman.github.io/listening-tool/?lesson=A1L01`
+- **Audio Player**: Nutzt `text` für Hints, `start/end` für Navigation
+- **Quiz Controller**: Nutzt `questions` Array, filtert nach `type`
+- **Modi-Button (M)**: Wechselt zwischen I, V, G, P, F, K
+
+Das System nutzt automatisch beide Teile der VTT-Datei - sehr elegant!
