@@ -126,6 +126,8 @@ export class QuizController {
      * Select an answer
      */
     selectAnswer(index) {
+        console.log('selectAnswer called with index:', index, 'isAnswered:', this.isAnswered, 'currentQuestion:', this.currentQuestion);
+        
         if (this.isAnswered || !this.currentQuestion) return;
         
         // Remove previous selection
@@ -137,6 +139,13 @@ export class QuizController {
         if (this.answerButtons[index]) {
             DOMHelpers.toggleClass(this.answerButtons[index], 'selected', true);
             this.selectedAnswer = index;
+            
+            console.log('Answer selected, auto-submitting in 300ms');
+            
+            // Auto-submit the answer
+            setTimeout(() => {
+                this.submitAnswer();
+            }, 300); // Small delay for visual feedback
         }
     }
     
