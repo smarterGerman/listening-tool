@@ -24,6 +24,19 @@ export class ListeningApp {
         this.results = [];
         this.currentQuestions = [];
         this.currentQuestionIndex = 0;
+        // Add these new properties
+        this.currentQuestions = [];
+        this.currentQuestionIndex = 0;
+        
+        // Auto-play state
+        this.autoPlayEnabled = true;
+        
+        // Score tracking
+        this.sessionScore = {
+            correct: 0,
+            total: 0,
+            byMode: {}
+        };
         
         // DOM elements
         this.loadingOverlay = null;
@@ -103,6 +116,14 @@ export class ListeningApp {
         const restartBtn = DOMHelpers.getElementById('restartBtn');
         if (restartBtn) {
             DOMHelpers.addEventListener(restartBtn, 'click', () => this.restart());
+        }
+
+         // Auto-play button
+        const autoPlayBtn = DOMHelpers.getElementById('autoPlayBtn');
+        if (autoPlayBtn) {
+            // Set initial state
+            DOMHelpers.toggleClass(autoPlayBtn, 'active', this.autoPlayEnabled);
+            DOMHelpers.addEventListener(autoPlayBtn, 'click', () => this.toggleAutoPlay());
         }
     }
     
@@ -192,7 +213,8 @@ export class ListeningApp {
             throw error;
         }
     }
-    
+    /**
+     
     /**
      * Handle sentence change
      */
@@ -248,6 +270,21 @@ export class ListeningApp {
     handleAnswer(answer) {
         console.log('Answer submitted:', answer);
         
+        // Update score
+        this.sessionScore.total++;
+        if (answer.correct) {
+            this.sessionScore.correct++;
+        }
+        
+        // Track by mode
+        if (!this.sessionScore.byMode[this.currentMode]) {
+            this.sessionScore.byMode[this.currentMode] = { correct: 0, total: 0 };
+        }
+        this.sessionScore.byMode[this.currentMode].total++;
+        if (answer.correct) {
+            this.sessionScore.byMode[this.currentMode].correct++;
+        }
+        
         // Record result
         this.results.push({
             sentenceIndex: this.currentCueIndex,
@@ -257,12 +294,16 @@ export class ListeningApp {
             time: Date.now()
         });
         
-        // Auto-advance after feedback
-        if (answer.correct) {
-            setTimeout(() => {
-                this.nextSentence();
-            }, CONFIG.feedbackDelay);
-        }
+        // Auto-advance after feedback (1.2 seconds is standard)
+        setTimeout(() => {
+            // Check if there are more questions for this sentence
+            if (this.currentQuestionIndex < this.currentQuestions.length - 1) {
+                this.nextQuestion();
+            } else {
+                // Move to next sentence
+                this.nextSentenceWithAutoPlay();
+            }
+        }, 1200);
     }
     
     /**
@@ -272,6 +313,27 @@ export class ListeningApp {
         if (this.currentCueIndex < this.vttCues.length - 1) {
             this.audioPlayer.goToNextSentence();
         } else {
+            this.showResults();
+        }
+    }
+    
+    /**
+     * Navigate to next sentence with auto-play support
+     */
+    nextSentenceWithAutoPlay() {
+        if (this.currentCueIndex < this.vttCues.length - 1) {
+            // Use the audio player's navigation method
+            this.audioPlayer.goToNextSentence();
+            
+            // Handle auto-play
+            if (this.autoPlayEnabled) {
+                // Small delay before playing
+                setTimeout(() => {
+                    this.audioPlayer.playCurrentSentence();
+                }, 300);
+            }
+        } else {
+            // End of lesson
             this.showResults();
         }
     }
@@ -328,6 +390,19 @@ export class ListeningApp {
     }
 
     /**
+     * Toggle auto-play mode
+     */
+    toggleAutoPlay() {
+        this.autoPlayEnabled = !this.autoPlayEnabled;
+        const autoPlayBtn = DOMHelpers.getElementById('autoPlayBtn');
+        if (autoPlayBtn) {
+            DOMHelpers.toggleClass(autoPlayBtn, 'active', this.autoPlayEnabled);
+            autoPlayBtn.title = this.autoPlayEnabled ? 'Auto-Play aktiv' : 'Auto-Play inaktiv';
+        }
+        console.log('Auto-play:', this.autoPlayEnabled ? 'enabled' : 'disabled');
+    }
+
+    /**
      * Update quiz navigation buttons
      */
     updateQuizNavigation() {
@@ -381,21 +456,29 @@ export class ListeningApp {
         const statsSection = DOMHelpers.getElementById('statsSection');
         
         if (statsSection) {
-            // Calculate stats
-            const correct = this.results.filter(r => r.correct).length;
-            const total = this.results.length;
-            const accuracy = total > 0 ? Math.round((correct / total) * 100) : 0;
+            // Calculate overall stats
+            const accuracy = this.sessionScore.total > 0 
+                ? Math.round((this.sessionScore.correct / this.sessionScore.total) * 100) 
+                : 0;
             
             // Update display
-            DOMHelpers.setContent(DOMHelpers.getElementById('correctCount'), correct);
-            DOMHelpers.setContent(DOMHelpers.getElementById('wrongCount'), total - correct);
+            DOMHelpers.setContent(DOMHelpers.getElementById('correctCount'), this.sessionScore.correct);
+            DOMHelpers.setContent(DOMHelpers.getElementById('wrongCount'), this.sessionScore.total - this.sessionScore.correct);
             DOMHelpers.setContent(DOMHelpers.getElementById('accuracyPercent'), `${accuracy}%`);
             
             // Show stats
             DOMHelpers.toggleDisplay(statsSection, true);
             
             // Hide quiz area
-            DOMHelpers.toggleDisplay(DOMHelpers.getElementById('questionArea'), false);
+            const quizContainer = DOMHelpers.querySelector('.quiz-container');
+            if (quizContainer) {
+                DOMHelpers.toggleDisplay(quizContainer, false);
+            }
+            
+            // Pause audio
+            this.audioPlayer.pause();
+            
+            console.log('Session complete. Score:', this.sessionScore);
         }
     }
     
@@ -407,9 +490,19 @@ export class ListeningApp {
         this.results = [];
         this.audioPlayer.reset();
         
-        // Hide stats
+        // Reset scores
+        this.sessionScore = {
+            correct: 0,
+            total: 0,
+            byMode: {}
+        };
+        
+        // Hide stats and show quiz
         DOMHelpers.toggleDisplay(DOMHelpers.getElementById('statsSection'), false);
-        DOMHelpers.toggleDisplay(DOMHelpers.getElementById('questionArea'), true);
+        const quizContainer = DOMHelpers.querySelector('.quiz-container');
+        if (quizContainer) {
+            DOMHelpers.toggleDisplay(quizContainer, true);
+        }
         
         // Reload first question
         this.handleSentenceChange(0, this.vttCues[0]);

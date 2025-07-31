@@ -248,7 +248,7 @@ body {
 }
 
 .hint-display {
-    margin: 20px 0;
+    margin: 20px auto;
     padding: 16px 20px;
     background: linear-gradient(135deg, #fef7ff 0%, #f0f9ff 100%);
     border: 2px solid #e879f9;
@@ -256,6 +256,7 @@ body {
     text-align: center;
     box-shadow: 0 4px 12px rgba(232, 121, 249, 0.1);
     transition: all 0.3s ease;
+    max-width: 800px;
 }
 
 .hint-content {
@@ -565,6 +566,27 @@ body {
     background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%) !important;
     box-shadow: 0 6px 20px rgba(239, 68, 68, 0.5) !important;
     transform: translateY(-1px) !important;
+}
+
+/* Auto-play button states */
+#autoPlayBtn {
+    position: relative;
+}
+
+#autoPlayBtn.active {
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%) !important;
+    color: white !important;
+    box-shadow: 0 4px 16px rgba(34, 197, 94, 0.4) !important;
+    border: 2px solid #16a34a !important;
+}
+
+#autoPlayBtn.active::after {
+    content: '⟲';
+    position: absolute;
+    font-size: 10px;
+    bottom: 2px;
+    right: 2px;
+    color: white;
 }
 
 /* Hide any sentence counter text */
