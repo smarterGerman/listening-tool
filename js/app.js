@@ -201,6 +201,7 @@ export class ListeningApp {
         this.updateProgress();
         
         console.log('handleSentenceChange - cue:', cue);
+        console.log('cue.questions:', cue ? cue.questions : 'no cue');
         console.log('Current mode:', this.currentMode);
 
         // Load questions for this sentence

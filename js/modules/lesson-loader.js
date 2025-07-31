@@ -117,33 +117,55 @@ export class LessonLoader {
                 return null;
             }
             
-            // Get the content line
+            // Collect all lines for this cue
             let text = '';
-            let questions = [];
+            let jsonString = '';
+            let collectingJson = false;
             let textLineIndex = lineIndex + 1;
             
-            if (textLineIndex < allLines.length) {
-                const contentLine = allLines[textLineIndex].trim();
+            while (textLineIndex < allLines.length) {
+                const line = allLines[textLineIndex].trim();
                 
-                if (contentLine) {
-                    // Check if the line contains JSON data
-                    if (contentLine.includes('{"questions"')) {
-                        // Extract the sentence text (everything before the JSON)
-                        const jsonStart = contentLine.indexOf('{"questions"');
-                        text = contentLine.substring(0, jsonStart).trim();
-                        
-                        // Parse the JSON part
-                        try {
-                            const jsonString = contentLine.substring(jsonStart);
-                            const data = JSON.parse(jsonString);
-                            questions = data.questions || [];
-                        } catch (e) {
-                            console.error('Failed to parse questions JSON:', e);
-                        }
-                    } else {
-                        // No JSON, just text
-                        text = contentLine;
+                // Stop at empty line or next cue (but only if we're not collecting JSON)
+                if (!collectingJson && (line === '' || line.includes('-->'))) {
+                    break;
+                }
+                
+                // Check if this line starts JSON
+                if (line.startsWith('{"questions"')) {
+                    collectingJson = true;
+                    jsonString = line;
+                } else if (collectingJson) {
+                    // Continue collecting JSON lines
+                    jsonString += '\n' + line;
+                    
+                    // Check if JSON is complete by counting braces
+                    const openBraces = (jsonString.match(/{/g) || []).length;
+                    const closeBraces = (jsonString.match(/}/g) || []).length;
+                    
+                    if (openBraces === closeBraces && openBraces > 0) {
+                        collectingJson = false;
+                        break;
                     }
+                } else if (!collectingJson && line !== '') {
+                    // This is the sentence text
+                    if (text) text += ' ';
+                    text += line;
+                }
+                
+                textLineIndex++;
+            }
+            
+            // Parse questions if we found JSON
+            let questions = [];
+            if (jsonString) {
+                try {
+                    const data = JSON.parse(jsonString);
+                    questions = data.questions || [];
+                    console.log('Successfully parsed questions:', questions.length);
+                } catch (e) {
+                    console.error('Failed to parse questions JSON:', e);
+                    console.error('JSON string was:', jsonString);
                 }
             }
             
@@ -152,15 +174,14 @@ export class LessonLoader {
                 return null;
             }
             
-            return {
+            const result = {
                 start: startTime,
                 end: endTime,
                 text: text.trim(),
                 questions: questions
             };
-
+            
             console.log('Parsed cue:', result);
-            console.log('Questions found:', questions.length);
             
             return result;
             
