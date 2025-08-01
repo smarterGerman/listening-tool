@@ -133,8 +133,12 @@ export class ListeningApp {
         }
         
         // Feedback toggle button
+        console.log('Looking for feedback toggle button...');
         const feedbackToggle = DOMHelpers.getElementById('feedbackToggle');
+        console.log('Feedback toggle found:', feedbackToggle);
+        
         if (feedbackToggle) {
+            console.log('Initializing feedback toggle...');
             // Set initial state from localStorage or default to true
             this.feedbackEnabled = localStorage.getItem('feedbackEnabled') !== 'false';
             DOMHelpers.toggleClass(feedbackToggle, 'active', this.feedbackEnabled);
@@ -144,6 +148,8 @@ export class ListeningApp {
                 DOMHelpers.toggleClass(feedbackToggle, 'active', this.feedbackEnabled);
                 localStorage.setItem('feedbackEnabled', this.feedbackEnabled);
             });
+        } else {
+            console.error('FEEDBACK TOGGLE BUTTON NOT FOUND IN DOM!');
         }
     }
     
