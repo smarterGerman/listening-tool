@@ -812,6 +812,42 @@ body {
     color: #374151;
 }
 
+/* Translation system */
+.translatable {
+    cursor: context-menu;
+    border-bottom: 1px dotted #60a5fa;
+    position: relative;
+}
+
+.translation-tooltip {
+    position: fixed;
+    background: #1f2937;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    white-space: nowrap;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    display: none;
+    pointer-events: none;
+    transform: translateX(-50%) translateY(-100%);
+}
+
+.translation-tooltip.show {
+    display: block;
+}
+
+.translation-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: #1f2937;
+}
+
 /* Desktop confirmation */
 @media (min-width: 601px) {
     #speedBtn {

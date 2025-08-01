@@ -20,10 +20,13 @@ export class QuizController {
         // Callbacks
         this.onAnswer = null;
         this.onNext = null;
-        this.onAnswer = null;
-        this.onNext = null;
         this.onPrevQuestion = null;
         this.onNextQuestion = null;
+        
+        // Translation system
+        this.translationTooltip = null;
+        this.longPressTimer = null;
+        this.currentTranslations = {};
     }
     
     /**
@@ -64,6 +67,87 @@ export class QuizController {
                 }
             });
         }
+        
+        // Initialize translation system
+        this.initializeTranslationSystem();
+    }
+
+    /**
+     * Initialize translation system
+     */
+    initializeTranslationSystem() {
+        // Create tooltip element
+        this.translationTooltip = DOMHelpers.createElement('div', {
+            className: 'translation-tooltip',
+            id: 'translationTooltip'
+        });
+        document.body.appendChild(this.translationTooltip);
+        
+        // Right-click handler
+        document.addEventListener('contextmenu', (e) => {
+            const target = e.target.closest('.translatable');
+            if (target) {
+                e.preventDefault();
+                this.showTranslation(target);
+            }
+        });
+        
+        // Touch handlers for mobile
+        document.addEventListener('touchstart', (e) => {
+            const target = e.target.closest('.translatable');
+            if (target) {
+                this.longPressTimer = setTimeout(() => {
+                    this.showTranslation(target);
+                }, 800);
+            }
+        });
+        
+        document.addEventListener('touchend', () => {
+            clearTimeout(this.longPressTimer);
+        });
+        
+        document.addEventListener('touchmove', () => {
+            clearTimeout(this.longPressTimer);
+        });
+        
+        // Hide tooltip on any click
+        document.addEventListener('click', () => {
+            this.hideTranslation();
+        });    
+     }
+    
+    /**
+     * Show translation tooltip
+     */
+    showTranslation(element) {
+        const translation = element.dataset.translation;
+        if (translation && this.translationTooltip) {
+            this.translationTooltip.textContent = translation;
+            
+            // Position tooltip above the element
+            const rect = element.getBoundingClientRect();
+            const tooltipX = rect.left + (rect.width / 2);
+            const tooltipY = rect.top - 10;
+            
+            this.translationTooltip.style.left = tooltipX + 'px';
+            this.translationTooltip.style.top = tooltipY + 'px';
+            
+            this.translationTooltip.classList.add('show');
+            
+            // Auto-hide after 2 seconds
+            setTimeout(() => {
+                this.hideTranslation();
+            }, 2000);
+        }
+    }
+    
+    /**
+     * Hide translation tooltip
+     */
+    hideTranslation() {
+        if (this.translationTooltip) {
+            this.translationTooltip.classList.remove('show');
+        }
     }
     
     /**
@@ -77,9 +161,15 @@ export class QuizController {
         // Reset UI
         this.resetUI();
         
-        // Display question
+        // Display question with translations
         if (this.questionText) {
-            DOMHelpers.setContent(this.questionText, question.question);
+            if (question.questionTranslations) {
+                // Create question with translatable words
+                const questionHTML = this.createTranslatableText(question.question, question.questionTranslations);
+                DOMHelpers.setContent(this.questionText, questionHTML, true);
+            } else {
+                DOMHelpers.setContent(this.questionText, question.question);
+            }
         }
         
         // Display options
@@ -89,7 +179,13 @@ export class QuizController {
                 const optionText = btn.querySelector('.option-text');
                 
                 if (optionText) {
-                    DOMHelpers.setContent(optionText, option);
+                    if (question.optionTranslations) {
+                        // Create option with translatable words
+                        const optionHTML = this.createTranslatableText(option, question.optionTranslations);
+                        DOMHelpers.setContent(optionText, optionHTML, true);
+                    } else {
+                        DOMHelpers.setContent(optionText, option);
+                    }
                 }
                 
                 // Initially disable until audio plays
@@ -107,6 +203,28 @@ export class QuizController {
         
         // Hide feedback
         DOMHelpers.toggleDisplay(this.feedbackArea, false);
+    }
+    
+    /**
+     * Create HTML with translatable words
+     */
+    createTranslatableText(text, translations) {
+        if (!translations || Object.keys(translations).length === 0) {
+            return text;
+        }
+        
+        // Create a regex pattern for all translatable words
+        const words = Object.keys(translations);
+        const pattern = new RegExp(`\\b(${words.join('|')})\\b`, 'g');
+        
+        // Replace each word with a translatable span
+        return text.replace(pattern, (match) => {
+            const translation = translations[match];
+            if (translation) {
+                return `<span class="translatable" data-translation="${translation}">${match}</span>`;
+            }
+            return match;
+        });
     }
     
     /**
