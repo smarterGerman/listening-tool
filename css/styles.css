@@ -810,7 +810,6 @@ body {
     justify-content: center;
     gap: 16px;
     margin-bottom: 16px;
-    position: relative;
 }
 
 .quiz-nav-btn {
@@ -853,7 +852,6 @@ body {
     border-radius: 12px;
     min-width: 300px;
     max-width: 600px;
-    flex: 1;
     font-weight: 500;
 }
 
