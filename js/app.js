@@ -32,9 +32,6 @@ export class ListeningApp {
 // Auto-play state
         this.autoPlayEnabled = true;
         
-        // Feedback enabled state
-        this.feedbackEnabled = true;
-        
         // Score tracking
         this.sessionScore = {
             correct: 0,
