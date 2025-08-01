@@ -871,7 +871,7 @@ body {
     font-size: 16px;
     transition: all 0.2s ease;
     position: absolute;
-    right: -50px;
+    right: 10px;
 }
 
 .feedback-toggle:hover {
