@@ -58,9 +58,12 @@ Previous sentence">‹</button>
 
             <!-- COMPREHENSION SECTION -->
             <div class="comprehension-section">
-                <!-- Hint display (reused from dictation tool) -->
-                <div class="hint-display" id="hintDisplay" style="display: none;">
-                    <div class="hint-content" id="hintContent"></div>
+                <!-- Hint Container - Always present, fixed height -->
+                <div class="hint-container">
+                    <div class="hint-display" id="hintDisplay">
+                        <div class="hint-content" id="hintContent"></div>
+                        <button class="hint-close" id="hintCloseBtn">×</button>
+                    </div>
                 </div>
 
                 <!-- QUIZ CONTAINER -->

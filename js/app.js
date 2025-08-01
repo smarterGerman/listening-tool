@@ -117,6 +117,12 @@ export class ListeningApp {
             DOMHelpers.addEventListener(hintBtn, 'click', () => this.showHint());
         }
         
+        // Hint close button
+        const hintCloseBtn = DOMHelpers.getElementById('hintCloseBtn');
+        if (hintCloseBtn) {
+            DOMHelpers.addEventListener(hintCloseBtn, 'click', () => this.hideHint());
+        }
+        
         // Restart button
         const restartBtn = DOMHelpers.getElementById('restartBtn');
         if (restartBtn) {
@@ -223,6 +229,9 @@ export class ListeningApp {
         this.currentCueIndex = index;
         this.updateProgress();
         
+        // Hide hint when changing sentences
+        this.hideHint();
+
         console.log('handleSentenceChange - cue:', cue);
         console.log('cue.questions:', cue ? cue.questions : 'no cue');
         console.log('Current mode:', this.currentMode);
@@ -354,12 +363,24 @@ export class ListeningApp {
         if (hintDisplay && hintContent && this.vttCues[this.currentCueIndex]) {
             const text = this.vttCues[this.currentCueIndex].text;
             DOMHelpers.setContent(hintContent, text);
-            DOMHelpers.toggleDisplay(hintDisplay, true);
+            
+            // Use class instead of display property for smooth animation
+            DOMHelpers.toggleClass(hintDisplay, 'show', true);
             
             // Auto-hide
             setTimeout(() => {
-                DOMHelpers.toggleDisplay(hintDisplay, false);
+                DOMHelpers.toggleClass(hintDisplay, 'show', false);
             }, CONFIG.hintAutoHideDelay);
+        }
+    }
+
+    /**
+     * Hide transcript hint
+     */
+    hideHint() {
+        const hintDisplay = DOMHelpers.getElementById('hintDisplay');
+        if (hintDisplay) {
+            DOMHelpers.toggleClass(hintDisplay, 'show', false);
         }
     }
 
