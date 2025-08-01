@@ -118,8 +118,52 @@ Es ist ein schöner Montagmorgen in Berlin.
     },
     "correct": 1,
     "explanation": "'Montagmorgen' - Montag ist ein typischer Arbeitstag."
+  },
+  {
+    "type": "sequencing",
+    "question": "Was ist die richtige Reihenfolge im Satz?",
+    "questionTranslations": {
+      "Was": "What",
+      "ist": "is",
+      "die": "the",
+      "richtige": "correct",
+      "Reihenfolge": "order",
+      "im": "in the",
+      "Satz": "sentence"
+    },
+    "options": [
+      "Berlin - Morgen - schöner - ist",
+      "Es ist - schöner - Montagmorgen - Berlin",
+      "Montagmorgen - ein - in Berlin - ist",
+      "Es ist - ein schöner - Montagmorgen - in Berlin"
+    ],
+    "optionTranslations": {
+      "schöner": "beautiful",
+      "Morgen": "morning",
+      "Montagmorgen": "Monday morning"
+    },
+    "correct": 3,
+    "explanation": "Die korrekte Wortstellung folgt dem deutschen Satzbau: Subjekt-Verb-Objekt mit Ortsangabe."
+  },
+  {
+    "type": "gapfill",
+    "question": "Welches Wort fehlt? 'Es ist ein _____ Montagmorgen in Berlin.'",
+    "questionTranslations": {
+      "Welches": "Which",
+      "Wort": "word",
+      "fehlt": "is missing"
+    },
+    "options": ["schlechter", "schöner", "kalter", "langer"],
+    "optionTranslations": {
+      "schlechter": "bad",
+      "schöner": "beautiful/nice",
+      "kalter": "cold",
+      "langer": "long"
+    },
+    "correct": 1,
+    "explanation": "Im Satz heißt es 'ein schöner Montagmorgen' - das Adjektiv beschreibt einen angenehmen Morgen."
   }
-]}
+]} 
 
 2
 00:00:02.273 --> 00:00:06.141
