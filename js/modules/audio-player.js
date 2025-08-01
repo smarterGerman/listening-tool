@@ -165,10 +165,10 @@ export class AudioPlayer {
         
         // Click on play button still works for play/pause
         this.playBtn.addEventListener('click', (e) => {
-            // Only toggle playback if not dragging
-            if (currentX < 10) {
-                this.togglePlayback();
-            }
+            // Toggle playback unless actively dragging
+        if (!isDragging) {
+        this.togglePlayback();
+        }
         });
     }
     

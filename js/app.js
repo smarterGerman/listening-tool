@@ -243,6 +243,11 @@ export class ListeningApp {
         // Hide hint when changing sentences
         this.hideHint();
 
+        // Hide feedback when changing sentences
+        if (this.quizController.feedbackArea) {
+            DOMHelpers.toggleClass(this.quizController.feedbackArea, 'show', false);
+        }
+
         console.log('handleSentenceChange - cue:', cue);
         console.log('cue.questions:', cue ? cue.questions : 'no cue');
         console.log('Current mode:', this.currentMode);
@@ -317,8 +322,10 @@ export class ListeningApp {
             if (this.currentQuestionIndex < this.currentQuestions.length - 1) {
                 this.nextQuestion();
             } else {
-                // Move to next sentence
-                this.nextSentenceWithAutoPlay();
+                // Move to next sentence only if autoplay is enabled
+            if (this.autoPlayEnabled) {
+            this.nextSentenceWithAutoPlay();
+}
             }
         }, CONFIG.feedbackDelay);
     }
