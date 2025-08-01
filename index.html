@@ -25,16 +25,19 @@
             <div class="audio-section">
                 <div class="audio-controls">
                     <div class="player-pill">
-                        <button class="nav-btn" id="prevBtn" title="Vorheriger Satz">‹</button>
+                        <button class="nav-btn" id="prevBtn" title="Vorheriger Satz
+Previous sentence">‹</button>
                         
                         <!-- Sliding play button container -->
                         <div class="play-button-track" id="playTrack">
                             <div class="play-button-slider" id="playSlider">
-                                <button class="play-btn" id="playBtn" title="Play/Pause (Nach rechts ziehen für Auto-Play)"></button>
+                                <button class="play-btn" id="playBtn" title="Play/Pause (Nach rechts ziehen für Auto-Play)
+Play/Pause (Drag right for Auto-Play)"></button>
                             </div>
                         </div>
                         
-                        <button class="nav-btn" id="nextBtn" title="Nächster Satz">›</button>
+                        <button class="nav-btn" id="nextBtn" title="Nächster Satz
+Next sentence">›</button>
                         
                         <div class="progress-container">
                             <div class="progress-bar" id="progressBar"></div>
@@ -42,9 +45,19 @@
                         
                         <span id="timeDisplay">0:00 / 0:00</span>
                         
-                        <button class="toggle-btn" id="speedBtn" title="Geschwindigkeit">100</button>
+                        <button class="toggle-btn" id="speedBtn" title="Geschwindigkeit
+Speed">100</button>
                         <button class="toggle-btn secondary-btn" id="hintBtn" title="Transkript anzeigen">?</button>
-                        <button class="toggle-btn secondary-btn" id="modeBtn" title="Übungsmodus wechseln">M</button>
+                        <select class="mode-dropdown" id="modeSelect" title="Übungsmodus wählen">
+                            <option value="comprehension">Comprehension</option>
+                            <option value="verb">Verb</option>
+                            <option value="grammar">Grammar</option>
+                            <option value="phonetic">Phonetic</option>
+                            <option value="inference">Inference</option>
+                            <option value="context">Context</option>
+                            <option value="sequencing">Sequencing</option>
+                            <option value="gapfill">Gap Fill</option>
+                        </select>
                     </div>
                 </div>
                 <audio id="audioPlayer" preload="auto"></audio>
@@ -61,9 +74,11 @@
                 <div class="quiz-container">
                     <!-- Question with navigation -->
                     <div class="question-wrapper">
-                        <button class="quiz-nav-btn" id="prevQuizBtn" title="Vorherige Frage">‹</button>
+                        <button class="quiz-nav-btn" id="prevQuizBtn" title="Vorherige Frage
+Previous question">‹</button>
                         <div class="question-text" id="questionText">Keine Fragen für diesen Satz vorhanden.</div>
-                        <button class="quiz-nav-btn" id="nextQuizBtn" title="Nächste Frage">›</button>
+                        <button class="quiz-nav-btn" id="nextQuizBtn" title="Nächste Frage
+Next question">›</button>
                     </div>
                     
                     <div class="quiz-subtitle">Wählen Sie die beste Option</div>
@@ -93,12 +108,14 @@
                         <div class="feedback-content" id="feedbackContent"></div>
                     </div>
                 </div>
+            </div>
 
             <!-- STATS SECTION (simplified) -->
             <div class="stats-section" id="statsSection" style="display: none;">
                 <div class="stats-header">
                     <div class="stats-title">Ergebnisse</div>
-                    <button class="stats-action-btn restart-btn" id="restartBtn" title="Neu starten">↻</button>
+                    <button class="stats-action-btn restart-btn" id="restartBtn" title="Neu starten
+Restart">↻</button>
                 </div>
                 <div class="stats">
                     <div class="stat-item">

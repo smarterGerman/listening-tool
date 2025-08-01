@@ -228,6 +228,32 @@ body {
     color: white !important;
 }
 
+.mode-dropdown {
+    height: 36px;
+    padding: 0 12px;
+    font-size: 14px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
+    border: 2px solid rgba(59, 130, 246, 0.4);
+    border-radius: 20px;
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+    min-width: 120px;
+}
+
+.mode-dropdown:hover {
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 50%, #cbd5e1 100%);
+    border-color: rgba(59, 130, 246, 0.6);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.mode-dropdown:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
 .progress-container { 
     flex: 1;
     height: 12px;
@@ -509,6 +535,13 @@ body {
         width: 36px !important;
         height: 36px !important;
         font-size: 12px !important;
+    }
+
+    .mode-dropdown {
+        min-width: 90px !important;
+        height: 32px !important;
+        font-size: 12px !important;
+        padding: 0 8px !important;
     }
     
     .progress-container {

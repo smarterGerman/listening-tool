@@ -24,6 +24,7 @@ export class ListeningApp {
         this.results = [];
         this.currentQuestions = [];
         this.currentQuestionIndex = 0;
+        
         // Add these new properties
         this.currentQuestions = [];
         this.currentQuestionIndex = 0;
@@ -96,14 +97,18 @@ export class ListeningApp {
         this.loadingOverlay = DOMHelpers.getElementById('loadingOverlay');
         this.progressText = DOMHelpers.getElementById('progressText');
         
-        // Mode button
-        const modeBtn = DOMHelpers.getElementById('modeBtn');
-        if (modeBtn) {
-            DOMHelpers.addEventListener(modeBtn, 'click', () => this.toggleMode());
-            // Set initial mode abbreviation
-            const abbreviation = CONFIG.modeAbbreviations[this.currentMode] || 'I';
-            DOMHelpers.setContent(modeBtn, abbreviation);
-            modeBtn.title = CONFIG.modeNames[this.currentMode];
+        // Mode dropdown
+        const modeSelect = DOMHelpers.getElementById('modeSelect');
+        if (modeSelect) {
+            // Set initial value
+            modeSelect.value = this.currentMode;
+            
+            // Add change event listener
+            DOMHelpers.addEventListener(modeSelect, 'change', (e) => {
+                this.currentMode = e.target.value;
+                this.currentQuestionIndex = 0;
+                this.handleSentenceChange(this.currentCueIndex, this.vttCues[this.currentCueIndex]);
+            });
         }
         
         // Hint button
@@ -356,29 +361,6 @@ export class ListeningApp {
                 DOMHelpers.toggleDisplay(hintDisplay, false);
             }, CONFIG.hintAutoHideDelay);
         }
-    }
-    
-    /**
-     * Toggle exercise mode
-     */
-    toggleMode() {
-        const modes = ['comprehension', 'verb', 'grammar', 'phonetic', 'inference', 'context', 'sequencing', 'gapfill'];
-        const currentIndex = modes.indexOf(this.currentMode);
-        const nextIndex = (currentIndex + 1) % modes.length;
-        
-        this.currentMode = modes[nextIndex];
-        
-        // Update mode button with abbreviation
-        const modeBtn = DOMHelpers.getElementById('modeBtn');
-        if (modeBtn) {
-            const abbreviation = CONFIG.modeAbbreviations[this.currentMode] || 'M';
-            DOMHelpers.setContent(modeBtn, abbreviation);
-            modeBtn.title = CONFIG.modeNames[this.currentMode];
-        }
-        
-        // Reset question index and reload
-        this.currentQuestionIndex = 0;
-        this.handleSentenceChange(this.currentCueIndex, this.vttCues[this.currentCueIndex]);
     }
 
     /**
