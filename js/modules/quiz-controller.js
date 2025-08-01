@@ -202,7 +202,7 @@ export class QuizController {
         }
         
         // Hide feedback
-        DOMHelpers.toggleDisplay(this.feedbackArea, false);
+        DOMHelpers.toggleClass(this.feedbackArea, 'show', false);
     }
     
     /**
@@ -311,17 +311,27 @@ export class QuizController {
     showFeedback(correct) {
         if (!this.feedbackArea || !this.feedbackContent) return;
         
-        let message = correct ? CONFIG.messages.correct : CONFIG.messages.incorrect;
+        // Check if feedback is enabled (passed from parent)
+        const feedbackEnabled = window.listeningApp?.feedbackEnabled ?? true;
+        if (!feedbackEnabled) return;
+        
+        // Create feedback HTML with icon
+        const icon = correct ? '✓' : '✗';
+        const status = correct ? 'Correct!' : 'Incorrect.';
+        let message = `<div class="feedback-icon${correct ? '' : ' incorrect'}">${icon}</div>`;
+        message += `<div class="feedback-content"><strong>${status}</strong>`;
         
         // Add explanation if available
         if (this.currentQuestion.explanation) {
             message += ' ' + this.currentQuestion.explanation;
         }
+        message += '</div>';
         
-        DOMHelpers.setContent(this.feedbackContent, message);
-        DOMHelpers.toggleClass(this.feedbackContent, 'correct', correct);
-        DOMHelpers.toggleClass(this.feedbackContent, 'incorrect', !correct);
-        DOMHelpers.toggleDisplay(this.feedbackArea, true);
+        // Update classes and content
+        DOMHelpers.toggleClass(this.feedbackArea, 'correct', correct);
+        DOMHelpers.toggleClass(this.feedbackArea, 'incorrect', !correct);
+        DOMHelpers.toggleClass(this.feedbackArea, 'show', true);
+        DOMHelpers.setContent(this.feedbackArea, message, true);
     }
     
     /**
@@ -351,6 +361,11 @@ export class QuizController {
             DOMHelpers.toggleClass(btn, 'hidden', false);
             btn.disabled = false;
         });
+        
+        // Hide feedback
+        if (this.feedbackArea) {
+            DOMHelpers.toggleClass(this.feedbackArea, 'show', false);
+        }
     }
     
     /**

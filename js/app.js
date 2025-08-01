@@ -29,8 +29,11 @@ export class ListeningApp {
         this.currentQuestions = [];
         this.currentQuestionIndex = 0;
         
-        // Auto-play state
+// Auto-play state
         this.autoPlayEnabled = true;
+        
+        // Feedback enabled state
+        this.feedbackEnabled = true;
         
         // Score tracking
         this.sessionScore = {
@@ -127,6 +130,20 @@ export class ListeningApp {
         const restartBtn = DOMHelpers.getElementById('restartBtn');
         if (restartBtn) {
             DOMHelpers.addEventListener(restartBtn, 'click', () => this.restart());
+        }
+        
+        // Feedback toggle button
+        const feedbackToggle = DOMHelpers.getElementById('feedbackToggle');
+        if (feedbackToggle) {
+            // Set initial state from localStorage or default to true
+            this.feedbackEnabled = localStorage.getItem('feedbackEnabled') !== 'false';
+            DOMHelpers.toggleClass(feedbackToggle, 'active', this.feedbackEnabled);
+            
+            DOMHelpers.addEventListener(feedbackToggle, 'click', () => {
+                this.feedbackEnabled = !this.feedbackEnabled;
+                DOMHelpers.toggleClass(feedbackToggle, 'active', this.feedbackEnabled);
+                localStorage.setItem('feedbackEnabled', this.feedbackEnabled);
+            });
         }
     }
     
@@ -300,7 +317,7 @@ export class ListeningApp {
             time: Date.now()
         });
         
-        // Auto-advance after feedback (1.2 seconds is standard)
+        // Auto-advance after feedback
         setTimeout(() => {
             // Check if there are more questions for this sentence
             if (this.currentQuestionIndex < this.currentQuestions.length - 1) {
@@ -309,7 +326,7 @@ export class ListeningApp {
                 // Move to next sentence
                 this.nextSentenceWithAutoPlay();
             }
-        }, 1200);
+        }, CONFIG.feedbackDelay);
     }
     
     /**

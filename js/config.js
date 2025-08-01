@@ -57,7 +57,7 @@ export const CONFIG = {
     speedClasses: ['speed-100', 'speed-75', 'speed-50'],
     
     // Answer feedback
-    feedbackDelay: 1500, // Time to show feedback before moving on
+    feedbackDelay: 3500, // Time to show feedback before moving on
     
     // Keyboard shortcuts
     shortcuts: {
@@ -76,12 +76,12 @@ export const CONFIG = {
     
     // Messages
     messages: {
-        selectAnswer: 'Hören Sie den Satz und wählen Sie dann eine Antwort.',
-        correct: 'Richtig!',
-        incorrect: 'Leider falsch.',
-        tryAgain: 'Versuchen Sie es noch einmal.',
-        loading: 'Lade Lektion...',
-        error: 'Ein Fehler ist aufgetreten.',
-        noQuestions: 'Keine Fragen für diesen Satz vorhanden.'
+        selectAnswer: 'Listen to the sentence and then choose an answer.',
+        correct: 'Correct!',
+        incorrect: 'Incorrect.',
+        tryAgain: 'Please try again.',
+        loading: 'Loading lesson...',
+        error: 'An error occurred.',
+        noQuestions: 'No questions available for this sentence.'
     }
 };
