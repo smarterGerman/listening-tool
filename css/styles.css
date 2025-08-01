@@ -241,6 +241,11 @@ body {
     transition: all 0.3s ease;
     outline: none;
     min-width: 120px;
+    text-align: center;
+    text-align-last: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 .mode-dropdown:hover {
