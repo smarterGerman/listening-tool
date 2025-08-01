@@ -316,6 +316,13 @@ export class ListeningApp {
             time: Date.now()
         });
         
+        // Hide feedback after delay
+        setTimeout(() => {
+            if (this.quizController.feedbackArea) {
+                DOMHelpers.toggleClass(this.quizController.feedbackArea, 'show', false);
+            }
+        }, CONFIG.feedbackDelay);
+
         // Auto-advance after feedback
         setTimeout(() => {
             // Check if there are more questions for this sentence
