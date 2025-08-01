@@ -253,10 +253,6 @@ export class ListeningApp {
             return [];
         }
         
-        if (this.currentMode === 'all') {
-            return questions;
-        }
-        
         return questions.filter(q => q.type === this.currentMode);
     }
     
@@ -366,7 +362,7 @@ export class ListeningApp {
      * Toggle exercise mode
      */
     toggleMode() {
-        const modes = ['all', 'comprehension', 'verb', 'grammar', 'phonetic', 'inference', 'context', 'sequencing', 'gapfill'];
+        const modes = ['comprehension', 'verb', 'grammar', 'phonetic', 'inference', 'context', 'sequencing', 'gapfill'];
         const currentIndex = modes.indexOf(this.currentMode);
         const nextIndex = (currentIndex + 1) % modes.length;
         

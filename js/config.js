@@ -13,7 +13,6 @@ export const CONFIG = {
     
     // Exercise modes
     exerciseModes: {
-        ALL: 'all',
         COMPREHENSION: 'comprehension',
         VERB_RECOGNITION: 'verb',
         GRAMMAR_FOCUS: 'grammar',
@@ -26,7 +25,6 @@ export const CONFIG = {
     
     // Mode display names
     modeNames: {
-        all: 'Alle Fragen',
         comprehension: 'Inhaltsverständnis',
         verb: 'Verb-Erkennung',
         grammar: 'Grammatik-Fokus',
@@ -39,7 +37,6 @@ export const CONFIG = {
     
     // Mode abbreviations for button display
     modeAbbreviations: {
-        all: 'A',
         comprehension: 'I',
         verb: 'V',
         grammar: 'G',
