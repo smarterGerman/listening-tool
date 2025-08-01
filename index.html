@@ -51,6 +51,7 @@ Previous sentence">‹</button>
                             <option value="sequencing">Sequencing</option>
                             <option value="gapfill">Gap Fill</option>
                         </select>
+                        <button class="feedback-toggle" id="feedbackToggle" title="Feedback ein/aus">💬</button>
                     </div>
                 </div>
                 <audio id="audioPlayer" preload="auto"></audio>
@@ -70,7 +71,8 @@ Previous sentence">‹</button>
                 <div class="quiz-container">
                     <!-- Question -->
                     <div class="question-wrapper">
-                    <div class="question-text" id="questionText">Keine Fragen für diesen Satz vorhanden.</div>
+                        <div class="question-text" id="questionText">Keine Fragen für diesen Satz vorhanden.</div>
+                        <button class="feedback-toggle active" id="feedbackToggle" title="Answer feedback on/off">👍</button>
                     </div>
                     
                     <!-- Answer options in 2x2 grid -->
