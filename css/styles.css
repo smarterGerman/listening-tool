@@ -321,13 +321,14 @@ body {
     font-weight: 600;
 }
 
-/* Hint Container - Always takes up space */
+//* Hint Container - Always takes up space */
 .hint-container {
     height: 70px;
     margin-bottom: 10px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+    padding-top: 10px;
 }
 
 /* Hint Display */
