@@ -543,6 +543,14 @@ body {
         right: 10px;
     }
 
+     /* Feedback toggle mobile adjustment */
+    .feedback-toggle {
+        width: 32px !important;
+        height: 32px !important;
+        font-size: 14px !important;
+        right: -40px !important;
+    }
+
 .stat-item {
     background: linear-gradient(135deg, #fefefe 0%, #f8fafc 100%);
     border: 2px solid rgba(168, 85, 247, 0.2);
