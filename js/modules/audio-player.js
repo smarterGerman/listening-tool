@@ -17,7 +17,6 @@ export class AudioPlayer {
         this.prevBtn = null;
         this.nextBtn = null;
         this.speedBtn = null;
-        this.progressBar = null;
         this.timeDisplay = null;
         
         // Callbacks
@@ -38,7 +37,6 @@ export class AudioPlayer {
         this.prevBtn = DOMHelpers.getElementById('prevBtn');
         this.nextBtn = DOMHelpers.getElementById('nextBtn');
         this.speedBtn = DOMHelpers.getElementById('speedBtn');
-        this.progressBar = DOMHelpers.getElementById('progressBar');
         this.timeDisplay = DOMHelpers.getElementById('timeDisplay');
         
         this.setupEventListeners();
@@ -374,16 +372,13 @@ export class AudioPlayer {
     /**
      * Update progress display
      */
-    updateProgress() {
-        if (!this.audio || !this.timeDisplay || !this.progressBar) return;
+updateProgress() {
+        if (!this.audio || !this.timeDisplay) return;
         
         const currentTime = this.audio.currentTime;
         const duration = this.audio.duration;
         
         if (duration && !isNaN(duration)) {
-            const progress = (currentTime / duration) * 100;
-            this.progressBar.style.width = progress + '%';
-            
             const formatTime = (time) => {
                 const minutes = Math.floor(time / 60);
                 const seconds = Math.floor(time % 60);
