@@ -132,61 +132,8 @@ export class ListeningApp {
             DOMHelpers.addEventListener(restartBtn, 'click', () => this.restart());
         }
         
-        // Feedback toggle button
-        console.log('=== FEEDBACK BUTTON DEBUG ===');
-        const feedbackToggle = DOMHelpers.getElementById('feedbackToggle');
-        console.log('1. Element found:', feedbackToggle);
-        
-        if (feedbackToggle) {
-            console.log('2. Element details:');
-            console.log('   - Tag:', feedbackToggle.tagName);
-            console.log('   - ID:', feedbackToggle.id);
-            console.log('   - Class:', feedbackToggle.className);
-            console.log('   - Parent:', feedbackToggle.parentElement);
-            console.log('   - Text content:', feedbackToggle.textContent);
-            console.log('   - Is visible:', feedbackToggle.offsetParent !== null);
-            
-            // Get computed styles
-            const styles = window.getComputedStyle(feedbackToggle);
-            console.log('3. Computed styles:');
-            console.log('   - Display:', styles.display);
-            console.log('   - Position:', styles.position);
-            console.log('   - Width:', styles.width);
-            console.log('   - Height:', styles.height);
-            console.log('   - Top:', styles.top);
-            console.log('   - Right:', styles.right);
-            console.log('   - Bottom:', styles.bottom);
-            console.log('   - Left:', styles.left);
-            console.log('   - Z-index:', styles.zIndex);
-            console.log('   - Background:', styles.background);
-            console.log('   - Visibility:', styles.visibility);
-            console.log('   - Opacity:', styles.opacity);
-            
-            // Get bounding rect
-            const rect = feedbackToggle.getBoundingClientRect();
-            console.log('4. Bounding rect:');
-            console.log('   - Top:', rect.top);
-            console.log('   - Right:', rect.right);
-            console.log('   - Bottom:', rect.bottom);
-            console.log('   - Left:', rect.left);
-            console.log('   - Width:', rect.width);
-            console.log('   - Height:', rect.height);
-            console.log('   - In viewport:', rect.top < window.innerHeight && rect.bottom > 0 && rect.left < window.innerWidth && rect.right > 0);
-            
-            // Set initial state from localStorage or default to true
-            this.feedbackEnabled = localStorage.getItem('feedbackEnabled') !== 'false';
-            DOMHelpers.toggleClass(feedbackToggle, 'active', this.feedbackEnabled);
-            
-            DOMHelpers.addEventListener(feedbackToggle, 'click', () => {
-                console.log('FEEDBACK BUTTON CLICKED!');
-                this.feedbackEnabled = !this.feedbackEnabled;
-                DOMHelpers.toggleClass(feedbackToggle, 'active', this.feedbackEnabled);
-                localStorage.setItem('feedbackEnabled', this.feedbackEnabled);
-            });
-        } else {
-            console.error('FEEDBACK TOGGLE BUTTON NOT FOUND IN DOM!');
-        }
-        console.log('=== END FEEDBACK DEBUG ===');
+        // Feedback is always enabled
+        this.feedbackEnabled = true;
     }
     
     /**
@@ -203,6 +150,14 @@ export class ListeningApp {
             },
             onSentenceChange: (index, cue) => {
                 this.handleSentenceChange(index, cue);
+            },
+            onNext: () => {
+            
+                // If question is answered, skip to next sentence
+                if (this.quizController.isAnswered) {
+                    return true; // Allow skip
+                }
+                return false; // Don't skip if not answered
             },
             onSentenceEnd: () => {
                 this.quizController.enableAnswers();

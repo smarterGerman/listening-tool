@@ -311,9 +311,7 @@ export class QuizController {
     showFeedback(correct) {
         if (!this.feedbackArea || !this.feedbackContent) return;
         
-        // Check if feedback is enabled (passed from parent)
-        const feedbackEnabled = window.listeningApp?.feedbackEnabled ?? true;
-        if (!feedbackEnabled) return;
+        // Always show feedback
         
         // Create feedback HTML with icon
         const icon = correct ? '✓' : '✗';
