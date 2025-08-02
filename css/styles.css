@@ -989,3 +989,21 @@ body {
         font-size: 14px !important;
     }
 }
+
+/* DEBUGGING - Remove after fixing */
+.audio-section {
+    border: 3px solid red !important;
+}
+
+.hint-container {
+    border: 3px solid green !important;
+    background: yellow !important;
+}
+
+.quiz-container {
+    border: 3px solid blue !important;
+}
+
+.comprehension-section {
+    border: 3px solid purple !important;
+}
