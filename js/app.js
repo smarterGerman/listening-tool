@@ -30,7 +30,7 @@ export class ListeningApp {
         this.currentQuestionIndex = 0;
         
 // Auto-play state
-        this.autoPlayEnabled = true;
+        this.autoPlayEnabled = false;
         
         // Score tracking
         this.sessionScore = {

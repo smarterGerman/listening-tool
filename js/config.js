@@ -57,7 +57,7 @@ export const CONFIG = {
     speedClasses: ['speed-100', 'speed-75', 'speed-50'],
     
     // Answer feedback
-    feedbackDelay: 3500, // Time to show feedback before moving on
+    feedbackDelay: 2000, // Time to show feedback before moving on
     
     // Keyboard shortcuts
     shortcuts: {
