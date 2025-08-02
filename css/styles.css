@@ -48,6 +48,17 @@ body {
     flex-shrink: 0;
 }
 
+/* ----- HINT SECTION (standalone between audio and quiz) ------ */
+.hint-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+}
+
 .audio-controls { 
     display: flex; 
     flex-direction: column;
@@ -295,7 +306,7 @@ body {
     flex-direction: column;
     overflow: hidden;
     min-height: 0;
-    padding: 30px 20px 0 20px;
+    padding: 0 20px;
     max-width: 900px;
     margin: 0 auto;
     width: 100%;
@@ -988,22 +999,4 @@ body {
         height: 36px !important;
         font-size: 14px !important;
     }
-}
-
-/* DEBUGGING - Remove after fixing */
-.audio-section {
-    border: 3px solid red !important;
-}
-
-.hint-container {
-    border: 3px solid green !important;
-    background: yellow !important;
-}
-
-.quiz-container {
-    border: 3px solid blue !important;
-}
-
-.comprehension-section {
-    border: 3px solid purple !important;
 }
