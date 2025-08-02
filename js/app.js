@@ -332,9 +332,7 @@ export class ListeningApp {
                 this.nextQuestion();
             } else {
                 // Move to next sentence only if autoplay is enabled
-            if (this.autoPlayEnabled) {
             this.nextSentenceWithAutoPlay();
-}
             }
         }, CONFIG.feedbackDelay);
     }
