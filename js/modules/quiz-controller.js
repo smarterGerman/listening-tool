@@ -329,6 +329,7 @@ export class QuizController {
         DOMHelpers.toggleClass(this.feedbackArea, 'correct', correct);
         DOMHelpers.toggleClass(this.feedbackArea, 'incorrect', !correct);
         DOMHelpers.toggleClass(this.feedbackArea, 'show', true);
+        DOMHelpers.toggleDisplay(this.feedbackArea, true, 'flex');
         DOMHelpers.setContent(this.feedbackArea, message, true);
     }
     
@@ -363,6 +364,7 @@ export class QuizController {
         // Hide feedback
         if (this.feedbackArea) {
             DOMHelpers.toggleClass(this.feedbackArea, 'show', false);
+            DOMHelpers.toggleDisplay(this.feedbackArea, false);
         }
     }
     

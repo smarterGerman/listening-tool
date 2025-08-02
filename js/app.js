@@ -320,6 +320,8 @@ export class ListeningApp {
         setTimeout(() => {
             if (this.quizController.feedbackArea) {
                 DOMHelpers.toggleClass(this.quizController.feedbackArea, 'show', false);
+                // Also hide the element completely
+                DOMHelpers.toggleDisplay(this.quizController.feedbackArea, false);
             }
         }, CONFIG.feedbackDelay);
 
