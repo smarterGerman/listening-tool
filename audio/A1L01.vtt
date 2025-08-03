@@ -22,17 +22,18 @@ Es ist ein schöner Montagmorgen in Berlin.
       "Wien": "Vienna"
     },
     "correct": 1,
-    "explanation": "Der Satz sagt explizit 'in Berlin'."
+    "explanation": "The text explicitly mentions 'Berlin'"
   },
   {
     "type": "verb",
-    "question": "Welches Verb steht im Satz?",
+    "question": "Welches Verb kommt im Satz vor?",
     "questionTranslations": {
       "Welches": "Which",
       "Verb": "verb",
-      "steht": "appears/is",
+      "kommt": "appears",
       "im": "in the",
-      "Satz": "sentence"
+      "Satz": "sentence",
+      "vor": "occurs"
     },
     "options": ["haben", "sein", "werden", "machen"],
     "optionTranslations": {
@@ -42,11 +43,11 @@ Es ist ein schöner Montagmorgen in Berlin.
       "machen": "to make"
     },
     "correct": 1,
-    "explanation": "'Es ist' - das Verb 'sein' in der 3. Person Singular."
+    "explanation": "'ist' - that's 'sein' (to be) in the 3. person singular."
   },
   {
     "type": "grammar",
-    "question": "Wie endet das Adjektiv 'schöner'?",
+    "question": "Wie endet das Adjektiv 'schön-'?",
     "questionTranslations": {
       "Wie": "How",
       "endet": "ends",
@@ -55,7 +56,7 @@ Es ist ein schöner Montagmorgen in Berlin.
     },
     "options": ["schön", "schöne", "schöner", "schönes"],
     "correct": 2,
-    "explanation": "Maskulin Nominativ: 'ein schöner Morgen' - Adjektiv nach unbestimmtem Artikel endet auf -er."
+    "explanation": "maskulin (m) Nominativ (N): 'ein schöner Morgen' - adjektives after 'ein' (m, N) end auf -er."
   },
   {
     "type": "phonetic",
@@ -70,31 +71,31 @@ Es ist ein schöner Montagmorgen in Berlin.
     },
     "options": ["[s]", "[ʃ]", "[z]", "[ç]"],
     "correct": 1,
-    "explanation": "'Sch' wird als [ʃ] ausgesprochen - ein wichtiger deutscher Laut."
+    "explanation": "'sch' is pronounced [ʃ]"
   },
   {
     "type": "inference",
-    "question": "Was lässt sich über die Stimmung schließen?",
+    "question": "Was lässt sich über die Stimmung sagen?",
     "questionTranslations": {
       "Was": "What",
       "lässt sich": "can be",
       "über": "about",
       "die": "the",
       "Stimmung": "mood",
-      "schließen": "concluded"
+      "sagen": "said"
     },
-    "options": ["Düster und problematisch", "Positiv und hoffnungsvoll", "Neutral", "Stressig und hektisch"],
+    "options": ["düster und problematisch", "positiv und hoffnungsvoll", "neutral", "stressig und hektisch"],
     "optionTranslations": {
-      "Düster": "Gloomy",
+      "düster": "gloomy",
       "problematisch": "problematic",
-      "Positiv": "Positive",
+      "positiv": "positive",
       "hoffnungsvoll": "hopeful",
-      "Neutral": "Neutral",
-      "Stressig": "Stressful",
+      "neutral": "neutral",
+      "stressig": "stressful",
       "hektisch": "hectic"
     },
     "correct": 1,
-    "explanation": "'Schöner Morgen' suggeriert einen positiven Start."
+    "explanation": "The word 'schöner' (beautiful) indicates something positive"
   },
   {
     "type": "context",
@@ -106,18 +107,18 @@ Es ist ein schöner Montagmorgen in Berlin.
       "Handlung": "action",
       "statt": "place"
     },
-    "options": ["Am Wochenende", "An einem Werktag", "Im Urlaub", "Nachts"],
+    "options": ["am Wochenende", "an einem Werktag", "im Urlaub", "nachts"],
     "optionTranslations": {
-      "Am": "On the",
+      "am": "on the",
       "Wochenende": "weekend",
-      "An einem": "On a",
+      "an einem": "on a",
       "Werktag": "workday",
-      "Im": "On",
+      "im": "on",
       "Urlaub": "vacation",
-      "Nachts": "At night"
+      "nachts": "at night"
     },
     "correct": 1,
-    "explanation": "'Montagmorgen' - Montag ist ein typischer Arbeitstag."
+    "explanation": "The text mentions 'ein schöner Montagmorgen' (=monday morning)"
   },
   {
     "type": "sequencing",
@@ -132,18 +133,13 @@ Es ist ein schöner Montagmorgen in Berlin.
       "Satz": "sentence"
     },
     "options": [
-      "Berlin - Morgen - schöner - ist",
-      "Es ist - schöner - Montagmorgen - Berlin",
-      "Montagmorgen - ein - in Berlin - ist",
-      "Es ist - ein schöner - Montagmorgen - in Berlin"
+      "Es ist - ein schöner - Montagmorgen - in Berlin.",
+      "Es ist - schöner - ein Montagmorgen - in Berlin.",
+      "Es ist - ein Montagmorgen - schöner - in Berlin.",
+      "Es ist - ein Montagmorgen - in Berlin - schöner."
     ],
-    "optionTranslations": {
-      "schöner": "beautiful",
-      "Morgen": "morning",
-      "Montagmorgen": "Monday morning"
-    },
-    "correct": 3,
-    "explanation": "Die korrekte Wortstellung folgt dem deutschen Satzbau: Subjekt-Verb-Objekt mit Ortsangabe."
+    "correct": 0,
+    "explanation": "Standard S–V–O word order in a main clause."
   },
   {
     "type": "gapfill",
@@ -153,17 +149,17 @@ Es ist ein schöner Montagmorgen in Berlin.
       "Wort": "word",
       "fehlt": "is missing"
     },
-    "options": ["schlechter", "schöner", "kalter", "langer"],
+    "options": ["schlechter", "schöner", "kalter", "seiner"],
     "optionTranslations": {
       "schlechter": "bad",
       "schöner": "beautiful/nice",
       "kalter": "cold",
-      "langer": "long"
+      "seiner": "his"
     },
     "correct": 1,
-    "explanation": "Im Satz heißt es 'ein schöner Montagmorgen' - das Adjektiv beschreibt einen angenehmen Morgen."
+    "explanation": "The original sentence uses 'schöner'"
   }
-]} 
+]}
 
 2
 00:00:02.273 --> 00:00:06.141
@@ -178,15 +174,15 @@ Die Sonne scheint und die Vögel zwitschern fröhlich in den Bäumen.
       "das": "the",
       "Wetter": "weather"
     },
-    "options": ["Regnerisch", "Sonnig", "Bewölkt", "Stürmisch"],
+    "options": ["regnerisch", "sonnig", "bewölkt", "stürmisch"],
     "optionTranslations": {
-      "Regnerisch": "Rainy",
-      "Sonnig": "Sunny",
-      "Bewölkt": "Cloudy",
-      "Stürmisch": "Stormy"
+      "regnerisch": "rainy",
+      "sonnig": "sunny",
+      "bewölkt": "cloudy",
+      "stürmisch": "stormy"
     },
     "correct": 1,
-    "explanation": "'Die Sonne scheint' bedeutet sonniges Wetter."
+    "explanation": "The text says 'Die Sonne scheint' (=the sun is shining)"
   },
   {
     "type": "verb",
@@ -210,15 +206,16 @@ Die Sonne scheint und die Vögel zwitschern fröhlich in den Bäumen.
       "sprechen": "to speak"
     },
     "correct": 1,
-    "explanation": "'Scheinen' (Sonne) und 'zwitschern' (Vögel) sind die beiden Verben."
+    "explanation": "The verbs are 'scheinen' (=to shine) and 'zwitschern' (=to chirp)."
   },
   {
     "type": "grammar",
-    "question": "Welcher Fall steht nach 'in'?",
+    "question": "Welcher Fall steht hier nach 'in'?",
     "questionTranslations": {
       "Welcher": "Which",
       "Fall": "case",
       "steht": "is used",
+      "hier": "here",
       "nach": "after"
     },
     "options": ["Nominativ", "Akkusativ", "Dativ", "Genitiv"],
@@ -229,7 +226,7 @@ Die Sonne scheint und die Vögel zwitschern fröhlich in den Bäumen.
       "Genitiv": "Genitive"
     },
     "correct": 2,
-    "explanation": "'In den Bäumen' - lokale Präposition 'in' + Dativ Plural (wo?)"
+    "explanation": "2-case preposition + fixed location = Dative – 'in' + wo? = Dative."
   },
   {
     "type": "phonetic",
@@ -238,17 +235,17 @@ Die Sonne scheint und die Vögel zwitschern fröhlich in den Bäumen.
       "Wie": "How",
       "spricht man": "does one pronounce",
       "das": "the",
+      "in": "in",
       "aus": "out"
     },
-    "options": ["wie deutsches 'o'", "wie englisches 'ur'", "wie französisches 'eu'", "wie englisches 'ee'"],
+    "options": ["wie deutsches 'o'", "wie EN 'ur'", "wie EN 'sir'", "wie EN 'ee'"],
     "optionTranslations": {
       "wie": "like",
       "deutsches": "German",
-      "englisches": "English",
-      "französisches": "French"
+      "EN": "English"
     },
     "correct": 2,
-    "explanation": "Das deutsche 'ö' entspricht etwa dem französischen 'eu' in 'peu'."
+    "explanation": "The German 'ö' sounds similar to the vowel in English 'sir'."
   },
   {
     "type": "inference",
@@ -259,16 +256,16 @@ Die Sonne scheint und die Vögel zwitschern fröhlich in den Bäumen.
       "wird": "is",
       "vermittelt": "conveyed"
     },
-    "options": ["Bedrohlich", "Friedlich und idyllisch", "Chaotisch", "Langweilig"],
+    "options": ["bedrohlich", "friedlich und idyllisch", "chaotisch", "langweilig"],
     "optionTranslations": {
-      "Bedrohlich": "Threatening",
-      "Friedlich": "Peaceful",
+      "bedrohlich": "threatening",
+      "friedlich": "peaceful",
       "idyllisch": "idyllic",
-      "Chaotisch": "Chaotic",
-      "Langweilig": "Boring"
+      "chaotisch": "chaotic",
+      "langweilig": "boring"
     },
     "correct": 1,
-    "explanation": "Sonnenschein und fröhlich zwitschernde Vögel erzeugen eine friedliche Stimmung."
+    "explanation": "Sonne and Vögel singen create a peaceful and idyllic mood."
   },
   {
     "type": "context",
@@ -282,16 +279,55 @@ Die Sonne scheint und die Vögel zwitschern fröhlich in den Bäumen.
       "Szene": "scene",
       "wahrscheinlich": "probably"
     },
-    "options": ["Winter", "Frühling/Sommer", "Herbst", "Nicht erkennbar"],
+    "options": ["Winter", "Frühling/Sommer", "Herbst", "nicht klar"],
     "optionTranslations": {
       "Winter": "Winter",
       "Frühling": "Spring",
       "Sommer": "Summer",
       "Herbst": "Autumn",
-      "Nicht erkennbar": "Not recognizable"
+      "nicht klar": "not clear"
     },
     "correct": 1,
-    "explanation": "Vögel zwitschern aktiv und die Sonne scheint - typisch für wärmere Jahreszeiten."
+    "explanation": "Birds chirping and sunshine suggest spring or summer."
+  },
+  {
+    "type": "sequencing",
+    "question": "Was ist die richtige Reihenfolge im Satz?",
+    "questionTranslations": {
+      "Was": "What",
+      "ist": "is",
+      "die": "the",
+      "richtige": "correct",
+      "Reihenfolge": "order",
+      "im": "in the",
+      "Satz": "sentence"
+    },
+    "options": [
+      "Die Sonne - scheint - und - die Vögel - zwitschern - fröhlich - in den Bäumen.",
+      "Die Sonne - scheint - und - fröhlich - zwitschern - die Vögel - in den Bäumen.",
+      "Scheint - die Sonne - und - zwitschern - die Vögel - fröhlich - in den Bäumen.",
+      "Fröhlich - die Sonne - scheint - und - die Vögel - zwitschern - in den Bäumen."
+    ],
+    "correct": 0,
+    "explanation": "Normal main clause S–V–O structure with two coordinated clauses."
+  },
+  {
+    "type": "gapfill",
+    "question": "Welches Wort fehlt? 'Die Sonne _____ und die Vögel zwitschern fröhlich in den Bäumen.'",
+    "questionTranslations": {
+      "Welches": "Which",
+      "Wort": "word",
+      "fehlt": "is missing"
+    },
+    "options": ["regnet", "scheint", "lacht", "scheinten"],
+    "optionTranslations": {
+      "regnet": "rains",
+      "scheint": "shines",
+      "lacht": "laughs",
+      "scheinten": "shone (past)"
+    },
+    "correct": 1,
+    "explanation": "The sun is 'shining' (=scheinen), 'scheinten' would be the past form of 'scheinen'"
   }
 ]}
 
@@ -306,19 +342,18 @@ Simone Tesch fährt in ihr Büro.
       "Wohin": "Where to",
       "fährt": "drives/goes"
     },
-    "options": ["Nach Hause", "Ins Büro", "Zum Bahnhof", "In den Supermarkt"],
+    "options": ["nach Hause", "ins Büro", "zum Bahnhof", "ins Kino"],
     "optionTranslations": {
-      "Nach": "To",
+      "nach": "to",
       "Hause": "home",
-      "Ins": "To the",
+      "ins": "to the",
       "Büro": "office",
-      "Zum": "To the",
+      "zum": "to the",
       "Bahnhof": "train station",
-      "In den": "To the",
-      "Supermarkt": "supermarket"
+      "Kino": "cinema"
     },
     "correct": 1,
-    "explanation": "Simone fährt 'in ihr Büro'."
+    "explanation": "The text says 'fährt in ihr Büro' → she goes to the office."
   },
   {
     "type": "verb",
@@ -339,7 +374,7 @@ Simone Tesch fährt in ihr Büro.
       "fliegen": "to fly"
     },
     "correct": 1,
-    "explanation": "'Fahren' deutet auf Fortbewegung mit einem Fahrzeug hin."
+    "explanation": "'fahren' usually means movement with/in a vehicle."
   },
   {
     "type": "grammar",
@@ -358,7 +393,7 @@ Simone Tesch fährt in ihr Büro.
       "Genitiv": "Genitive"
     },
     "correct": 1,
-    "explanation": "Richtung (wohin?) → 'in' + Akkusativ: 'in ihr Büro'"
+    "explanation": "2-case preposition + direction = Accusative – 'in' + wohin? = Akkusativ."
   },
   {
     "type": "phonetic",
@@ -376,7 +411,7 @@ Simone Tesch fährt in ihr Büro.
       "gleich": "equal"
     },
     "correct": 1,
-    "explanation": "Französischer Name: Si-MO-ne (Betonung auf zweiter Silbe)."
+    "explanation": "Originally a French name: Si-MO-ne (stress on second syllable)."
   },
   {
     "type": "inference",
@@ -387,18 +422,16 @@ Simone Tesch fährt in ihr Büro.
       "wahrscheinlich": "probably",
       "ins": "to the"
     },
-    "options": ["Zu Fuß", "Mit Verkehrsmittel/Auto", "Mit dem Flugzeug", "Schwimmend"],
+    "options": ["zu Fuß", "mit dem Auto", "mit dem Flugzeug", "schwimmend"],
     "optionTranslations": {
-      "Zu Fuß": "On foot",
-      "Mit": "With/By",
-      "Verkehrsmittel": "transportation",
+      "zu Fuß": "on foot",
+      "mit dem": "with the/by",
       "Auto": "car",
-      "dem": "the",
       "Flugzeug": "airplane",
-      "Schwimmend": "Swimming"
+      "schwimmend": "swimming"
     },
     "correct": 1,
-    "explanation": "'Fahren' impliziert die Nutzung eines Fahrzeugs (Auto, Bus, Bahn, etc.)."
+    "explanation": "'fahren' implies vehicle use → likely by car."
   },
   {
     "type": "context",
@@ -411,7 +444,7 @@ Simone Tesch fährt in ihr Büro.
       "Simones": "Simone's",
       "Arbeitssituation": "work situation"
     },
-    "options": ["Sie arbeitet von zu Hause", "Sie hat ein eigenes Büro", "Sie ist arbeitslos", "Sie arbeitet im Freien"],
+    "options": ["Sie arbeitet von zu Hause", "Sie hat ein eigenes Büro", "Sie ist arbeitslos", "Sie arbeitet in einem Co-Working Space"],
     "optionTranslations": {
       "Sie": "She",
       "arbeitet": "works",
@@ -422,11 +455,49 @@ Simone Tesch fährt in ihr Büro.
       "eigenes": "own",
       "ist": "is",
       "arbeitslos": "unemployed",
-      "im": "in the",
-      "Freien": "outdoors"
+      "Co-Working Space": "co-working space"
     },
     "correct": 1,
-    "explanation": "'Ihr Büro' zeigt, dass sie ein eigenes/zugeteiltes Büro hat."
+    "explanation": "The text says 'ihr Büro' → indicates she has her own office."
+  },
+  {
+    "type": "sequencing",
+    "question": "Was ist die richtige Reihenfolge im Satz?",
+    "questionTranslations": {
+      "Was": "What",
+      "ist": "is",
+      "die": "the",
+      "richtige": "correct",
+      "Reihenfolge": "order",
+      "im": "in the",
+      "Satz": "sentence"
+    },
+    "options": [
+      "Simone Tesch - fährt - in - ihr Büro.",
+      "In - ihr Büro - fährt - Simone Tesch.",
+      "Simone Tesch - in ihr Büro - fährt.",
+      "Simone Tesch - fährt - Büro in ihr."
+    ],
+    "correct": 0,
+    "explanation": "Standard S–V–O word order in a main clause."
+  },
+  {
+    "type": "gapfill",
+    "question": "Welches Wort fehlt? 'Simone Tesch _____ in ihr Büro.'",
+    "questionTranslations": {
+      "Welches": "Which",
+      "Wort": "word",
+      "fehlt": "is missing"
+    },
+    "options": ["geht", "fährt", "fliegt", "läuft"],
+    "optionTranslations": {
+      "geht": "goes/walks",
+      "fährt": "drives/goes",
+      "fliegt": "flies",
+      "läuft": "runs/walks"
+    },
+    "correct": 1,
+    "explanation": "The verb 'fährt' reminds us of 'to fare' or 'fare well'"
   }
 ]}
 
@@ -443,27 +514,26 @@ Es gibt viel zu tun.
       "Simones": "Simone's",
       "Arbeitspensum": "workload"
     },
-    "options": ["Wenig zu tun", "Viel zu tun", "Nichts zu tun", "Normal viel"],
+    "options": ["wenig zu tun", "viel zu tun", "nichts zu tun", "normal viel"],
     "optionTranslations": {
-      "Wenig": "Little",
+      "wenig": "little",
       "zu": "to",
       "tun": "do",
-      "Viel": "Much",
-      "Nichts": "Nothing",
-      "Normal": "Normal",
-      "viel": "much"
+      "viel": "much",
+      "nichts": "nothing",
+      "normal": "normal"
     },
     "correct": 1,
-    "explanation": "'Es gibt viel zu tun' bedeutet viel Arbeit."
+    "explanation": "The text literally says 'viel zu tun' → a lot to do."
   },
   {
     "type": "verb",
-    "question": "Welche Verbkonstruktion liegt vor?",
+    "question": "Welche Verbkonstruktion hörst du?",
     "questionTranslations": {
       "Welche": "Which",
       "Verbkonstruktion": "verb construction",
-      "liegt": "is",
-      "vor": "present"
+      "hörst": "hear",
+      "du": "you"
     },
     "options": ["geben + Infinitiv", "es gibt + zu + Infinitiv", "haben + zu + Infinitiv", "sein + zu + Infinitiv"],
     "optionTranslations": {
@@ -474,7 +544,7 @@ Es gibt viel zu tun.
       "sein": "to be"
     },
     "correct": 1,
-    "explanation": "'Es gibt... zu tun' ist eine feste deutsche Konstruktion."
+    "explanation": "The sentence uses the impersonal phrase 'es gibt (=there is) … zu tun (=to do)'."
   },
   {
     "type": "grammar",
@@ -486,15 +556,15 @@ Es gibt viel zu tun.
       "diesem": "this",
       "Satz": "sentence"
     },
-    "options": ["Personalpronomen", "Unpersönliches 'es'", "Demonstrativpronomen", "Possessivpronomen"],
+    "options": ["personal pronoun", "impersonal 'es'", "demonstrative pronoun", "possessiv pronoun"],
     "optionTranslations": {
-      "Personalpronomen": "Personal pronoun",
-      "Unpersönliches": "Impersonal",
-      "Demonstrativpronomen": "Demonstrative pronoun",
-      "Possessivpronomen": "Possessive pronoun"
+      "personal pronoun": "personal pronoun",
+      "impersonal": "impersonal",
+      "demonstrative pronoun": "demonstrative pronoun",
+      "possessiv pronoun": "possessive pronoun"
     },
     "correct": 1,
-    "explanation": "'Es gibt' verwendet das unpersönliche 'es' - kein konkretes Subjekt."
+    "explanation": "'es' here is impersonal; it does not refer to any person or other thing known to us"
   },
   {
     "type": "phonetic",
@@ -504,9 +574,9 @@ Es gibt viel zu tun.
       "wird": "is",
       "ausgesprochen": "pronounced"
     },
-    "options": ["[fi:l]", "[vi:l]", "[fil]", "[wil]"],
+    "options": ["[fiːl]", "[viːl]", "[fil]", "[wil]"],
     "correct": 0,
-    "explanation": "Das deutsche 'v' wird als [f] ausgesprochen: [fi:l]."
+    "explanation": "The German 'v' is pronounced [f], like in English 'feel' [fiːl]."
   },
   {
     "type": "inference",
@@ -519,17 +589,17 @@ Es gibt viel zu tun.
       "Simones": "Simone's",
       "Tag": "day"
     },
-    "options": ["Entspannter Tag", "Stressiger Arbeitstag", "Freier Tag", "Kurzer Arbeitstag"],
+    "options": ["entspannter Tag", "stressiger Arbeitstag", "freier Tag", "kurzer Arbeitstag"],
     "optionTranslations": {
-      "Entspannter": "Relaxed",
+      "entspannter": "relaxed",
       "Tag": "day",
-      "Stressiger": "Stressful",
+      "stressiger": "stressful",
       "Arbeitstag": "workday",
-      "Freier": "Free",
-      "Kurzer": "Short"
+      "freier": "free",
+      "kurzer": "short"
     },
     "correct": 1,
-    "explanation": "Viel Arbeit deutet auf einen arbeitsreichen, möglicherweise stressigen Tag hin."
+    "explanation": "'viel zu tun' implies a busy and stressful day."
   },
   {
     "type": "context",
@@ -540,19 +610,58 @@ Es gibt viel zu tun.
       "man": "one",
       "typischerweise": "typically"
     },
-    "options": ["Im Urlaub", "An Arbeitstagen", "Am Wochenende", "In der Freizeit"],
+    "options": ["im Urlaub", "an Arbeitstagen", "am Wochenende", "in der Freizeit"],
     "optionTranslations": {
-      "Im": "On",
+      "im": "on",
       "Urlaub": "vacation",
-      "An": "On",
+      "an": "on",
       "Arbeitstagen": "workdays",
-      "Am": "On the",
+      "am": "on the",
       "Wochenende": "weekend",
-      "In der": "In the",
+      "in der": "in the",
       "Freizeit": "free time"
     },
     "correct": 1,
-    "explanation": "Diese Phrase bezieht sich typisch auf Arbeitsaufgaben und berufliche Verpflichtungen."
+    "explanation": "This phrase is usually used to describe workdays. Germans don't work on vacation, weekends or in their freetime."
+  },
+  {
+    "type": "sequencing",
+    "question": "Was ist die richtige Reihenfolge im Satz?",
+    "questionTranslations": {
+      "Was": "What",
+      "ist": "is",
+      "die": "the",
+      "richtige": "correct",
+      "Reihenfolge": "order",
+      "im": "in the",
+      "Satz": "sentence"
+    },
+    "options": [
+      "Es - gibt - viel - zu tun.",
+      "Viel - zu tun - gibt - es.",
+      "Gibt - es - viel - zu tun.",
+      "Zu tun - gibt - es - viel."
+    ],
+    "correct": 0,
+    "explanation": "You got 2 verbs here. In such cases the 2nd verb is usually at the end in its infinitive form."
+  },
+  {
+    "type": "gapfill",
+    "question": "Welches Wort fehlt? 'Es _____ viel zu tun.'",
+    "questionTranslations": {
+      "Welches": "Which",
+      "Wort": "word",
+      "fehlt": "is missing"
+    },
+    "options": ["geht", "gibt", "ist", "macht"],
+    "optionTranslations": {
+      "geht": "goes",
+      "gibt": "gives/there is",
+      "ist": "is",
+      "macht": "makes"
+    },
+    "correct": 1,
+    "explanation": "You can't translate 'es gibt' (=it gives) here literally. It's proper translation is 'es gibt = there is'"
   }
 ]}
 
@@ -569,15 +678,15 @@ Simone ist Privatdetektivin von Beruf
       "Simones": "Simone's",
       "Beruf": "profession"
     },
-    "options": ["Polizistin", "Privatdetektivin", "Anwältin", "Journalistin"],
+    "options": ["Polizistin", "Detektivin", "Anwältin", "Journalistin"],
     "optionTranslations": {
       "Polizistin": "Police officer (f)",
-      "Privatdetektivin": "Private detective (f)",
+      "Detektivin": "Detective (f)",
       "Anwältin": "Lawyer (f)",
       "Journalistin": "Journalist (f)"
     },
     "correct": 1,
-    "explanation": "Simone ist 'Privatdetektivin von Beruf'."
+    "explanation": "The text explicitly says 'Privatdetektivin von Beruf'."
   },
   {
     "type": "verb",
@@ -591,7 +700,7 @@ Simone ist Privatdetektivin von Beruf
     },
     "options": ["bin", "bist", "ist", "sind"],
     "correct": 2,
-    "explanation": "'Simone ist' - 3. Person Singular von 'sein'."
+    "explanation": "The sentence uses 'ist' → 3rd person singular of 'sein'."
   },
   {
     "type": "grammar",
@@ -610,7 +719,7 @@ Simone ist Privatdetektivin von Beruf
       "Genitiv": "Genitive"
     },
     "correct": 2,
-    "explanation": "Die Präposition 'von' regiert immer den Dativ: 'von Beruf'."
+    "explanation": "After 'von' you always find the dative – in 'von Beruf' you can't see it though."
   },
   {
     "type": "phonetic",
@@ -623,8 +732,8 @@ Simone ist Privatdetektivin von Beruf
       "in": "in"
     },
     "options": ["Pri-", "vat-", "-tek-", "-in"],
-    "correct": 2,
-    "explanation": "Betonung auf dem Hauptwort: Privat-de-TEK-ti-vin."
+    "correct": 1,
+    "explanation": "'privat' is a loan word therefore stress on 2nd syllable: Pri-VAT-de-tek-ti-vin."
   },
   {
     "type": "inference",
@@ -635,18 +744,17 @@ Simone ist Privatdetektivin von Beruf
       "von": "by",
       "Beruf": "profession"
     },
-    "options": ["Als Hobby", "Beruflich/Hauptberuf", "Zufällig", "Früher einmal"],
+    "options": ["als Hobby", "beruflich", "pensioniert", "früher einmal"],
     "optionTranslations": {
-      "Als": "As",
+      "als": "as",
       "Hobby": "hobby",
-      "Beruflich": "Professionally",
-      "Hauptberuf": "main profession",
-      "Zufällig": "By chance",
-      "Früher": "Previously",
+      "beruflich": "professionally",
+      "pensioniert": "retired",
+      "früher": "previously",
       "einmal": "once"
     },
     "correct": 1,
-    "explanation": "'Von Beruf' bedeutet, dass dies ihr Hauptberuf/ihre Profession ist."
+    "explanation": "'von Beruf' (=by trade) indicates what someone does professionally."
   },
   {
     "type": "context",
@@ -660,1349 +768,57 @@ Simone ist Privatdetektivin von Beruf
       "wahrscheinlich": "probably",
       "erzählt": "told"
     },
-    "options": ["Romantische Komödie", "Krimi/Detektivgeschichte", "Science Fiction", "Historischer Roman"],
+    "options": ["eine romantische Komödie", "eine Kriminalgeschichte (Krimi)", "Science Fiction", "ein historischer Roman"],
     "optionTranslations": {
-      "Romantische": "Romantic",
+      "romantische": "romantic",
       "Komödie": "comedy",
-      "Krimi": "Crime story",
-      "Detektivgeschichte": "Detective story",
-      "Science Fiction": "Science Fiction",
-      "Historischer": "Historical",
+      "Kriminalgeschichte": "crime story",
+      "Krimi": "crime story",
+      "Science Fiction": "science fiction",
+      "historischer": "historical",
       "Roman": "novel"
     },
     "correct": 1,
-    "explanation": "Eine Privatdetektivin als Hauptfigur deutet auf eine Detektivgeschichte hin."
-  }
-]}
-
-6
-00:00:13.737 --> 00:00:19.449
-und hat mit ihrem Assistenten Stefan vor drei Jahren das Detektivbüro Tesch gegründet.
-{"questions": [
-  {
-    "type": "comprehension",
-    "question": "Wann wurde das Büro gegründet?",
-    "questionTranslations": {
-      "Wann": "When",
-      "wurde": "was",
-      "das": "the",
-      "Büro": "office",
-      "gegründet": "founded"
-    },
-    "options": ["Vor einem Jahr", "Vor zwei Jahren", "Vor drei Jahren", "Vor fünf Jahren"],
-    "optionTranslations": {
-      "Vor": "Ago",
-      "einem": "one",
-      "Jahr": "year",
-      "zwei": "two",
-      "Jahren": "years",
-      "drei": "three",
-      "fünf": "five"
-    },
-    "correct": 2,
-    "explanation": "Der Satz sagt 'vor drei Jahren'."
+    "explanation": "A private detective as main character usually indicates a crime story."
   },
   {
-    "type": "verb",
-    "question": "In welcher Zeitform steht 'hat gegründet'?",
-    "questionTranslations": {
-      "In": "In",
-      "welcher": "which",
-      "Zeitform": "tense",
-      "steht": "is"
-    },
-    "options": ["Präsens", "Präteritum", "Perfekt", "Plusquamperfekt"],
-    "optionTranslations": {
-      "Präsens": "Present",
-      "Präteritum": "Simple past",
-      "Perfekt": "Present perfect",
-      "Plusquamperfekt": "Past perfect"
-    },
-    "correct": 2,
-    "explanation": "'Hat gegründet' ist Perfekt - Hilfsverb 'haben' + Partizip II."
-  },
-  {
-    "type": "grammar",
-    "question": "Welcher Fall ist 'ihrem Assistenten'?",
-    "questionTranslations": {
-      "Welcher": "Which",
-      "Fall": "case",
-      "ist": "is"
-    },
-    "options": ["Nominativ", "Akkusativ", "Dativ", "Genitiv"],
-    "optionTranslations": {
-      "Nominativ": "Nominative",
-      "Akkusativ": "Accusative",
-      "Dativ": "Dative",
-      "Genitiv": "Genitive"
-    },
-    "correct": 2,
-    "explanation": "'Mit' regiert den Dativ: 'mit ihrem Assistenten' (maskulin Dativ)."
-  },
-  {
-    "type": "phonetic",
-    "question": "Wie wird das 'ü' in 'Büro' ausgesprochen?",
-    "questionTranslations": {
-      "Wie": "How",
-      "wird": "is",
-      "das": "the",
-      "in": "in",
-      "ausgesprochen": "pronounced"
-    },
-    "options": ["wie deutsches 'u'", "wie englisches 'oo'", "wie französisches 'u'", "wie englisches 'i'"],
-    "optionTranslations": {
-      "wie": "like",
-      "deutsches": "German",
-      "englisches": "English",
-      "französisches": "French"
-    },
-    "correct": 2,
-    "explanation": "Das deutsche 'ü' entspricht dem französischen 'u' in 'tu'."
-  },
-  {
-    "type": "inference",
-    "question": "Wie ist die Beziehung zwischen Simone und Stefan?",
-    "questionTranslations": {
-      "Wie": "How/What",
-      "ist": "is",
-      "die": "the",
-      "Beziehung": "relationship",
-      "zwischen": "between",
-      "und": "and"
-    },
-    "options": ["Ehepaar", "Geschwister", "Geschäftspartner", "Nachbarn"],
-    "optionTranslations": {
-      "Ehepaar": "Married couple",
-      "Geschwister": "Siblings",
-      "Geschäftspartner": "Business partners",
-      "Nachbarn": "Neighbors"
-    },
-    "correct": 2,
-    "explanation": "Sie haben zusammen ein Detektivbüro gegründet - das deutet auf eine Geschäftspartnerschaft hin."
-  },
-  {
-    "type": "context",
-    "question": "Was erfahren wir über Simones beruflichen Status?",
+    "type": "sequencing",
+    "question": "Was ist die richtige Reihenfolge im Satz?",
     "questionTranslations": {
       "Was": "What",
-      "erfahren": "learn",
-      "wir": "we",
-      "über": "about",
-      "Simones": "Simone's",
-      "beruflichen": "professional",
-      "Status": "status"
-    },
-    "options": ["Sie ist Angestellte", "Sie ist Chefin/Inhaberin", "Sie ist Praktikantin", "Sie ist arbeitslos"],
-    "optionTranslations": {
-      "Sie": "She",
       "ist": "is",
-      "Angestellte": "employee",
-      "Chefin": "boss",
-      "Inhaberin": "owner",
-      "Praktikantin": "intern",
-      "arbeitslos": "unemployed"
-    },
-    "correct": 1,
-    "explanation": "Sie hat das Büro gegründet und es trägt ihren Namen - sie ist die Chefin."
-  }
-]}
-
-7
-00:00:19.449 --> 00:00:22.370
-Simone ist etwas dominant, müssen Sie wissen.
-{"questions": [
-  {
-    "type": "comprehension",
-    "question": "Wie wird Simones Charakter beschrieben?",
-    "questionTranslations": {
-      "Wie": "How",
-      "wird": "is",
-      "Simones": "Simone's",
-      "Charakter": "character",
-      "beschrieben": "described"
-    },
-    "options": ["Schüchtern", "Dominant", "Freundlich", "Traurig"],
-    "optionTranslations": {
-      "Schüchtern": "Shy",
-      "Dominant": "Dominant",
-      "Freundlich": "Friendly",
-      "Traurig": "Sad"
-    },
-    "correct": 1,
-    "explanation": "Simone wird als 'etwas dominant' beschrieben."
-  },
-  {
-    "type": "verb",
-    "question": "Welches Modalverb steht im Satz?",
-    "questionTranslations": {
-      "Welches": "Which",
-      "Modalverb": "modal verb",
-      "steht": "appears",
+      "die": "the",
+      "richtige": "correct",
+      "Reihenfolge": "order",
       "im": "in the",
       "Satz": "sentence"
     },
-    "options": ["können", "müssen", "wollen", "sollen"],
-    "optionTranslations": {
-      "können": "can",
-      "müssen": "must",
-      "wollen": "want",
-      "sollen": "should"
-    },
-    "correct": 1,
-    "explanation": "'Müssen Sie wissen' - das Modalverb 'müssen'."
+    "options": [
+      "Simone - ist - Privatdetektivin - von Beruf.",
+      "Privatdetektivin - ist - Simone - von Beruf.",
+      "Von Beruf - ist - Simone - Privatdetektivin.",
+      "Simone - von Beruf - Privatdetektivin - ist."
+    ],
+    "correct": 0,
+    "explanation": "Standard S–V–O structure in a simple main clause."
   },
   {
-    "type": "grammar",
-    "question": "An wen richtet sich 'müssen Sie wissen'?",
-    "questionTranslations": {
-      "An": "To",
-      "wen": "whom",
-      "richtet sich": "is directed"
-    },
-    "options": ["An Stefan", "An Simone", "An den Zuhörer/Leser", "An die Polizei"],
-    "optionTranslations": {
-      "An": "To",
-      "den": "the",
-      "Zuhörer": "listener",
-      "Leser": "reader",
-      "die": "the",
-      "Polizei": "police"
-    },
-    "correct": 2,
-    "explanation": "Der Erzähler wendet sich direkt an das Publikum ('Sie')."
-  },
-  {
-    "type": "phonetic",
-    "question": "Welche Silbe ist in 'dominant' betont?",
-    "questionTranslations": {
-      "Welche": "Which",
-      "Silbe": "syllable",
-      "ist": "is",
-      "in": "in",
-      "betont": "stressed"
-    },
-    "options": ["do-", "-mi-", "-nant", "Alle gleich"],
-    "optionTranslations": {
-      "Alle": "All",
-      "gleich": "equal"
-    },
-    "correct": 2,
-    "explanation": "Fremdwort-Betonung: do-mi-NANT (Betonung auf letzter Silbe)."
-  },
-  {
-    "type": "inference",
-    "question": "Warum erwähnt der Erzähler Simones Dominanz?",
-    "questionTranslations": {
-      "Warum": "Why",
-      "erwähnt": "mentions",
-      "der": "the",
-      "Erzähler": "narrator",
-      "Simones": "Simone's",
-      "Dominanz": "dominance"
-    },
-    "options": ["Es ist unwichtig", "Es wird später relevant", "Es ist ein Kompliment", "Es ist ein Versehen"],
-    "optionTranslations": {
-      "Es": "It",
-      "ist": "is",
-      "unwichtig": "unimportant",
-      "wird": "will be",
-      "später": "later",
-      "relevant": "relevant",
-      "ein": "a",
-      "Kompliment": "compliment",
-      "Versehen": "mistake"
-    },
-    "correct": 1,
-    "explanation": "Der Hinweis 'müssen Sie wissen' deutet darauf hin, dass diese Information für die Geschichte wichtig ist."
-  },
-  {
-    "type": "context",
-    "question": "Welcher Erzählstil wird hier verwendet?",
-    "questionTranslations": {
-      "Welcher": "Which",
-      "Erzählstil": "narrative style",
-      "wird": "is",
-      "hier": "here",
-      "verwendet": "used"
-    },
-    "options": ["Objektive Berichterstattung", "Direkter Kontakt zum Publikum", "Dialog zwischen Personen", "Monolog"],
-    "optionTranslations": {
-      "Objektive": "Objective",
-      "Berichterstattung": "reporting",
-      "Direkter": "Direct",
-      "Kontakt": "contact",
-      "zum": "to the",
-      "Publikum": "audience",
-      "Dialog": "Dialogue",
-      "zwischen": "between",
-      "Personen": "people",
-      "Monolog": "Monologue"
-    },
-    "correct": 1,
-    "explanation": "Der Erzähler spricht das Publikum direkt an ('müssen Sie wissen')."
-  }
-]}
-
-8
-00:00:22.370 --> 00:00:25.995
-Zusammen lösen Simone und Stefan schwierige Fälle.
-{"questions": [
-  {
-    "type": "comprehension",
-    "question": "Was machen Simone und Stefan zusammen?",
-    "questionTranslations": {
-      "Was": "What",
-      "machen": "do",
-      "und": "and",
-      "zusammen": "together"
-    },
-    "options": ["Sie streiten", "Sie lösen Fälle", "Sie essen", "Sie reisen"],
-    "optionTranslations": {
-      "Sie": "They",
-      "streiten": "argue",
-      "lösen": "solve",
-      "Fälle": "cases",
-      "essen": "eat",
-      "reisen": "travel"
-    },
-    "correct": 1,
-    "explanation": "Sie 'lösen schwierige Fälle' - das ist ihre Arbeit als Detektive."
-  },
-  {
-    "type": "verb",
-    "question": "In welcher Zeit steht 'lösen'?",
-    "questionTranslations": {
-      "In": "In",
-      "welcher": "which",
-      "Zeit": "tense",
-      "steht": "is"
-    },
-    "options": ["Vergangenheit", "Gegenwart/Gewohnheit", "Zukunft", "Konjunktiv"],
-    "optionTranslations": {
-      "Vergangenheit": "Past",
-      "Gegenwart": "Present",
-      "Gewohnheit": "Habit",
-      "Zukunft": "Future",
-      "Konjunktiv": "Subjunctive"
-    },
-    "correct": 1,
-    "explanation": "Präsens für wiederkehrende Tätigkeiten: 'Sie lösen (regelmäßig) Fälle'."
-  },
-  {
-    "type": "grammar",
-    "question": "Welches Wort steht am Satzanfang?",
+    "type": "gapfill",
+    "question": "Welches Wort fehlt? 'Simone _____ Privatdetektivin von Beruf.'",
     "questionTranslations": {
       "Welches": "Which",
       "Wort": "word",
-      "steht": "is",
-      "am": "at the",
-      "Satzanfang": "beginning of sentence"
+      "fehlt": "is missing"
     },
-    "options": ["Simone", "Stefan", "Zusammen", "Lösen"],
+    "options": ["war", "ist", "wird", "isst"],
     "optionTranslations": {
-      "Zusammen": "Together",
-      "Lösen": "Solve"
-    },
-    "correct": 2,
-    "explanation": "'Zusammen' steht vor dem finiten Verb - Adverb an Position 1."
-  },
-  {
-    "type": "phonetic",
-    "question": "Welche Silbe ist in 'zusammen' betont?",
-    "questionTranslations": {
-      "Welche": "Which",
-      "Silbe": "syllable",
+      "war": "was",
       "ist": "is",
-      "in": "in",
-      "betont": "stressed"
-    },
-    "options": ["zu-", "-sam-", "-men", "Alle gleich"],
-    "optionTranslations": {
-      "Alle": "All",
-      "gleich": "equal"
+      "wird": "will be/becomes",
+      "isst": "eats"
     },
     "correct": 1,
-    "explanation": "Deutsche Wortbetonung: zu-SAM-men (Betonung auf mittlerer Silbe)."
-  },
-  {
-    "type": "inference",
-    "question": "Was erfahren wir über ihre Arbeitsweise?",
-    "questionTranslations": {
-      "Was": "What",
-      "erfahren": "learn",
-      "wir": "we",
-      "über": "about",
-      "ihre": "their",
-      "Arbeitsweise": "way of working"
-    },
-    "options": ["Sie arbeiten allein", "Sie sind Teamplayer", "Sie sind Konkurrenten", "Sie arbeiten schlecht"],
-    "optionTranslations": {
-      "Sie": "They",
-      "arbeiten": "work",
-      "allein": "alone",
-      "sind": "are",
-      "Teamplayer": "team players",
-      "Konkurrenten": "competitors",
-      "schlecht": "poorly"
-    },
-    "correct": 1,
-    "explanation": "'Zusammen lösen' zeigt, dass sie als Team arbeiten."
-  },
-  {
-    "type": "context",
-    "question": "Was bedeutet 'schwierige Fälle' in diesem Beruf?",
-    "questionTranslations": {
-      "Was": "What",
-      "bedeutet": "means",
-      "schwierige": "difficult",
-      "Fälle": "cases",
-      "in": "in",
-      "diesem": "this",
-      "Beruf": "profession"
-    },
-    "options": ["Einfache Aufgaben", "Komplexe Ermittlungen", "Papierkram", "Putzen"],
-    "optionTranslations": {
-      "Einfache": "Simple",
-      "Aufgaben": "tasks",
-      "Komplexe": "Complex",
-      "Ermittlungen": "investigations",
-      "Papierkram": "Paperwork",
-      "Putzen": "Cleaning"
-    },
-    "correct": 1,
-    "explanation": "Privatdetektive bearbeiten komplexe Ermittlungen, die schwer zu lösen sind."
-  }
-]}
-
-9
-00:00:25.995 --> 00:00:27.922
-Als Simone ins Büro kommt,
-{"questions": [
-  {
-    "type": "comprehension",
-    "question": "Was passiert in diesem Satz?",
-    "questionTranslations": {
-      "Was": "What",
-      "passiert": "happens",
-      "in": "in",
-      "diesem": "this",
-      "Satz": "sentence"
-    },
-    "options": ["Simone verlässt das Büro", "Simone kommt ins Büro", "Simone arbeitet im Büro", "Simone ruft das Büro an"],
-    "optionTranslations": {
-      "verlässt": "leaves",
-      "das": "the",
-      "kommt": "comes",
-      "ins": "into the",
-      "arbeitet": "works",
-      "im": "in the",
-      "ruft": "calls",
-      "an": "up"
-    },
-    "correct": 1,
-    "explanation": "'Als Simone ins Büro kommt' - sie betritt das Büro."
-  },
-  {
-    "type": "verb",
-    "question": "Welches Verb drückt die Bewegung aus?",
-    "questionTranslations": {
-      "Welches": "Which",
-      "Verb": "verb",
-      "drückt": "expresses",
-      "die": "the",
-      "Bewegung": "movement",
-      "aus": "out"
-    },
-    "options": ["gehen", "fahren", "kommen", "laufen"],
-    "optionTranslations": {
-      "gehen": "to go",
-      "fahren": "to drive",
-      "kommen": "to come",
-      "laufen": "to run"
-    },
-    "correct": 2,
-    "explanation": "'Kommen' - Bewegung zum Sprecher/zum Zielort hin."
-  },
-  {
-    "type": "grammar",
-    "question": "Was ist 'Als' in diesem Satz?",
-    "questionTranslations": {
-      "Was": "What",
-      "ist": "is",
-      "in": "in",
-      "diesem": "this",
-      "Satz": "sentence"
-    },
-    "options": ["Artikel", "Temporale Konjunktion", "Präposition", "Adverb"],
-    "optionTranslations": {
-      "Artikel": "Article",
-      "Temporale": "Temporal",
-      "Konjunktion": "conjunction",
-      "Präposition": "Preposition",
-      "Adverb": "Adverb"
-    },
-    "correct": 1,
-    "explanation": "'Als' leitet einen Temporalsatz ein (wann?)."
-  },
-  {
-    "type": "phonetic",
-    "question": "Wie wird das Komma gesprochen?",
-    "questionTranslations": {
-      "Wie": "How",
-      "wird": "is",
-      "das": "the",
-      "Komma": "comma",
-      "gesprochen": "spoken"
-    },
-    "options": ["Gar nicht", "Als kurze Pause", "Als lange Pause", "Als Betonung"],
-    "optionTranslations": {
-      "Gar": "Not at",
-      "nicht": "all",
-      "Als": "As",
-      "kurze": "short",
-      "Pause": "pause",
-      "lange": "long",
-      "Betonung": "emphasis"
-    },
-    "correct": 1,
-    "explanation": "Kommas werden als kurze Sprechpausen realisiert."
-  },
-  {
-    "type": "inference",
-    "question": "Was erwartet uns nach diesem Satzanfang?",
-    "questionTranslations": {
-      "Was": "What",
-      "erwartet": "awaits",
-      "uns": "us",
-      "nach": "after",
-      "diesem": "this",
-      "Satzanfang": "sentence beginning"
-    },
-    "options": ["Eine Beschreibung", "Eine Folge/Konsequenz", "Ein Dialog", "Das Satzende"],
-    "optionTranslations": {
-      "Eine": "A",
-      "Beschreibung": "description",
-      "Folge": "consequence",
-      "Konsequenz": "consequence",
-      "Ein": "A",
-      "Dialog": "dialogue",
-      "Das": "The",
-      "Satzende": "sentence end"
-    },
-    "correct": 1,
-    "explanation": "Temporalsätze mit 'Als' leiten meist zu einem Hauptsatz über, der eine Folge beschreibt."
-  },
-  {
-    "type": "context",
-    "question": "Welcher Satzteil liegt vor?",
-    "questionTranslations": {
-      "Welcher": "Which",
-      "Satzteil": "sentence part",
-      "liegt": "is",
-      "vor": "present"
-    },
-    "options": ["Vollständiger Satz", "Nebensatz", "Hauptsatz", "Ausruf"],
-    "optionTranslations": {
-      "Vollständiger": "Complete",
-      "Satz": "sentence",
-      "Nebensatz": "Subordinate clause",
-      "Hauptsatz": "Main clause",
-      "Ausruf": "Exclamation"
-    },
-    "correct": 1,
-    "explanation": "Dies ist ein unvollständiger Nebensatz - der Hauptsatz folgt."
-  }
-]}
-
-10
-00:00:27.922 --> 00:00:31.226
-sieht sie einen riesigen Kaffeefleck auf ihren Dokumenten.
-{"questions": [
-  {
-    "type": "comprehension",
-    "question": "Was sieht Simone?",
-    "questionTranslations": {
-      "Was": "What",
-      "sieht": "sees"
-    },
-    "options": ["Einen Kaffeefleck", "Einen Wasserfleck", "Einen Blutfleck", "Einen Tintenfleck"],
-    "optionTranslations": {
-      "Einen": "A",
-      "Kaffeefleck": "coffee stain",
-      "Wasserfleck": "water stain",
-      "Blutfleck": "blood stain",
-      "Tintenfleck": "ink stain"
-    },
-    "correct": 0,
-    "explanation": "Sie sieht 'einen riesigen Kaffeefleck'."
-  },
-  {
-    "type": "verb",
-    "question": "Welches Verb steht im Hauptsatz?",
-    "questionTranslations": {
-      "Welches": "Which",
-      "Verb": "verb",
-      "steht": "is",
-      "im": "in the",
-      "Hauptsatz": "main clause"
-    },
-    "options": ["kommen", "sehen", "haben", "sein"],
-    "optionTranslations": {
-      "kommen": "to come",
-      "sehen": "to see",
-      "haben": "to have",
-      "sein": "to be"
-    },
-    "correct": 1,
-    "explanation": "'Sieht' - das Verb 'sehen' im Hauptsatz."
-  },
-  {
-    "type": "grammar",
-    "question": "Welcher Fall ist 'einen riesigen Kaffeefleck'?",
-    "questionTranslations": {
-      "Welcher": "Which",
-      "Fall": "case",
-      "ist": "is"
-    },
-    "options": ["Nominativ", "Akkusativ", "Dativ", "Genitiv"],
-    "optionTranslations": {
-      "Nominativ": "Nominative",
-      "Akkusativ": "Accusative",
-      "Dativ": "Dative",
-      "Genitiv": "Genitive"
-    },
-    "correct": 1,
-    "explanation": "Direktes Objekt von 'sehen': Akkusativ maskulin 'einen riesigen Kaffeefleck'."
-  },
-  {
-    "type": "phonetic",
-    "question": "Wie wird 'riesigen' ausgesprochen?",
-    "questionTranslations": {
-      "Wie": "How",
-      "wird": "is",
-      "ausgesprochen": "pronounced"
-    },
-    "options": ["[ri:sigen]", "[ri:zigen]", "[riːsigen]", "[riːzigen]"],
-    "correct": 1,
-    "explanation": "Das 's' nach langem Vokal wird als [z] gesprochen: [ri:zigen]."
-  },
-  {
-    "type": "inference",
-    "question": "Was ist wahrscheinlich passiert?",
-    "questionTranslations": {
-      "Was": "What",
-      "ist": "has",
-      "wahrscheinlich": "probably",
-      "passiert": "happened"
-    },
-    "options": ["Jemand hat Kaffee getrunken", "Jemand hat Kaffee verschüttet", "Jemand hat Kaffee gekocht", "Jemand hat Kaffee gekauft"],
-    "optionTranslations": {
-      "Jemand": "Someone",
-      "hat": "has",
-      "Kaffee": "coffee",
-      "getrunken": "drunk",
-      "verschüttet": "spilled",
-      "gekocht": "made/cooked",
-      "gekauft": "bought"
-    },
-    "correct": 1,
-    "explanation": "Ein Kaffeefleck auf Dokumenten deutet darauf hin, dass jemand Kaffee verschüttet hat."
-  },
-  {
-    "type": "context",
-    "question": "Wie wichtig sind die Dokumente wahrscheinlich?",
-    "questionTranslations": {
-      "Wie": "How",
-      "wichtig": "important",
-      "sind": "are",
-      "die": "the",
-      "Dokumente": "documents",
-      "wahrscheinlich": "probably"
-    },
-    "options": ["Unwichtig", "Sehr wichtig für die Arbeit", "Nur Notizen", "Werbung"],
-    "optionTranslations": {
-      "Unwichtig": "Unimportant",
-      "Sehr": "Very",
-      "wichtig": "important",
-      "für": "for",
-      "die": "the",
-      "Arbeit": "work",
-      "Nur": "Just",
-      "Notizen": "notes",
-      "Werbung": "Advertising"
-    },
-    "correct": 1,
-    "explanation": "Dokumente einer Privatdetektivin sind wahrscheinlich wichtige Arbeitspapiere."
-  }
-]}
-
-11
-00:00:31.226 --> 00:00:33.125
-So ein Mist.
-{"questions": [
-  {
-    "type": "comprehension",
-    "question": "Wie fühlt sich Simone?",
-    "questionTranslations": {
-      "Wie": "How",
-      "fühlt sich": "feels"
-    },
-    "options": ["Glücklich", "Verärgert", "Überrascht", "Müde"],
-    "optionTranslations": {
-      "Glücklich": "Happy",
-      "Verärgert": "Annoyed",
-      "Überrascht": "Surprised",
-      "Müde": "Tired"
-    },
-    "correct": 1,
-    "explanation": "'So ein Mist' drückt Ärger und Frustration aus."
-  },
-  {
-    "type": "verb",
-    "question": "Welches Verb ist in diesem Ausruf versteckt?",
-    "questionTranslations": {
-      "Welches": "Which",
-      "Verb": "verb",
-      "ist": "is",
-      "in": "in",
-      "diesem": "this",
-      "Ausruf": "exclamation",
-      "versteckt": "hidden"
-    },
-    "options": ["Das ist Mist", "Es gibt Mist", "Hier ist Mist", "Kein Verb vorhanden"],
-    "optionTranslations": {
-      "Das": "That",
-      "ist": "is",
-      "Mist": "crap",
-      "Es": "There",
-      "gibt": "is",
-      "Hier": "Here",
-      "Kein": "No",
-      "Verb": "verb",
-      "vorhanden": "present"
-    },
-    "correct": 0,
-    "explanation": "Der vollständige Gedanke wäre 'Das ist so ein Mist' - 'sein' ist impliziert."
-  },
-  {
-    "type": "grammar",
-    "question": "Was ist 'so ein' grammatisch?",
-    "questionTranslations": {
-      "Was": "What",
-      "ist": "is",
-      "grammatisch": "grammatically"
-    },
-    "options": ["Bestimmter Artikel", "Unbestimmter Artikel mit Verstärkung", "Possessivpronomen", "Demonstrativpronomen"],
-    "optionTranslations": {
-      "Bestimmter": "Definite",
-      "Artikel": "article",
-      "Unbestimmter": "Indefinite",
-      "mit": "with",
-      "Verstärkung": "intensification",
-      "Possessivpronomen": "Possessive pronoun",
-      "Demonstrativpronomen": "Demonstrative pronoun"
-    },
-    "correct": 1,
-    "explanation": "'So ein' = verstärkter unbestimmter Artikel (so + ein)"
-  },
-  {
-    "type": "phonetic",
-    "question": "Wie wird dieser Ausruf betont?",
-    "questionTranslations": {
-      "Wie": "How",
-      "wird": "is",
-      "dieser": "this",
-      "Ausruf": "exclamation",
-      "betont": "stressed"
-    },
-    "options": ["Monoton", "Mit Nachdruck und Ärger", "Fragend", "Flüsternd"],
-    "optionTranslations": {
-      "Monoton": "Monotone",
-      "Mit": "With",
-      "Nachdruck": "emphasis",
-      "und": "and",
-      "Ärger": "anger",
-      "Fragend": "Questioning",
-      "Flüsternd": "Whispering"
-    },
-    "correct": 1,
-    "explanation": "Flüche und Ärgerausdrücke werden mit starker Betonung und emotionalem Nachdruck gesprochen."
-  },
-  {
-    "type": "inference",
-    "question": "Was ist wahrscheinlich passiert?",
-    "questionTranslations": {
-      "Was": "What",
-      "ist": "has",
-      "wahrscheinlich": "probably",
-      "passiert": "happened"
-    },
-    "options": ["Etwas Positives", "Ein kleines Missgeschick/Problem", "Ein großer Erfolg", "Nichts Besonderes"],
-    "optionTranslations": {
-      "Etwas": "Something",
-      "Positives": "positive",
-      "Ein": "A",
-      "kleines": "small",
-      "Missgeschick": "mishap",
-      "Problem": "problem",
-      "großer": "big",
-      "Erfolg": "success",
-      "Nichts": "Nothing",
-      "Besonderes": "special"
-    },
-    "correct": 1,
-    "explanation": "Der Kaffeefleck auf den Dokumenten ist ein typisches kleines Arbeitsunglück."
-  },
-  {
-    "type": "context",
-    "question": "Wo würde man diesen Ausdruck verwenden?",
-    "questionTranslations": {
-      "Wo": "Where",
-      "würde": "would",
-      "man": "one",
-      "diesen": "this",
-      "Ausdruck": "expression",
-      "verwenden": "use"
-    },
-    "options": ["In formellen Gesprächen", "In informellen Situationen", "Bei Präsentationen", "In Bewerbungsgesprächen"],
-    "optionTranslations": {
-      "In": "In",
-      "formellen": "formal",
-      "Gesprächen": "conversations",
-      "informellen": "informal",
-      "Situationen": "situations",
-      "Bei": "During",
-      "Präsentationen": "presentations",
-      "Bewerbungsgesprächen": "job interviews"
-    },
-    "correct": 1,
-    "explanation": "'Mist' ist umgangssprachlich und wird in informellen Situationen verwendet."
-  }
-]}
-
-12
-00:00:33.125 --> 00:00:35.178
-Sie versucht, die Dokumente zu retten,
-{"questions": [
-  {
-    "type": "comprehension",
-    "question": "Was macht Simone mit den Dokumenten?",
-    "questionTranslations": {
-      "Was": "What",
-      "macht": "does",
-      "mit": "with",
-      "den": "the",
-      "Dokumenten": "documents"
-    },
-    "options": ["Sie wirft sie weg", "Sie versucht sie zu retten", "Sie kopiert sie", "Sie verbrennt sie"],
-    "optionTranslations": {
-      "Sie": "She",
-      "wirft": "throws",
-      "weg": "away",
-      "versucht": "tries",
-      "zu": "to",
-      "retten": "save",
-      "kopiert": "copies",
-      "verbrennt": "burns"
-    },
-    "correct": 1,
-    "explanation": "Sie 'versucht, die Dokumente zu retten' nach dem Kaffeeunfall."
-  },
-  {
-    "type": "verb",
-    "question": "Welche Verbkonstruktion liegt vor?",
-    "questionTranslations": {
-      "Welche": "Which",
-      "Verbkonstruktion": "verb construction",
-      "liegt": "is",
-      "vor": "present"
-    },
-    "options": ["Modalverb + Infinitiv", "versuchen + zu + Infinitiv", "Perfekt", "Futur"],
-    "optionTranslations": {
-      "Modalverb": "Modal verb",
-      "Infinitiv": "infinitive",
-      "versuchen": "to try",
-      "Perfekt": "Perfect",
-      "Futur": "Future"
-    },
-    "correct": 1,
-    "explanation": "'Versuchen + zu + Infinitiv' - eine wichtige deutsche Infinitivkonstruktion."
-  },
-  {
-    "type": "grammar",
-    "question": "Welcher Artikel steht vor 'Dokumente'?",
-    "questionTranslations": {
-      "Welcher": "Which",
-      "Artikel": "article",
-      "steht": "is",
-      "vor": "before"
-    },
-    "options": ["Der", "Die", "Das", "Den"],
-    "correct": 1,
-    "explanation": "'Die Dokumente' - Plural, immer 'die' im Nominativ und Akkusativ."
-  },
-  {
-    "type": "phonetic",
-    "question": "Wie wird das 'ch' in 'versucht' ausgesprochen?",
-    "questionTranslations": {
-      "Wie": "How",
-      "wird": "is",
-      "das": "the",
-      "in": "in",
-      "ausgesprochen": "pronounced"
-    },
-    "options": ["[k]", "[ç]", "[x]", "[ʃ]"],
-    "correct": 1,
-    "explanation": "Nach 'u' wird 'ch' als [ç] ausgesprochen (Ich-Laut)."
-  },
-  {
-    "type": "inference",
-    "question": "Warum müssen die Dokumente 'gerettet' werden?",
-    "questionTranslations": {
-      "Warum": "Why",
-      "müssen": "must",
-      "die": "the",
-      "Dokumente": "documents",
-      "gerettet": "saved",
-      "werden": "be"
-    },
-    "options": ["Sie sind alt", "Sie sind beschädigt", "Sie sind gestohlen", "Sie sind verloren"],
-    "optionTranslations": {
-      "Sie": "They",
-      "sind": "are",
-      "alt": "old",
-      "beschädigt": "damaged",
-      "gestohlen": "stolen",
-      "verloren": "lost"
-    },
-    "correct": 1,
-    "explanation": "Der Kaffeefleck hat die Dokumente beschädigt, deshalb müssen sie gerettet werden."
-  },
-  {
-    "type": "context",
-    "question": "Was zeigt Simones Reaktion über ihren Charakter?",
-    "questionTranslations": {
-      "Was": "What",
-      "zeigt": "shows",
-      "Simones": "Simone's",
-      "Reaktion": "reaction",
-      "über": "about",
-      "ihren": "her",
-      "Charakter": "character"
-    },
-    "options": ["Sie gibt schnell auf", "Sie ist lösungsorientiert", "Sie ist gleichgültig", "Sie wird panisch"],
-    "optionTranslations": {
-      "Sie": "She",
-      "gibt": "gives",
-      "schnell": "quickly",
-      "auf": "up",
-      "ist": "is",
-      "lösungsorientiert": "solution-oriented",
-      "gleichgültig": "indifferent",
-      "wird": "becomes",
-      "panisch": "panicked"
-    },
-    "correct": 1,
-    "explanation": "Anstatt zu verzweifeln, versucht sie aktiv, das Problem zu lösen."
-  }
-]}
-
-13
-00:00:35.178 --> 00:00:37.195
-und ist dabei sehr vorsichtig.
-{"questions": [
-  {
-    "type": "comprehension",
-    "question": "Wie arbeitet Simone an den Dokumenten?",
-    "questionTranslations": {
-      "Wie": "How",
-      "arbeitet": "works",
-      "an": "on",
-      "den": "the",
-      "Dokumenten": "documents"
-    },
-    "options": ["Schnell", "Vorsichtig", "Unordentlich", "Laut"],
-    "optionTranslations": {
-      "Schnell": "Quickly",
-      "Vorsichtig": "Carefully",
-      "Unordentlich": "Messily",
-      "Laut": "Loudly"
-    },
-    "correct": 1,
-    "explanation": "Sie ist 'sehr vorsichtig' beim Retten der Dokumente."
-  },
-  {
-    "type": "verb",
-    "question": "Welches Verb wird hier verwendet?",
-    "questionTranslations": {
-      "Welches": "Which",
-      "Verb": "verb",
-      "wird": "is",
-      "hier": "here",
-      "verwendet": "used"
-    },
-    "options": ["haben", "sein", "werden", "können"],
-    "optionTranslations": {
-      "haben": "to have",
-      "sein": "to be",
-      "werden": "to become",
-      "können": "can"
-    },
-    "correct": 1,
-    "explanation": "'Ist dabei' - das Verb 'sein' mit der Präposition 'dabei'."
-  },
-  {
-    "type": "grammar",
-    "question": "Was ist 'dabei' in diesem Satz?",
-    "questionTranslations": {
-      "Was": "What",
-      "ist": "is",
-      "in": "in",
-      "diesem": "this",
-      "Satz": "sentence"
-    },
-    "options": ["Adverb", "Präposition", "Artikel", "Verb"],
-    "optionTranslations": {
-      "Adverb": "Adverb",
-      "Präposition": "Preposition",
-      "Artikel": "Article",
-      "Verb": "Verb"
-    },
-    "correct": 0,
-    "explanation": "'Dabei' ist ein Adverb und bedeutet 'währenddessen/bei dieser Tätigkeit'."
-  },
-  {
-    "type": "phonetic",
-    "question": "Wie wird 'vorsichtig' betont?",
-    "questionTranslations": {
-      "Wie": "How",
-      "wird": "is",
-      "betont": "stressed"
-    },
-    "options": ["vor-", "VOR-sich-tig", "-sich-", "-tig"],
-    "correct": 1,
-    "explanation": "Deutsche Hauptbetonung auf der ersten Silbe: VOR-sich-tig."
-  },
-  {
-    "type": "inference",
-    "question": "Warum ist Simone vorsichtig?",
-    "questionTranslations": {
-      "Warum": "Why",
-      "ist": "is",
-      "vorsichtig": "careful"
-    },
-    "options": ["Sie hat Angst", "Sie will keinen weiteren Schaden", "Sie ist müde", "Sie ist unsicher"],
-    "optionTranslations": {
-      "Sie": "She",
-      "hat": "has",
-      "Angst": "fear",
-      "will": "wants",
-      "keinen": "no",
-      "weiteren": "further",
-      "Schaden": "damage",
-      "ist": "is",
-      "müde": "tired",
-      "unsicher": "uncertain"
-    },
-    "correct": 1,
-    "explanation": "Bei bereits beschädigten Dokumenten will sie zusätzlichen Schaden vermeiden."
-  },
-  {
-    "type": "context",
-    "question": "Was zeigt 'sehr vorsichtig' über die Situation?",
-    "questionTranslations": {
-      "Was": "What",
-      "zeigt": "shows",
-      "sehr": "very",
-      "vorsichtig": "careful",
-      "über": "about",
-      "die": "the",
-      "Situation": "situation"
-    },
-    "options": ["Die Dokumente sind wertlos", "Die Dokumente sind sehr wichtig", "Es ist egal", "Es ist Routine"],
-    "optionTranslations": {
-      "Die": "The",
-      "Dokumente": "documents",
-      "sind": "are",
-      "wertlos": "worthless",
-      "sehr": "very",
-      "wichtig": "important",
-      "Es": "It",
-      "ist": "is",
-      "egal": "doesn't matter",
-      "Routine": "routine"
-    },
-    "correct": 1,
-    "explanation": "Extreme Vorsicht deutet darauf hin, dass die Dokumente sehr wichtig/wertvoll sind."
-  }
-]}
-
-14
-00:00:37.195 --> 00:00:40.559
-In diesem Moment kommt ihr Assistent Stefan ins Büro.
-{"questions": [
-  {
-    "type": "comprehension",
-    "question": "Wer kommt ins Büro?",
-    "questionTranslations": {
-      "Wer": "Who",
-      "kommt": "comes",
-      "ins": "into the",
-      "Büro": "office"
-    },
-    "options": ["Simone", "Stefan", "Ein Kunde", "Die Polizei"],
-    "optionTranslations": {
-      "Ein": "A",
-      "Kunde": "client",
-      "Die": "The",
-      "Polizei": "police"
-    },
-    "correct": 1,
-    "explanation": "'Ihr Assistent Stefan kommt ins Büro'."
-  },
-  {
-    "type": "verb",
-    "question": "Welches Verb beschreibt Stefans Aktion?",
-    "questionTranslations": {
-      "Welches": "Which",
-      "Verb": "verb",
-      "beschreibt": "describes",
-      "Stefans": "Stefan's",
-      "Aktion": "action"
-    },
-    "options": ["gehen", "fahren", "kommen", "laufen"],
-    "optionTranslations": {
-      "gehen": "to go",
-      "fahren": "to drive",
-      "kommen": "to come",
-      "laufen": "to run"
-    },
-    "correct": 2,
-    "explanation": "'Kommt ins Büro' - Bewegung zum Zielort."
-  },
-  {
-    "type": "grammar",
-    "question": "Welcher Fall steht bei 'ins Büro'?",
-    "questionTranslations": {
-      "Welcher": "Which",
-      "Fall": "case",
-      "steht": "is",
-      "bei": "with"
-    },
-    "options": ["Nominativ", "Akkusativ", "Dativ", "Genitiv"],
-    "optionTranslations": {
-      "Nominativ": "Nominative",
-      "Akkusativ": "Accusative",
-      "Dativ": "Dative",
-      "Genitiv": "Genitive"
-    },
-    "correct": 1,
-    "explanation": "'Ins' = 'in + das' (Akkusativ) - Richtung, wohin?"
-  },
-  {
-    "type": "phonetic",
-    "question": "Wie wird 'Moment' betont?",
-    "questionTranslations": {
-      "Wie": "How",
-      "wird": "is",
-      "betont": "stressed"
-    },
-    "options": ["MO-ment", "Mo-MENT", "Beide gleich", "M-ment"],
-    "optionTranslations": {
-      "Beide": "Both",
-      "gleich": "equal"
-    },
-    "correct": 1,
-    "explanation": "Fremdwort-Betonung: Mo-MENT (Betonung auf zweiter Silbe)."
-  },
-  {
-    "type": "inference",
-    "question": "Was ist das Timing von Stefans Ankunft?",
-    "questionTranslations": {
-      "Was": "What",
-      "ist": "is",
-      "das": "the",
-      "Timing": "timing",
-      "von": "of",
-      "Stefans": "Stefan's",
-      "Ankunft": "arrival"
-    },
-    "options": ["Zufällig ungünstig", "Perfekt geplant", "Zu früh", "Zu spät"],
-    "optionTranslations": {
-      "Zufällig": "Coincidentally",
-      "ungünstig": "unfortunate",
-      "Perfekt": "Perfectly",
-      "geplant": "planned",
-      "Zu": "Too",
-      "früh": "early",
-      "spät": "late"
-    },
-    "correct": 0,
-    "explanation": "'In diesem Moment' - genau als Simone mit dem Problem beschäftigt ist."
-  },
-  {
-    "type": "context",
-    "question": "Welche dramatische Funktion hat diese Szene?",
-    "questionTranslations": {
-      "Welche": "Which",
-      "dramatische": "dramatic",
-      "Funktion": "function",
-      "hat": "has",
-      "diese": "this",
-      "Szene": "scene"
-    },
-    "options": ["Entspannung", "Spannungsaufbau", "Komische Wendung", "Auflösung"],
-    "optionTranslations": {
-      "Entspannung": "Relaxation",
-      "Spannungsaufbau": "Building tension",
-      "Komische": "Comic",
-      "Wendung": "turn",
-      "Auflösung": "Resolution"
-    },
-    "correct": 1,
-    "explanation": "Stefan kommt genau in dem Moment an, wo ein Problem entstanden ist - das baut Spannung auf."
-  }
-]}
-
-15
-00:00:40.559 --> 00:00:42.292
-Er sieht nervös aus.
-{"questions": [
-  {
-    "type": "comprehension",
-    "question": "Wie ist Stefans emotionaler Zustand?",
-    "questionTranslations": {
-      "Wie": "How",
-      "ist": "is",
-      "Stefans": "Stefan's",
-      "emotionaler": "emotional",
-      "Zustand": "state"
-    },
-    "options": ["Entspannt", "Nervös", "Wütend", "Fröhlich"],
-    "optionTranslations": {
-      "Entspannt": "Relaxed",
-      "Nervös": "Nervous",
-      "Wütend": "Angry",
-      "Fröhlich": "Happy"
-    },
-    "correct": 1,
-    "explanation": "Der Satz sagt direkt 'Er sieht nervös aus'."
-  },
-  {
-    "type": "verb",
-    "question": "Was bedeutet 'aussehen' in diesem Kontext?",
-    "questionTranslations": {
-      "Was": "What",
-      "bedeutet": "means",
-      "in": "in",
-      "diesem": "this",
-      "Kontext": "context"
-    },
-    "options": ["nach draußen schauen", "erscheinen/wirken", "aussuchen", "aufstehen"],
-    "optionTranslations": {
-      "nach": "to/at",
-      "draußen": "outside",
-      "schauen": "look",
-      "erscheinen": "appear",
-      "wirken": "seem",
-      "aussuchen": "choose",
-      "aufstehen": "get up"
-    },
-    "correct": 1,
-    "explanation": "'Aussehen' bedeutet hier 'wirken' oder 'den Eindruck machen'."
-  },
-  {
-    "type": "grammar",
-    "question": "Wo steht das Verb 'aus' im Satz?",
-    "questionTranslations": {
-      "Wo": "Where",
-      "steht": "is",
-      "das": "the",
-      "Verb": "verb",
-      "im": "in the",
-      "Satz": "sentence"
-    },
-    "options": ["Am Anfang", "In der Mitte", "Am Ende", "Es kommt nicht vor"],
-    "optionTranslations": {
-      "Am": "At the",
-      "Anfang": "beginning",
-      "In der": "In the",
-      "Mitte": "middle",
-      "Ende": "end",
-      "Es": "It",
-      "kommt": "comes",
-      "nicht": "not",
-      "vor": "before/occurs"
-    },
-    "correct": 2,
-    "explanation": "Trennbares Verb: 'sieht... aus' - das Präfix steht am Satzende."
-  },
-  {
-    "type": "phonetic",
-    "question": "Wie wird 'nervös' ausgesprochen?",
-    "questionTranslations": {
-      "Wie": "How",
-      "wird": "is",
-      "ausgesprochen": "pronounced"
-    },
-    "options": ["NER-vös", "ner-VÖS", "Beide gleich", "Stummes 's'"],
-    "optionTranslations": {
-      "Beide": "Both",
-      "gleich": "equal",
-      "Stummes": "Silent"
-    },
-    "correct": 1,
-    "explanation": "Französisches Lehnwort: ner-VÖS mit Betonung auf der zweiten Silbe."
-  },
-  {
-    "type": "inference",
-    "question": "Warum könnte Stefan nervös sein?",
-    "questionTranslations": {
-      "Warum": "Why",
-      "könnte": "could",
-      "nervös": "nervous",
-      "sein": "be"
-    },
-    "options": ["Er ist glücklich", "Er bringt schlechte Nachrichten", "Er ist müde", "Er hat Hunger"],
-    "optionTranslations": {
-      "Er": "He",
-      "ist": "is",
-      "glücklich": "happy",
-      "bringt": "brings",
-      "schlechte": "bad",
-      "Nachrichten": "news",
-      "müde": "tired",
-      "hat": "has",
-      "Hunger": "hunger"
-    },
-    "correct": 1,
-    "explanation": "Nervosität deutet oft darauf hin, dass jemand unangenehme Informationen überbringen muss."
-  },
-  {
-    "type": "context",
-    "question": "Welche Beziehung haben Simone und Stefan?",
-    "questionTranslations": {
-      "Welche": "Which",
-      "Beziehung": "relationship",
-      "haben": "have",
-      "und": "and"
-    },
-    "options": ["Sie kennen sich nicht", "Arbeitsbeziehung - sie kennt ihn gut", "Fremde", "Feinde"],
-    "optionTranslations": {
-      "Sie": "They",
-      "kennen": "know",
-      "sich": "each other",
-      "nicht": "not",
-      "Arbeitsbeziehung": "Working relationship",
-      "sie": "she",
-      "kennt": "knows",
-      "ihn": "him",
-      "gut": "well",
-      "Fremde": "Strangers",
-      "Feinde": "Enemies"
-    },
-    "correct": 1,
-    "explanation": "Simone kann sofort Stefans emotionalen Zustand erkennen - das deutet auf eine enge Arbeitsbeziehung hin."
+    "explanation": "The verb in the original sentence is 'ist'. 'isst' comes from 'essen' indicated by the double 's'"
   }
 ]}
 ```
