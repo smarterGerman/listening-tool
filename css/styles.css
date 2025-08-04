@@ -1088,6 +1088,11 @@ body {
     transition: all 0.2s ease;
 }
 
+.sequencing-slot.drag-source {
+    opacity: 0.5;
+    border-style: solid;
+}
+
 .sequencing-slot.drag-over {
     background: rgba(232, 121, 249, 0.1);
     border-color: #a855f7;

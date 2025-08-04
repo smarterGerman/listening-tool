@@ -217,6 +217,12 @@ export class SequencingController {
      */
     handleDragOver(e) {
         e.preventDefault();
+        // Remove previous drag-over classes
+        document.querySelectorAll('.sequencing-slot.drag-over').forEach(slot => {
+            if (slot !== e.currentTarget) {
+                slot.classList.remove('drag-over');
+            }
+        });
         e.currentTarget.classList.add('drag-over');
     }
     
@@ -337,10 +343,32 @@ export class SequencingController {
         // Create placed segment
         const placedSegment = DOMHelpers.createElement('div', {
             className: 'sequencing-segment placed',
-            'data-segment-id': segment.id
+            'data-segment-id': segment.id,
+            draggable: true
         });
         
         placedSegment.textContent = segment.text;
+
+        // Add drag events to placed segment
+        placedSegment.addEventListener('dragstart', (e) => {
+            this.handleDragStart(e, segment, slotIndex);
+            // Mark the slot as source
+            e.target.parentElement.classList.add('drag-source');
+        });
+        
+        placedSegment.addEventListener('dragend', (e) => {
+            this.handleDragEnd(e);
+            // Remove from slot if dropped outside
+            const slot = e.target.parentElement;
+            if (slot && slot.classList.contains('drag-source')) {
+                slot.classList.remove('drag-source');
+                // Check if dropped on valid target
+                const dropTarget = document.elementFromPoint(e.clientX, e.clientY);
+                if (!dropTarget || !dropTarget.classList.contains('sequencing-slot')) {
+                    this.removeSegmentFromSlot(Array.from(this.dropZone.children).indexOf(slot));
+                }
+            }
+        });
         
         // Add remove capability
         placedSegment.addEventListener('click', () => {
