@@ -326,6 +326,14 @@ export class SequencingController {
     placeSegmentInSlot(segment, slotIndex) {
         const slot = this.dropZone.children[slotIndex];
         
+        // Check if segment is already placed somewhere
+        const existingPlaced = this.dropZone.querySelector(`[data-segment-id="${segment.id}"]`);
+        if (existingPlaced) {
+            // Remove from old position first
+            const oldSlot = existingPlaced.parentElement;
+            oldSlot.innerHTML = '';
+        }
+
         // Create placed segment
         const placedSegment = DOMHelpers.createElement('div', {
             className: 'sequencing-segment placed',
@@ -346,9 +354,10 @@ export class SequencingController {
         // Update user order
         this.updateUserOrder();
         
-        // Hide original if all slots filled
-        if (this.draggedElement) {
-            this.draggedElement.classList.add('used');
+        // Hide the original element
+        const originalElement = this.dragZone.querySelector(`[data-segment-id="${segment.id}"]`);
+        if (originalElement) {
+            originalElement.classList.add('used');
         }
     }
     
@@ -365,8 +374,8 @@ export class SequencingController {
             // Clear slot
             slot.innerHTML = '';
             
-            // Show original element again
-            const original = this.dragZone.querySelector(`[data-segment-id="${segmentId}"]`);
+            // Show original element again (only if it exists)
+            const original = this.dragZone.querySelector(`[data-segment-id="${segmentId}"]:not(.placed)`);
             if (original) {
                 original.classList.remove('used');
             }
