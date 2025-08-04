@@ -292,6 +292,17 @@ export class ListeningApp {
     handleAnswer(answer) {
         console.log('Answer submitted:', answer);
         
+        // Handle sequencing answer format
+        if (answer.userOrder) {
+            // Sequencing question
+            const correct = answer.correct;
+            answer = {
+                question: this.currentQuestions[this.currentQuestionIndex],
+                selected: answer.userOrder,
+                correct: correct
+            };
+        }
+
         // Update score
         this.sessionScore.total++;
         if (answer.correct) {

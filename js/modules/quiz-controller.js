@@ -4,6 +4,8 @@
 import { CONFIG } from '../config.js';
 import { DOMHelpers } from '../utils/dom-helpers.js';
 
+import { SequencingController } from './sequencing-controller.js';
+
 export class QuizController {
     constructor() {
         // State
@@ -26,6 +28,8 @@ export class QuizController {
         // Translation system
         this.translationTooltip = null;
         this.longPressTimer = null;
+        // Sequencing controller
+        this.sequencingController = new SequencingController();
         this.currentTranslations = {};
     }
     
@@ -70,6 +74,16 @@ export class QuizController {
         
         // Initialize translation system
         this.initializeTranslationSystem();
+        // Initialize sequencing controller
+        const sequencingContainer = DOMHelpers.getElementById('sequencingContainer');
+        if (sequencingContainer) {
+            this.sequencingController.initialize(sequencingContainer);
+            this.sequencingController.onAnswer = (result) => {
+                if (this.onAnswer) {
+                    this.onAnswer(result);
+                }
+            };
+        }
     }
 
     /**
@@ -157,6 +171,12 @@ export class QuizController {
         this.currentQuestion = question;
         this.selectedAnswer = null;
         this.isAnswered = false;
+       
+        // Check if this is a sequencing question
+        if (question.type === 'sequencing') {
+            this.handleSequencingQuestion(question);
+            return;
+        }
         
         // Reset UI
         this.resetUI();
@@ -206,6 +226,30 @@ export class QuizController {
     }
     
     /**
+     * Handle sequencing question
+     */
+    handleSequencingQuestion(question) {
+        // Hide normal quiz elements
+        this.answerButtons.forEach(btn => {
+            DOMHelpers.toggleClass(btn.parentElement, 'hidden', true);
+        });
+        
+        // Show sequencing container
+        const sequencingContainer = DOMHelpers.getElementById('sequencingContainer');
+        if (sequencingContainer) {
+            DOMHelpers.toggleClass(sequencingContainer, 'hidden', false);
+        }
+        
+        // Display question
+        if (this.questionText) {
+            DOMHelpers.setContent(this.questionText, question.question);
+        }
+        
+        // Load question in sequencing controller
+        this.sequencingController.loadQuestion(question);
+    }
+
+    /**
      * Create HTML with translatable words
      */
     createTranslatableText(text, translations) {
@@ -232,6 +276,14 @@ export class QuizController {
      */
     enableAnswers() {
         if (!this.isAnswered) {
+            // Enable sequencing if active
+            if (this.currentQuestion && this.currentQuestion.type === 'sequencing') {
+                const dragZone = DOMHelpers.querySelector('.sequencing-drag-zone');
+                if (dragZone) {
+                    dragZone.classList.remove('disabled');
+                }
+                return;
+            }
             this.answerButtons.forEach(btn => {
                 if (!DOMHelpers.hasClass(btn, 'hidden')) {
                     btn.disabled = false;
@@ -271,6 +323,10 @@ export class QuizController {
      * Submit the selected answer
      */
     submitAnswer() {
+        // Skip if it's a sequencing question (handled by sequencing controller)
+        if (this.currentQuestion && this.currentQuestion.type === 'sequencing') {
+            return;
+        }
         if (this.isAnswered || this.selectedAnswer === null || !this.currentQuestion) {
             console.log('Submit blocked - isAnswered:', this.isAnswered, 'selectedAnswer:', this.selectedAnswer, 'currentQuestion:', this.currentQuestion);
             return;
@@ -365,6 +421,17 @@ export class QuizController {
         if (this.feedbackArea) {
             DOMHelpers.toggleClass(this.feedbackArea, 'show', false);
             DOMHelpers.toggleDisplay(this.feedbackArea, false);
+        }
+        // Hide sequencing container
+        const sequencingContainer = DOMHelpers.getElementById('sequencingContainer');
+        if (sequencingContainer) {
+            DOMHelpers.toggleClass(sequencingContainer, 'hidden', true);
+        }
+        
+        // Show answer options container
+        const answerContainer = this.answerButtons[0]?.parentElement;
+        if (answerContainer) {
+            DOMHelpers.toggleClass(answerContainer, 'hidden', false);
         }
     }
     
