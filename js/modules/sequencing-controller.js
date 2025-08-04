@@ -149,6 +149,25 @@ export class SequencingController {
             element.addEventListener('touchmove', (e) => this.handleTouchMove(e));
             element.addEventListener('touchend', (e) => this.handleTouchEnd(e));
             
+            // Double click/tap events
+            element.addEventListener('dblclick', (e) => this.handleDoubleClick(e, segment));
+            
+            // Double tap detection
+            let tapCount = 0;
+            let tapTimer = null;
+            element.addEventListener('touchstart', (e) => {
+                tapCount++;
+                if (tapCount === 1) {
+                    tapTimer = setTimeout(() => {
+                        tapCount = 0;
+                    }, 300);
+                } else if (tapCount === 2) {
+                    clearTimeout(tapTimer);
+                    tapCount = 0;
+                    this.handleDoubleClick(e, segment);
+                }
+            });
+
             this.dragZone.appendChild(element);
         });
     }
@@ -212,6 +231,21 @@ export class SequencingController {
         this.placeSegmentInSlot(segment, slotIndex);
     }
     
+    /**
+     * Handle double click/tap
+     */
+    handleDoubleClick(e, segment) {
+        e.preventDefault();
+        
+        // Find first empty slot
+        const slots = Array.from(this.dropZone.children);
+        const emptySlotIndex = slots.findIndex(slot => !slot.querySelector('.sequencing-segment'));
+        
+        if (emptySlotIndex !== -1) {
+            this.placeSegmentInSlot(segment, emptySlotIndex);
+        }
+    }
+
     /**
      * Handle touch start
      */
