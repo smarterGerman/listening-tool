@@ -3,7 +3,7 @@
  */
 export const CONFIG = {
     // External URLs
-    lessonsUrl: 'https://raw.githubusercontent.com/smarterGerman/listening-tool/main/lessons/lessons.json',
+    lessonsUrl: 'https://smartergerman.github.io/listening-tool/lessons/lessons.json',
     
     // Timing constants
     autoResizeDelay: 50,

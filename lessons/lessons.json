@@ -1,8 +1,8 @@
 {
   "A1L01": {
     "title": "A1L01 - Debüt von Simone und Stefan",
-    "audioUrl": "https://raw.githubusercontent.com/smarterGerman/listening-tool/main/audio/A1L01.mp3",
-    "vttUrl": "https://raw.githubusercontent.com/smarterGerman/listening-tool/main/audio/A1L01.vtt",
+    "audioUrl": "https://smartergerman.github.io/listening-tool/audio/A1L01.mp3",
+    "vttUrl": "https://smartergerman.github.io/listening-tool/audio/A1L01.vtt",
     "level": "A1",
     "description": "Erste Testlektion mit verschiedenen Fragetypen",
     "modes": ["comprehension", "verb", "grammar", "inference", "context", "phonetic"]
